@@ -1,0 +1,4 @@
+config USB_HIUSBC
+	bool "Self-developed USB Controller Driver"
+	help
+	  Say Y to enable Self-developed USB Controller Driver

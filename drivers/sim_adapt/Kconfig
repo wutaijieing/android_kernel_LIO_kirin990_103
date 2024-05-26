@@ -1,0 +1,8 @@
+#
+# sim_adapt configuration
+#
+config SIM_ADAPT
+	bool "support sim adapt power sim card"
+	default n
+	help
+	  Say Y here to enable sim adapt.

@@ -1,0 +1,6 @@
+config CONTEXTHUB_IGS_CAM
+	bool "igs cam driver"
+	depends on INPUTHUB_20&&KERNEL_CAMERA
+	default n
+	help
+	Igs driver support camera.

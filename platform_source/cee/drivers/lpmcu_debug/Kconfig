@@ -1,0 +1,10 @@
+menu "lpmcu_debug options"
+
+config LPMCU_DEBUG
+	depends on IPC_MAILBOX
+	bool "LPMCU debug"
+	default n
+	help
+	  lpmcu debug drivers
+
+endmenu

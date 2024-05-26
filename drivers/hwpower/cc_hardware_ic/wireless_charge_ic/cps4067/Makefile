@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: GPL-2.0
+obj-$(CONFIG_WIRELESS_CPS4067) += cps4067.o
+obj-$(CONFIG_WIRELESS_CPS4067) += cps4067_dts.o
+obj-$(CONFIG_WIRELESS_CPS4067) += cps4067_rx.o
+obj-$(CONFIG_WIRELESS_CPS4067) += cps4067_tx.o
+obj-$(CONFIG_WIRELESS_CPS4067) += cps4067_fw.o
+obj-$(CONFIG_WIRELESS_CPS4067) += cps4067_qi.o
+obj-$(CONFIG_WIRELESS_CPS4067) += cps4067_hw_test.o

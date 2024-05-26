@@ -1,0 +1,7 @@
+config MNTN_HM_KLOG
+    bool "mntn hongmeng kev&kbox log module support"
+    depends on DFX_BB
+    default n
+    help
+      Say yes here to support the mntn hongmeng kev&kbox log module.
+

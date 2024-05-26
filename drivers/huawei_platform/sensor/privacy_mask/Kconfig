@@ -1,0 +1,9 @@
+#
+# huawei privacy mask driver
+#
+
+config KERNEL_CAMERA_SYH702DFC
+	tristate "SYH702DFC privacy mask driver"
+	default n
+	help
+	  SYH702DFC privacy mask driver

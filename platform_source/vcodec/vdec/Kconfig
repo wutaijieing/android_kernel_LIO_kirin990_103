@@ -1,0 +1,14 @@
+menu "video vdec support"
+config VCODEC_VDEC
+    tristate "video decoder support"
+    default n
+    help
+      This is the decoder driver
+
+config VDEC_TVP_SUPPORT
+    bool "Vdec vfmw tvp support"
+    depends on VCODEC_VDEC
+    default n
+endmenu
+
+

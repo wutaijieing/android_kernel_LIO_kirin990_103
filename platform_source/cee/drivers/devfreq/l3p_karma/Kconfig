@@ -1,0 +1,13 @@
+config L3P_KARMA
+		tristate "L3 PREFETCH KARMA DEVFREQ Driver"
+		depends on ARCH_PLATFORM && PM_DEVFREQ && KARMA_PMU
+		select PM_OPP
+	    help
+			This enables the l3p karma devfreq driver.
+
+config L3P_KARMA_DEBUG
+		tristate "L3P KARMA SYSFS DEBUG"
+		depends on L3P_KARMA
+		default n
+	    help
+		  l3p karma devfreq driver sysfs debug

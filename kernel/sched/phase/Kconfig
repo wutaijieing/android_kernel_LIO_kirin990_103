@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: GPL-2.0-only
+
+config PHASE
+	bool "PMU-aware Scheduler(PHASE)"
+	default n
+	help
+	  Intruduce PMU-based process behavior statistics.
+	  Collect PMU information of process and offer guidance for scheduler.
+
+if PHASE
+
+config PHASE_PERF
+	bool "Collect PHASE information based on perf"
+	depends on PERF_EVENTS
+	default n
+	help
+	  Use PERF to view CPU PMU event statistics and collect PHASE information.
+
+config PHASE_COUNTER_WINDOW
+	bool "Phase Counter Window"
+	depends on PHASE_PERF
+	default n
+	help
+	  statistic PHASE information as windows.
+
+config PHASE_FORWARD
+	bool "Phase Forward Mode"
+	depends on SCHED_CORE
+	default n
+	help
+	  Phase Forward Mode.
+
+config PHASE_REVERSE
+	bool "Phase Reverse Mode"
+	depends on SCHED_CORE
+	default n
+	help
+	  Phase Reserve Mode.
+
+endif # PHASE

@@ -1,0 +1,5 @@
+config PMIC_62_PMIC_MIPI
+	tristate "platform pmu62 pmic mipi"
+	depends on OF
+	help
+	  This driver supports platform pmu62 power to control TOF cameras.

@@ -1,0 +1,5 @@
+config PMIC_VM_DRV
+	tristate "platform pmic vmware"
+	depends on OF
+	help
+	  This driver supports platform pmic driver by vmware.

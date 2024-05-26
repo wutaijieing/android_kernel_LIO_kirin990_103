@@ -1,0 +1,12 @@
+config HOTPLUG_AGENT
+	bool "hotplug agent"
+	default n
+	help
+	 provide hotplug management service
+
+config HOTPLUG_AGENT_DEBUG
+	bool "hotplug agent debug"
+	depends on HOTPLUG_AGENT
+	default n
+	help
+	 enable debug interface for hotplug agent

@@ -1,0 +1,2 @@
+source "platform_source/audio/drivers/hifi_mailbox/mailbox/Kconfig"
+source "platform_source/audio/drivers/hifi_mailbox/ipcm/Kconfig"

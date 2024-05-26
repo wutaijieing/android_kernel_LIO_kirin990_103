@@ -1,0 +1,12 @@
+write_customize_cmd
+register_iom3_recovery_notifier
+shmem_send
+register_mcu_event_notifier
+unregister_mcu_event_notifier
+iom3_need_recovery
+iomcu_minready_done
+write_timestamp_base_to_sharemem
+ao_loadmonitor_enable
+ao_loadmonitor_disable
+_ao_loadmonitor_read
+send_cmd_from_kernel

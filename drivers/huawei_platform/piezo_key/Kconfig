@@ -1,0 +1,8 @@
+#
+# piezo key driver configuration
+#
+menuconfig PIEZO_KEY
+	bool "piezo key driver"
+	default n
+	help
+	Say yes here to support for piezo key.

@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# huawei charger channel drivers
+#
+
+config CHARGER_CHANNEL
+	bool "charger channel"
+	default n
+	help
+	  Say Y here to enable charger channel driver.
+	  This driver provides a unified interface for choosing charger channel
+	  Currently supported usbin channel and wlsin channel
+	  as a charger channel function.

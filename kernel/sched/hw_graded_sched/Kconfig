@@ -1,0 +1,5 @@
+config HW_GRADED_SCHED
+	bool "Graded CFS sched policy"
+	default n
+	help
+	  if set, foreground apps and background apps will be graded in CFS nice ranges.

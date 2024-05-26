@@ -1,0 +1,24 @@
+config ISP
+    tristate "Histar ISP device"
+    depends on REMOTEPROC
+    depends on RPMSG
+    depends on ARCH_HISI
+
+config HISP_DEBUG
+	bool "hisp debug"
+	default n
+	help
+		Say yes here to support hisp debug.
+
+config HISP_DPM
+	tristate "HISP DPM(digital power monitor) support"
+	depends on DPM_HWMON
+	default n
+	help
+		This framebuffer driver supports dpm function.
+
+config HISP_EXCLUDE_NOC_DEBUG
+	bool "hisp exclude noc modid debug"
+	default n
+	help
+		Say yes here to not support hisp noc modid debug.

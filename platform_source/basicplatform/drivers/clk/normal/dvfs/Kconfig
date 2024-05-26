@@ -1,0 +1,25 @@
+config PERI_DVFS
+	bool "PERI_DVFS"
+	default n
+config CLK_LOW_TEMPERATURE_JUDGE_BY_VOLT
+	depends on PERI_DVFS
+	bool "CLK LOW TEMPERATURE PROPERTY JUDGE BY VOLTAGE"
+	default n
+config PERI_FAST_AVS
+	depends on PERI_DVFS
+	depends on IPC_MAILBOX
+	bool "PERI FAST AVS"
+	default n
+config PERI_AVS_IPC_NOTIFY
+	depends on PERI_DVFS
+	depends on IPC_MAILBOX
+	bool "PERI AVS IPC NOTIFY"
+	default n
+config PERI_VOLT_HW_VOTE
+	depends on PERI_DVFS
+	bool "PERI VOLT HW VOTE"
+	default n
+config HW_PERI_DVS
+	depends on PERI_DVFS
+	bool "HW PERI DVS"
+	default n

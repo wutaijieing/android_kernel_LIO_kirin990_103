@@ -1,0 +1,46 @@
+comment "MODULE ISP"
+
+
+if KERNEL_CAMERA_ISPV110
+source "platform_source/camera/drivers/media/native/camera/hisp/hisp110/Kconfig"
+endif
+
+if KERNEL_CAMERA_ISPV150
+source "platform_source/camera/drivers/media/native/camera/hisp/hisp150/Kconfig"
+endif
+
+if KERNEL_CAMERA_ISPV160
+source "platform_source/camera/drivers/media/native/camera/hisp/hisp160/Kconfig"
+endif
+
+if KERNEL_CAMERA_ISPV120 || KERNEL_CAMERA_ISPV130
+source "platform_source/camera/drivers/media/native/camera/hisp/hisp120/Kconfig"
+endif
+
+if KERNEL_CAMERA_ISPV200
+source "platform_source/camera/drivers/media/native/camera/hisp/hisp200/Kconfig"
+endif
+
+if KERNEL_CAMERA_ISPV250
+source "platform_source/camera/drivers/media/native/camera/hisp/hisp250/Kconfig"
+endif
+
+if KERNEL_CAMERA_ISPV210
+source "platform_source/camera/drivers/media/native/camera/hisp/hisp210/Kconfig"
+endif
+
+if CAMERA_ISPV220 || CAMERA_ISPV230
+source "platform_source/camera/drivers/media/native/camera/hisp/hisp220/Kconfig"
+endif
+
+if KERNEL_CAMERA_ISPV310
+source "platform_source/camera/drivers/media/native/camera/hisp/hisp310/Kconfig"
+endif
+
+if KERNEL_CAMERA_ISPV300
+source "platform_source/camera/drivers/media/native/camera/hisp/hisp300/Kconfig"
+endif
+
+if KERNEL_CAMERA_ISPV350
+source "platform_source/camera/drivers/media/native/camera/hisp/hisp350/Kconfig"
+endif

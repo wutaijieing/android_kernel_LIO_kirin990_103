@@ -1,0 +1,9 @@
+#
+# huawei PLC detection and reset drivers
+#
+
+config HW_GPIO_PLC
+	tristate "Detect and reset PLC driver"
+	default n
+	help
+	  Detect and reset PLC driver.

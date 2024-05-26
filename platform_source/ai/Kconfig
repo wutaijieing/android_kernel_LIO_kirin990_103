@@ -1,0 +1,6 @@
+menu "see Kernel Configuration"
+
+source "platform_source/ai/drivers/Kconfig"
+
+
+endmenu

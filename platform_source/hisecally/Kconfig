@@ -1,0 +1,5 @@
+menu "hisecally Kernel Configuration"
+
+source "platform_source/hisecally/fuzz/Kconfig"
+
+endmenu

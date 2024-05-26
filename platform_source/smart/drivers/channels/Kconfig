@@ -1,0 +1,102 @@
+config CONTEXTHUB_SHMEM
+	bool "Sensor CONTEXTHUB SHMEM driver"
+	depends on INPUTHUB || INPUTHUB_20
+	default y
+	help
+	Say yes here if you want to configure contexthub share memory
+
+config CONTEXTHUB_SHELL
+	bool "Sensor CONTEXTHUB SHELL DBG driver"
+	depends on CONTEXTHUB
+	default n
+	help
+	Say yes here if you want to use contexthub shell dbg function
+
+config CONTEXTHUB_PLAYBACK
+	bool "Sensor CONTEXTHUB playback driver"
+	depends on CONTEXTHUB
+	default n
+	help
+	Say yes here if you want to use contexthub playback function
+
+config CONTEXTHUB_LOADMONITOR
+	bool "Sensor CONTEXTHUB LOADMONITOR driver"
+	depends on CONTEXTHUB
+	default n
+	help
+	Say yes here if you want to use contexthub shell dbg function
+
+config CONTEXTHUB_CHRE
+	bool "Sensor CONTEXTHUB CHRE driver"
+	depends on CONTEXTHUB
+	default n
+	help
+	Say yes here if you want to use contexthub shell dbg function
+
+config INPUTHUB_MOCK_SENSOR
+	bool "mock sensor feature support"
+	default n
+	help
+	Say yes here if you want to configure INPUTHUB_MOCK_SENSOR
+
+config CONTEXTHUB_STATUS_CFG
+	bool "select contexthub dts cfg"
+	default n
+	help
+	Say yes here if you want to configure by contexthub dts
+
+config CONTEXTHUB_LOG_PATH_VAR
+	bool "use sensorhub log path under /var"
+	depends on CONTEXTHUB
+	default n
+	help
+	Say yes here if you want to use log path under var directory of root path
+
+config CONTEXTHUB_UDI
+	bool "sensorhub udi"
+	depends on CONTEXTHUB
+	default n
+	help
+	Say yes here if you want to enable sensorhub udi
+
+config CONTEXTHUB_BLE
+	bool "sensorhub ble"
+	depends on CONTEXTHUB
+	default n
+	help
+	Say yes here if you want to enable sensorhub ble
+
+config INPUTHUB_STUB
+	bool "inputhub stub"
+	default n
+	help
+	Say yes here if you want to remove inputhub code
+
+config SENSORHUB_VERSION
+	bool "sensorhub version"
+	default n
+	help
+	Say yes here if you want to enable sensorhub version
+
+config SENSORHUB_NODE
+	bool "sensorhub node"
+	default n
+	help
+	provide common channels for multiple services
+
+config SENSORHUB_CHANNEL_BUFFER
+	bool "sensorhub channel buffer"
+	default n
+	help
+	provide kernel channel buffer for multiple services
+
+config CONTEXTHUB_DFX_UNI_NOC
+	bool "sensorhub CONTEXTHUB_DFX_UNI_NOC"
+	depends on CONTEXTHUB
+	default n
+	help
+	CLT\LEX need to open this Kconfig.
+
+source "platform_source/smart/drivers/channels/flp/Kconfig"
+source "platform_source/smart/drivers/channels/igs/Kconfig"
+source "platform_source/smart/drivers/channels/inputhub_as/Kconfig"

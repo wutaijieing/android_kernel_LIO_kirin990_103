@@ -1,0 +1,11 @@
+menu "driver Configuration"
+
+source "platform_source/camera/drivers/ivp/Kconfig"
+source "platform_source/camera/drivers/arpp/Kconfig"
+
+if MEDIA_NATIVE_SUPPORT
+source "platform_source/camera/drivers/media/native/Kconfig"
+endif
+
+endmenu
+

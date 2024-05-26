@@ -1,0 +1,18 @@
+config INPUTHUB_30
+	bool "INPUTHUB_30"
+	depends on  CONTEXTHUB
+	help
+	support INPUTHUB_30.
+
+config SMART_WATCHDOG_V500
+	bool "SMART WATCHDOG V500 support"
+	depends on CONTEXTHUB
+	default n
+	help
+	Enable support for watchdog v500 driver
+
+config IPC_V5
+	bool "IPC_V5"
+	depends on  CONTEXTHUB
+	help
+	support IPC_V5.

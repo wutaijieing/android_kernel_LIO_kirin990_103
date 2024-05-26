@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# USB Miscellaneous driver configuration
+#
+
+config USB_DFU
+	tristate "Common driver for DFU(device firmware update)"
+	help
+	Say Y here if you want to update device firmware via DFU procotol.
+
+config USB_SOURCESINK
+	tristate "Client driver for sourcesink device"
+	depends on DFX_DEBUG_FS
+	help
+	Say Y here if you want to connect f_sourcesink device.
+
+config USB_MODE_INIT
+	bool "chip usb mode init driver"
+	help
+	Say Y here if you want to set chip usb mode init as device or host.
+
+config USB_SOURCESINK_EXT
+	tristate "Client driver for sourcesink_ext device"
+	depends on DFX_DEBUG_FS
+	help
+	Say Y here if you want to connect f_sourcesink_ext device.

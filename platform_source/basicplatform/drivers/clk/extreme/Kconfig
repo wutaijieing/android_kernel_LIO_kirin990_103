@@ -1,0 +1,65 @@
+config CLK_ALWAYS_ON
+	bool "all clocks of Soc are always on"
+	default n
+
+config CLK_PM_MONITOR
+	bool "clock pm_monitor spec"
+	default n
+
+config VM_CLK
+	depends on PLAT_CLK
+	bool "clk driver support vm"
+	default n
+
+config CLK_MAILBOX_SUPPORT
+	depends on PLAT_CLK
+	depends on IPC_MAILBOX
+	bool "clk driver support mailbox communication"
+	default n
+
+config CKM_MODULE
+	depends on PLAT_CLK
+	bool "clk monitor driver"
+	default n
+
+config CLK_SMC_SUPPORT
+	depends on PLAT_CLK
+	bool "clk SMC handler"
+	default n
+
+config PLL_LOCK_RETRY
+	depends on PLAT_CLK
+	bool "clk pll lock retry"
+	default n
+
+config MCLK_SUPPORT
+	depends on CLK_MAILBOX_SUPPORT
+	bool "mclk support in phoe CDC"
+	default n
+
+config PLL_UNLOCK_DETECT
+	depends on PLAT_CLK
+	bool "pll clk unlock detect"
+
+config CLK_BUCK13_DVS
+	bool "buck13 dvs feature"
+	default n
+
+config PLL_VOTE_SEC
+	depends on PLAT_CLK
+	bool "clk pll vote sec"
+	default n
+
+config CLK_WAIT_DONE
+	depends on PLAT_CLK
+	bool "clk wait div done"
+	default n
+
+config FSM_PPLL_VOTE
+	depends on PLAT_CLK
+	bool "clk ppll fsm vote"
+	default n
+
+source "platform_source/basicplatform/drivers/clk/extreme/dvfs/Kconfig"
+source "platform_source/basicplatform/drivers/clk/extreme/debug/Kconfig"
+

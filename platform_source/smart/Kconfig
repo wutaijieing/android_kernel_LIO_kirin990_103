@@ -1,0 +1,7 @@
+menu "smart Kernel Configuration"
+
+source "platform_source/smart/drivers/Kconfig"
+
+
+
+endmenu

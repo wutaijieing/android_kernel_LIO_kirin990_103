@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: GPL-2.0
+obj-$(CONFIG_HUAWEI_CPU_BUCK) += cpu_buck.o
+
+obj-$(CONFIG_HUAWEI_LP8758) += lp8758/
+obj-$(CONFIG_HUAWEI_HI6422V100) += hi6422v100/
+obj-$(CONFIG_HUAWEI_HI6422V200) += hi6422v200/

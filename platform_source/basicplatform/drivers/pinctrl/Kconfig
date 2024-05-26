@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config PINCTRL_V500
+	tristate "pinctrl V500 driver"
+	depends on OF
+	select GENERIC_PINCTRL_GROUPS
+	select GENERIC_PINMUX_FUNCTIONS
+	select GENERIC_PINCONF
+	help
+	  This selects pinctrl driver for pinctrl v500.
+
+config PINCTRL_HI6502
+	tristate "hi6502 pinctrl driver"
+	depends on PINCTRL_SINGLE
+	help
+	  This depends pinctrl single driver.
+
+config PINCTRL_DEBUG
+	tristate "pinctrl debug"
+	depends on DEBUG_FS && (PINCTRL_V500 || PINCTRL_SINGLE)
+	help
+	  Test pinctrl and gpio.

@@ -1,0 +1,35 @@
+GCOV_PROFILE := $(CONFIG_GCOV_KERNEL)
+EXTRA_CFLAGS += -I$(srctree)/platform_source/audio/drivers/codec_bus/
+EXTRA_CFLAGS += -I$(srctree)/include/linux/platform_drivers/
+EXTRA_CFLAGS += -I$(srctree)/include/linux/platform_drivers/codec_bus/
+EXTRA_CFLAGS += -I$(srctree)/drivers/devkit/audiokit/
+EXTRA_CFLAGS += -I$(srctree)/platform_source/audio/drivers/da_combine_dsp/
+EXTRA_CFLAGS += -I$(srctree)/sound/soc/codecs/vendor/
+EXTRA_CFLAGS += -I$(srctree)/sound/soc/codecs/vendor/adapter/
+EXTRA_CFLAGS += -I$(srctree)/platform_source/audio/drivers/da_combine_dsp/config/
+EXTRA_CFLAGS += -I$(srctree)/sound/soc/codecs/vendor/da_combine_v5/multi_kcontrol/
+EXTRA_CFLAGS += -I$(srctree)/sound/soc/codecs/vendor/da_combine_v5/single_kcontrol/
+EXTRA_CFLAGS += -I$(srctree)/sound/soc/codecs/vendor/da_combine_v5/codec_dai/
+EXTRA_CFLAGS += -I$(srctree)/drivers/platform_drivers/audio/rdr/
+EXTRA_CFLAGS += -I$(srctree)/sound/soc/platforms/common_image/
+EXTRA_CFLAGS += -I$(srctree)/platform_source/audio/include/
+
+snd-soc-da-combine-v5-objs :=da_combine_v5.o
+snd-soc-da-combine-v5-kcontrol-objs :=kcontrol.o
+snd-soc-da-combine-v5-codec-probe-objs :=codec_probe.o
+snd-soc-da-combine-v5-utils-objs :=utils.o
+snd-soc-da-combine-v5-codec-pm-objs := codec_pm.o
+snd-soc-da-combine-v5-multi-objs :=/multi_kcontrol/resource_widget.o /multi_kcontrol/path_widget.o /multi_kcontrol/switch_widget.o /multi_kcontrol/switch_widget_utils.o /multi_kcontrol/route.o /multi_kcontrol/pga_widget.o
+snd-soc-da-combine-v5-single-objs :=/single_kcontrol/single_drv_widget.o /single_kcontrol/single_pga_widget.o /single_kcontrol/single_switch_route.o /single_kcontrol/single_switch_widget.o
+snd-soc-da-combine-v5-codec-dai-objs := /codec_dai/codec_dai.o
+obj-$(CONFIG_PLATFORM_SLIMBUS) += codec_dai/slimbus_codec_dai.o
+obj-$(CONFIG_PLATFORM_SOUNDWIRE) += codec_dai/soundwire_codec_dai.o
+
+obj-$(CONFIG_SND_SOC_DA_COMBINE_V5) += snd-soc-da-combine-v5.o
+obj-$(CONFIG_SND_SOC_DA_COMBINE_V5) += snd-soc-da-combine-v5-kcontrol.o
+obj-$(CONFIG_SND_SOC_DA_COMBINE_V5) += snd-soc-da-combine-v5-single.o
+obj-$(CONFIG_SND_SOC_DA_COMBINE_V5) += snd-soc-da-combine-v5-multi.o
+obj-$(CONFIG_SND_SOC_DA_COMBINE_V5) += snd-soc-da-combine-v5-codec-probe.o
+obj-$(CONFIG_SND_SOC_DA_COMBINE_V5) += snd-soc-da-combine-v5-utils.o
+obj-$(CONFIG_SND_SOC_DA_COMBINE_V5) += snd-soc-da-combine-v5-codec-pm.o
+obj-$(CONFIG_SND_SOC_DA_COMBINE_V5) += snd-soc-da-combine-v5-codec-dai.o

@@ -1,0 +1,13 @@
+config DDR_DMSS_PT
+    bool "dmss pattern trace module support"
+    depends on DFX_DEBUG_FS
+    default n
+    help
+      Say yes here to support the dmss pattern trace module.
+
+config DDR_QICE_PT
+    bool "qice pattern trace module support"
+    depends on DFX_DEBUG_FS
+    default n
+    help
+      Say yes here to support the dmss pattern trace module.

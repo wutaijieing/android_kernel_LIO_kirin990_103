@@ -1,0 +1,2 @@
+#!/bin/bash
+./mkbootimg --cmdline "loglevel=4 page_tracker=on fw_devlink=permissive printktimer=0xfa89b000,0x534,0x538 rcupdate.rcu_expedited=1 loop.max_part=7 cgroup_disable=pressure allow_file_spec_access androidboot.selinux=enforcing buildvariant=user" --tags_offset 0x66000000 --kernel_offset 0x00080000 --ramdisk_offset 0x66200000 --header_version 2 --base 0x0 --os_version 12 --os_patch_level 2021-10-05  --output kernel.img

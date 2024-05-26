@@ -1,0 +1,6 @@
+config EL3_PA_TEST
+	bool "El3 PA Restriction feature test support"
+	depends on HAVE_ARM_SMCCC
+	default n
+	help
+	  El3 PA Restriction test function

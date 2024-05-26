@@ -1,0 +1,6 @@
+config NFC_TAGS
+	tristate "nfc tags"
+	depends on I2C
+	default n
+	help
+	   NFC controller core driver.

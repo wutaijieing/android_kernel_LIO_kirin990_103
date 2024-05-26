@@ -1,0 +1,5 @@
+config DPU_MDFX
+	tristate "DPU multimedia dfx"
+	default n
+	help
+	  This is multimedia module dfx driver

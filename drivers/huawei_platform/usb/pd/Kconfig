@@ -1,0 +1,25 @@
+source "drivers/huawei_platform/usb/pd/richtek/Kconfig"
+
+config TYPEC_CAP_CUSTOM_SRC2
+        bool "Support Double 22/10k Pullup Function"
+        default n
+        help
+          Say Y to enable
+
+config RT_USB_PD
+        bool "Support richtek usb pd"
+        default n
+        help
+          Say Y to enable
+
+config FSC_USB_PD
+        bool "Support fsc usb pd"
+        default n
+        help
+          Say Y to enable
+
+config DEV_USB_PD
+        bool "Support develop usb pd"
+        default n
+        help
+          Say Y to enable

@@ -1,0 +1,21 @@
+comment "MODULE ISP"
+
+config HISI_HISP350_STUB
+	tristate "HISI HISP350 STUB"
+	default n
+	help
+	Open isp350 stub
+
+choice
+	prompt "HISP Version"
+	default KERNEL_CAMERA_USE_HISP350
+	depends on KERNEL_CAMERA
+	help
+        Select ISP version.
+
+config KERNEL_CAMERA_USE_HISP350
+	bool "HISP350"
+	depends on KERNEL_CAMERA
+
+endchoice
+

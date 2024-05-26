@@ -1,0 +1,34 @@
+
+config COUL_DRV
+        bool "pmic coul"
+        default n
+config COUL_PMIC6X21V500
+        bool "pmic6x21v500 coul"
+        default n
+config COUL_PMIC6X21V600
+	bool "pmic6x21v600 coul"
+	default n
+config COUL_PMIC6X55V100
+        bool "pmic6x55v100 coul"
+        default n
+config COUL_PMIC6X55V200
+        bool "pmic6x55v200 coul"
+        default n
+config COUL_PMIC6X21V700
+	bool "pmic6x21v700 coul"
+	default n
+config COUL_PMIC6X21V800
+	bool "pmic6x21V800 coul"
+	default n
+config COUL_PMIC6X55V300
+	bool "pmic6x55V300 coul"
+	default n
+config COUL_PMIC6X55V500
+	bool "pmic6x55V500 coul"
+	default n
+config COUL_PMIC6X21V900
+	bool "pmic6x21v900 coul"
+	default n
+config COUL_TEST
+        bool "coul test"
+        default n

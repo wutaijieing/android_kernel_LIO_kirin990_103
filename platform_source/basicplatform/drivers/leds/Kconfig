@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config LEDS_SPMI
+	bool "LEDS SPMI Trigger"
+	depends on LEDS_TRIGGERS && LEDS_TRIGGER_TIMER && SPMI_PLATFORM && PMIC_SPMI
+	help
+	  This allows LEDs to be controlled by leds activity.
+	  If unsure, say n.
+
+config LEDS_NODE_PERSIST
+	bool "LEDS_HISI Trigger"
+	depends on LEDS_TRIGGERS && LEDS_TRIGGER_TIMER
+	help
+	  This keep delay_on and delay_off dev node when led is off.
+	  If unsure, say n.

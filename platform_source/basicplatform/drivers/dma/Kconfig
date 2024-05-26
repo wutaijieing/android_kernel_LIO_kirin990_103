@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config PERI_DMA
+	tristate "peri DMA support"
+	depends on ARCH_HISI
+	select DMA_ENGINE
+	select DMA_VIRTUAL_CHANNELS
+	help
+	  Support the DMA engine for some platform
+	  devices.
+
+config PERI_DMA_NO_CCI
+	bool "peri DMA CCI support"
+	depends on (PERI_DMA)
+	help
+	  peri DMA CCI switch
+
+config PERI_DMA_PM_RUNTIME
+	bool "peri DMA pm runtime support"
+	depends on (PERI_DMA && PM_RUNTIME)
+	help
+	  peri DMA pm runtime switch.

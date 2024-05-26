@@ -1,0 +1,13 @@
+config SECBOOT
+	bool "Support secboot"
+	default n
+	help
+		secboot support
+
+config SECBOOT_AB_SLOT_TRIGGER_UPDATE_NVCNT
+	bool "Support trigger update nv in cdc(enable AB slot)"
+	depends on SECBOOT
+	default n
+	help
+		secboot update nv in cdc(enable AB slot) support
+

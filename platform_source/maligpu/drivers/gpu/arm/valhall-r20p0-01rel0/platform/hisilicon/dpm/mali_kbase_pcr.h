@@ -1,0 +1,141 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2020. All rights reserved.
+ * Description: This file describe HISI GPU DPM&PCR feature.
+ * Author: Huawei Technologies Co., Ltd.
+ * Create: 2019-10-1
+ *
+ * This program is free software and is provided to you under the terms of the
+ * GNU General Public License version 2 as published by the Free Software
+ * Foundation, and any use by you of this program is subject to the terms
+ * of such GNU licence.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ */
+
+#ifndef MALI_KBASE_DPM_PCR_H
+#define MALI_KBASE_DPM_PCR_H
+#include "mali_kbase.h"
+
+/* register config Difference of mali_trym,mali_borr. */
+#if defined CONFIG_MALI_TRYM
+#define PCR_GPU_TOP_OFFSET  0x0
+#elif defined CONFIG_MALI_BORR
+#define PCR_GPU_TOP_OFFSET  0x0200
+#endif
+
+/* pcr register addr and offset */
+#define PCR_CFG_BYPASS_CORE_ADDR(PCR_GPU_BASE_VIR_ADDR) \
+		((PCR_GPU_BASE_VIR_ADDR) + (0x040))
+#define PCR_CTRL_CORE_ADDR(PCR_GPU_BASE_VIR_ADDR) \
+		((PCR_GPU_BASE_VIR_ADDR) + (0x074))
+#define PCR_CFG_PERIOD0_ADDR(PCR_GPU_BASE_VIR_ADDR) \
+		((PCR_GPU_BASE_VIR_ADDR) + (0x078))
+#define PCR_CFG_PERIOD0_ADDR_MASK    0x00311801
+#define PCR_CFG_PERIOD1_ADDR(PCR_GPU_BASE_VIR_ADDR) \
+		((PCR_GPU_BASE_VIR_ADDR) + (0x07C))
+#define PCR_CFG_PERIOD1_ADDR_MASK    0x6AF00E
+
+#define PCR_CRG_PERCLKEN3_ADDR(PCR_PERI_CRG_BASE_VIR_ADDR) \
+		((PCR_PERI_CRG_BASE_VIR_ADDR) + (0x030))
+#define PCR_CRG_PERDIS3_ADDR(PCR_PERI_CRG_BASE_VIR_ADDR) \
+		((PCR_PERI_CRG_BASE_VIR_ADDR) + (0x034))
+#define PCR_CRG_PERCLKEN3_STAT_ADDR(PCR_PERI_CRG_BASE_VIR_ADDR) \
+		((PCR_PERI_CRG_BASE_VIR_ADDR) + (0x038))
+
+#define PCR_CRG_PERCLKEN7_ADDR(PCR_PERI_CRG_BASE_VIR_ADDR) \
+		((PCR_PERI_CRG_BASE_VIR_ADDR) + (0x420))
+#define PCR_CRG_PERDIS7_ADDR(PCR_PERI_CRG_BASE_VIR_ADDR) \
+		((PCR_PERI_CRG_BASE_VIR_ADDR) + (0x424))
+#define PCR_CRG_PERCLKEN7_STAT_ADDR(PCR_PERI_CRG_BASE_VIR_ADDR) \
+		((PCR_PERI_CRG_BASE_VIR_ADDR) + (0x428))
+
+#define PCR_CRG_PERCLKDIV10_ADDR(PCR_PERI_CRG_BASE_VIR_ADDR) \
+		((PCR_PERI_CRG_BASE_VIR_ADDR) + (0x0D0))
+
+#define PCR_CRG_PERRSTDIS5_ADDR(PCR_PERI_CRG_BASE_VIR_ADDR) \
+		((PCR_PERI_CRG_BASE_VIR_ADDR) + (0x0A0))
+#define PCR_CRG_PERRSTEN5_ADDR(PCR_PERI_CRG_BASE_VIR_ADDR) \
+		((PCR_PERI_CRG_BASE_VIR_ADDR) + (0x09C))
+
+#define PCR_CRG_PERRSTDIS2_ADDR(PCR_PERI_CRG_BASE_VIR_ADDR) \
+		((PCR_PERI_CRG_BASE_VIR_ADDR) + (0x07C))
+#define PCR_CRG_PERRSTEN2_ADDR(PCR_PERI_CRG_BASE_VIR_ADDR) \
+		((PCR_PERI_CRG_BASE_VIR_ADDR) + (0x078))
+
+#define PCR_CRG_CFG_BYPASS_TOP_ADDR(PCR_PERRI_BASE_VIR_ADDR) \
+		((PCR_PERRI_BASE_VIR_ADDR) + (0x040))
+#define PCR_CRG_CTRL_TOP_ADDR(PCR_PERRI_BASE_VIR_ADDR) \
+		((PCR_PERRI_BASE_VIR_ADDR) + (0x074))
+
+#define PCR_PCTRL_PERI_CTRL111_ADDR(PCR_PCTRL_BASE_VIR_ADDR) \
+		((PCR_PCTRL_BASE_VIR_ADDR) + (0x25C))
+#define PCR_PCTRL_PERI_CTRL33_ADDR(PCR_PCTRL_BASE_VIR_ADDR) \
+		((PCR_PCTRL_BASE_VIR_ADDR) + (0x088))
+#define PCR_PCTRL_PERI_CTRL68_ADDR(PCR_PCTRL_BASE_VIR_ADDR) \
+		((PCR_PCTRL_BASE_VIR_ADDR) + (0x204))
+
+/* register config Difference of mali_trym,mali_borr. */
+#if defined CONFIG_MALI_TRYM
+#define PCR_CRG_PERI_CLKEN_ADDR         PCR_CRG_PERCLKEN3_ADDR
+#define PCR_CRG_PERI_CLKDIS_ADDR        PCR_CRG_PERDIS3_ADDR
+#define PCR_CRG_PERI_CLKEN_ADDR_MASK    (1U << 6)
+
+#define PCR_CRG_PERCLKDIV_ADDR          PCR_CRG_PERCLKDIV10_ADDR
+#define PCR_CRG_PERCLKDIV_ADDR_MASK     ((9U << 16) | (9))
+
+#define PCR_CRG_CORE_DIS_RESET_ADDR     PCR_CRG_PERRSTDIS5_ADDR
+#define PCR_CRG_CORE_EN_RESET_ADDR      PCR_CRG_PERRSTEN5_ADDR
+#define PCR_CRG_CORE_RESET_ADDR_MASK    ((1U << 28) | (1U << 29))
+
+#define PCR_CRG_TOP_DIS_RESET_ADDR(BASE)    NULL
+#define PCR_CRG_TOP_EN_RESET_ADDR(BASE)     NULL
+#define PCR_CRG_TOP_RESET_ADDR_MASK         0U
+
+#define PCR_PCTRL_CORE_TPRAM_MEM_ADDR   PCR_PCTRL_PERI_CTRL33_ADDR
+#define PCR_PCTRL_TOP_TPRAM_MEM_ADDR(BASE)          NULL
+#define PCR_PCTRL_TPRAM_MEM_ADDR_SHUTDOWN_MASK      0x00000854
+#define PCR_PCTRL_TPRAM_MEM_ADDR_EXIT_SHUTDOWN_MASK 0x00000850
+
+#define PCR_CFG_BYPASS_TOP_ADDR(BASE)   NULL
+#define PCR_CTRL_TOP_ADDR(BASE)         NULL
+#elif defined CONFIG_MALI_BORR
+#define PCR_CRG_PERI_CLKEN_ADDR         PCR_CRG_PERCLKEN7_ADDR
+#define PCR_CRG_PERI_CLKDIS_ADDR        PCR_CRG_PERDIS7_ADDR
+#define PCR_CRG_PERI_CLKEN_ADDR_MASK \
+		((1UL << 16) | (1UL << 17) | (1UL << 20))
+
+#define PCR_CRG_PERCLKDIV_ADDR(BASE)    NULL
+#define PCR_CRG_PERCLKDIV_ADDR_MASK     0U
+
+#define PCR_CRG_CORE_DIS_RESET_ADDR     PCR_CRG_PERRSTDIS5_ADDR
+#define PCR_CRG_CORE_EN_RESET_ADDR      PCR_CRG_PERRSTEN5_ADDR
+#define PCR_CRG_CORE_RESET_ADDR_MASK    ((1U << 28))
+
+#define PCR_CRG_TOP_DIS_RESET_ADDR      PCR_CRG_PERRSTDIS2_ADDR
+#define PCR_CRG_TOP_EN_RESET_ADDR       PCR_CRG_PERRSTEN2_ADDR
+#define PCR_CRG_TOP_RESET_ADDR_MASK     ((1U << 17) | (1U << 18))
+
+#define PCR_PCTRL_CORE_TPRAM_MEM_ADDR   PCR_PCTRL_PERI_CTRL33_ADDR
+#define PCR_PCTRL_TOP_TPRAM_MEM_ADDR    PCR_PCTRL_PERI_CTRL68_ADDR
+#define PCR_PCTRL_TPRAM_MEM_ADDR_SHUTDOWN_MASK      0x00000854
+#define PCR_PCTRL_TPRAM_MEM_ADDR_EXIT_SHUTDOWN_MASK 0x00000850
+
+#define PCR_CFG_BYPASS_TOP_ADDR     PCR_CRG_CFG_BYPASS_TOP_ADDR
+#define PCR_CTRL_TOP_ADDR           PCR_CRG_CTRL_TOP_ADDR
+#endif
+
+#define PCR_BYPASS           0x00000001
+#define PCR_BYPASS_ENABLE    0x00000010
+#define PCR_NO_BYPASS        0x00000007
+#define PCR_NO_BYPASS_ENABLE 0x00000010
+#define PCR_BYPASS_DISABLE   0x00000000
+#define PCR_DISABLE          0x00000000
+
+void gpu_pcr_enable(struct kbase_device *kbdev, bool flag_for_bypass);
+void gpu_pcr_disable(struct kbase_device *kbdev);
+
+#endif

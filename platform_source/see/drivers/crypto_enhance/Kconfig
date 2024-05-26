@@ -1,0 +1,26 @@
+config CRYPTO_ENHANCE
+	bool "crypto_enhance"
+	default n
+	help
+	  crypto_enhance driver
+
+config CRYPTO_ENHANCE_SMX_ATCMD
+	bool "crypto_enhance set/get smx"
+	depends on CRYPTO_ENHANCE
+	default n
+	help
+	  crypto_enhance driver set/get smx
+
+config CRYPTO_ENHANCE_WITHOUT_CPU
+	bool "crypto_enhance without cpu"
+	depends on CRYPTO_ENHANCE
+	default n
+	help
+	  crypto_enhance driver without cpu
+
+config CRYPTO_ENHANCE_POWERON_WITH_SMMU
+	bool "crypto_enhance poweron with smmu"
+	depends on CRYPTO_ENHANCE
+	default n
+	help
+	  crypto_enhance driver poweron with smmu

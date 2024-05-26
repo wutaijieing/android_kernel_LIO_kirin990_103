@@ -1,0 +1,13 @@
+config DFX_L3CACHE_ECC
+        bool "platform l3cache ecc driver"
+        depends on !CPU_EDAC_ARM64
+        default n
+        help
+           Say 'Y' here if you want to support l3cache ecc.
+
+config DFX_L3CACHE_ECC_DEBUG
+        bool "platform l3cache ecc debug"
+        depends on DFX_L3CACHE_ECC
+        default n
+        help
+           Say 'Y' here if you want to support l3cache ecc debug.

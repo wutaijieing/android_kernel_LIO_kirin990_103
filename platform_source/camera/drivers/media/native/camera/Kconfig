@@ -1,0 +1,153 @@
+comment "Native Camera"
+
+# source "platform_source/camera/drivers/media/native/camera/isp/Kconfig"
+source "platform_source/camera/drivers/media/native/camera/hisp/Kconfig"
+source "platform_source/camera/drivers/media/native/camera/sensor/Kconfig"
+source "platform_source/camera/drivers/media/native/camera/laser/Kconfig"
+source "platform_source/camera/drivers/media/native/camera/fd/Kconfig"
+source "platform_source/camera/drivers/media/native/camera/pmic/Kconfig"
+
+source "platform_source/camera/drivers/media/native/camera/platform/Kconfig"
+
+source "platform_source/camera/drivers/media/native/camera/fpga/Kconfig"
+source "platform_source/camera/drivers/media/native/camera/driver_ic/Kconfig"
+source "platform_source/camera/drivers/media/native/camera/dot/Kconfig"
+
+
+menuconfig KERNEL_CAMERA_LASER
+    bool "Native laser support"
+    default n
+    help
+        Say Y here to enable Laser for native camera
+
+menuconfig KERNEL_CAMERA_FLASH
+    bool "Native flash support"
+    default n
+    help
+        Say Y here to enable Flash for native camera
+menuconfig KERNEL_CAMERA_FPGA
+    bool "Native Camera FPGA support"
+    default n
+    help
+        Say Y here to enable fpga for native camera
+menuconfig KERNEL_CAMERA_DRIVER_IC
+    bool "Native Camera Driver IC support"
+    default n
+    help
+        Say Y here to enable driver ic for native camera
+menuconfig KERNEL_CAMERA_DOT_PROJECTOR
+    bool "Native Camera Dot support"
+    default n
+    help
+        Say Y here to enable dot projector for native camera
+
+config KERNEL_CAMERA_ISPV110
+    tristate "Support histar ispv110 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        chip histar ispv110 driver.
+
+config KERNEL_CAMERA_ISPV150
+    tristate "Support histar ispv150 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        chip histar ispv150 driver.
+
+config KERNEL_CAMERA_ISPV160
+    tristate "Support histar ispv160 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        chip histar ispv160 driver.
+
+config KERNEL_CAMERA_ISPV120
+    tristate "Support histar ispv120 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        chip histar ispv120 driver.
+
+config KERNEL_CAMERA_ISPV130
+    tristate "Support histar ispv130 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        chip histar ispv130 driver.
+
+config KERNEL_CAMERA_ISPV200
+    tristate "Support histar ispv200 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        chip histar ispv200 driver.
+
+config KERNEL_CAMERA_ISPV250
+    tristate "Support histar ispv250 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        chip histar ispv250 driver.
+
+config KERNEL_CAMERA_ISPV210
+    tristate "Support histar ispv210 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        chip histar ispv210 driver.
+
+config KERNEL_CAMERA_ISPV310
+    tristate "Support histar ispv310 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        chip histar ispv310 driver.
+
+config KERNEL_CAMERA_ISPV300
+    tristate "Support histar ispv300 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        chip histar ispv300 driver.
+
+config KERNEL_CAMERA_ISPV350
+    tristate "Support histar ispv350 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        chip histar ispv350 driver.
+
+config CAMERA_ISPV220
+    tristate "Support histar ispv220 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        Histar ispv220 driver.
+
+config CAMERA_ISPV230
+    tristate "Support histar ispv230 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        Histar ispv230 driver.
+
+config KERNEL_CAMERA_ISP_SECURE
+    tristate "Support histar isp secure"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        chip histar isp secure.
+config KERNEL_CAMERA_PMIC
+    tristate "Support Camera PMIC"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        Support Camera PMIC chip
+
+config KERNEL_CAMERA_BUCK
+    tristate "Support Camera BUCK"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        Support Camera BUCK chip

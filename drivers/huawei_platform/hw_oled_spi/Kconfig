@@ -1,0 +1,6 @@
+config HUAWEI_OLED_SPI
+	bool "huawei oled spi display"
+	default n
+	help
+	  Say Y here to enable oled spi dispaly driver.
+	  This driver works on robot.

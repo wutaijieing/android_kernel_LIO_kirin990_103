@@ -1,0 +1,507 @@
+/* include/linux/dpu.h
+ *
+ * Copyright (c) Huawei Technologies Co., Ltd. 2021-2021. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ */
+
+#ifndef _DPU_ENUM_H_
+#define _DPU_ENUM_H_
+
+#include <linux/types.h>
+
+#define DPUFB_IOCTL_MAGIC 'M'
+
+#define FB_ACCEL_DSSV360 0x20
+#define FB_ACCEL_DPUV410 0x40
+#define FB_ACCEL_DSSV320 0x80
+#define FB_ACCEL_DSSV501 0x100
+#define FB_ACCEL_DSSV510 0x200
+#define FB_ACCEL_DSSV330 0x400
+#define FB_ACCEL_DSSV600 0x800
+#define FB_ACCEL_DSSV350 0x1000
+#define FB_ACCEL_DSSV345 0x2000
+#define FB_ACCEL_DSSV346 0x4000
+#define FB_ACCEL_PLATFORM_TYPE_FPGA 0x10000000   /* FPGA */
+#define FB_ACCEL_PLATFORM_TYPE_ASIC 0x20000000   /* ASIC */
+
+#define DPUFB_PLATFORM_TYPE_GET _IOW(DPUFB_IOCTL_MAGIC, 802, int)
+#define DPUFB_MDC_POWER_DOWNUP_CTRL _IOW(DPUFB_IOCTL_MAGIC, 805, int)
+#define DPUFB_GRALLOC_MAP_IOVA _IOW(DPUFB_IOCTL_MAGIC, 807, struct iova_info)
+#define DPUFB_GRALLOC_UNMAP_IOVA _IOW(DPUFB_IOCTL_MAGIC, 808, struct iova_info)
+
+#define DPUFB_VSYNC_CTRL _IOW(DPUFB_IOCTL_MAGIC, 0x02, unsigned int)
+#define DPUFB_DSS_VOTE_CMD_SET _IOW(DPUFB_IOCTL_MAGIC, 0x04, struct dss_vote_cmd)
+#define DPUFB_DIRTY_UPDT_SUPPORT_GET _IOW(DPUFB_IOCTL_MAGIC, 0x06, unsigned int)
+#define DPUFB_DSS_MMBUF_ALLOC _IOW(DPUFB_IOCTL_MAGIC, 0x08, struct dss_mmbuf)
+#define DPUFB_DSS_MMBUF_FREE _IOW(DPUFB_IOCTL_MAGIC, 0x09, struct dss_mmbuf)
+#define DPUFB_DSS_VOLTAGE_GET _IOW(DPUFB_IOCTL_MAGIC, 0x10, struct dss_vote_cmd)
+#define DPUFB_DSS_VOLTAGE_SET _IOW(DPUFB_IOCTL_MAGIC, 0x11, struct dss_vote_cmd)
+#define DPUFB_MMBUF_SIZE_QUERY _IOW(DPUFB_IOCTL_MAGIC, 0x12, struct dss_mmbuf)
+#define DPUFB_PLATFORM_PRODUCT_INFO_GET _IOW(DPUFB_IOCTL_MAGIC, 0x13, struct platform_product_info)
+#define DPUFB_DSS_MMBUF_FREE_ALL _IOW(DPUFB_IOCTL_MAGIC, 0x14, int)
+
+#define DPUFB_ONLINE_PLAY_BYPASS _IOW(DPUFB_IOCTL_MAGIC, 0x20, int)
+
+#define DPUFB_OV_ONLINE_PLAY _IOW(DPUFB_IOCTL_MAGIC, 0x21, struct dpu_core_disp_data)
+
+#define DPUFB_OV_OFFLINE_PLAY _IOW(DPUFB_IOCTL_MAGIC, 0x22, struct dss_overlay)
+#define DPUFB_OV_COPYBIT_PLAY _IOW(DPUFB_IOCTL_MAGIC, 0x23, struct dss_overlay)
+#define DPUFB_OV_MEDIA_COMMON_PLAY _IOW(DPUFB_IOCTL_MAGIC, 0x24, struct dss_overlay)
+#define DPUFB_DEBUG_CHECK_FENCE_TIMELINE _IOW(DPUFB_IOCTL_MAGIC, 0x30, int)
+#define DPUFB_IDLE_IS_ALLOWED _IOW(DPUFB_IOCTL_MAGIC, 0x42, int)
+
+#define DPUFB_CE_ENABLE _IOW(DPUFB_IOCTL_MAGIC, 0x49, struct hiace_enable_set)
+#define DPUFB_CE_SUPPORT_GET _IOW(DPUFB_IOCTL_MAGIC, 0x50, unsigned int)
+#define DPUFB_CE_SERVICE_LIMIT_GET _IOW(DPUFB_IOCTL_MAGIC, 0x51, int)
+#define DPUFB_CE_HIST_GET _IOW(DPUFB_IOCTL_MAGIC, 0x52, int)
+#define DPUFB_CE_LUT_SET _IOW(DPUFB_IOCTL_MAGIC, 0x53, int)
+#define DPUFB_CE_PARAM_GET _IOW(DPUFB_IOCTL_MAGIC, 0x54, int)
+#define DPUFB_CE_PARAM_SET _IOW(DPUFB_IOCTL_MAGIC, 0x55, int)
+#define DPUFB_GET_REG_VAL _IOW(DPUFB_IOCTL_MAGIC, 0x56, struct dss_reg)
+#define DPUFB_HIACE_PARAM_GET _IOW(DPUFB_IOCTL_MAGIC, 0x57, struct dss_effect_info)
+#define DPUFB_HIACE_HDR10_LUT_SET _IOW(DPUFB_IOCTL_MAGIC, 0x58, struct int)
+
+/* for hiace single mode */
+#define DPUFB_HIACE_SINGLE_MODE_TRIGGER _IOW(DPUFB_IOCTL_MAGIC, 0x59, struct dss_hiace_single_mode_ctrl_info)
+#define DPUFB_HIACE_BLOCK_ONCE_SET _IOW(DPUFB_IOCTL_MAGIC, 0x5A, unsigned int)
+#define DPUFB_HIACE_HIST_GET _IOW(DPUFB_IOCTL_MAGIC, 0x5B, int)
+#define DPUFB_HIACE_FNA_DATA_GET _IOW(DPUFB_IOCTL_MAGIC, 0x5C, int)
+
+#define DPUFB_EFFECT_MODULE_INIT _IOW(DPUFB_IOCTL_MAGIC, 0x60, struct dss_effect)
+#define DPUFB_EFFECT_MODULE_DEINIT _IOW(DPUFB_IOCTL_MAGIC, 0x61, struct dss_effect)
+#define DPUFB_EFFECT_INFO_GET _IOW(DPUFB_IOCTL_MAGIC, 0x62, struct dss_effect_info)
+#define DPUFB_EFFECT_INFO_SET _IOW(DPUFB_IOCTL_MAGIC, 0x63, struct dss_effect_info)
+
+#define DPUFB_DISPLAY_ENGINE_PARAM_SET _IOW(DPUFB_IOCTL_MAGIC, 0x73, struct display_engine_param)
+
+#define DPUFB_DPTX_GET_COLOR_BIT_MODE _IOW(DPUFB_IOCTL_MAGIC, 0x80, int)
+#define DPUFB_DPTX_SEND_HDR_METADATA _IOW(DPUFB_IOCTL_MAGIC, 0x82, struct hdr_metadata)
+
+#define DPUFB_PANEL_REGION_NOTIFY _IOW(DPUFB_IOCTL_MAGIC, 0x90, struct _panel_region_notify)
+#define DPUFB_GET_HIACE_ENABLE _IOW(DPUFB_IOCTL_MAGIC, 0x91, int)
+#define DPUFB_HIACE_ROI_GET _IOW(DPUFB_IOCTL_MAGIC, 0x92, struct hiace_roi_info)
+#define DPUFB_DISPLAY_PANEL_FOLD_STATUS_NOTIFY _IOW(DPUFB_IOCTL_MAGIC, 0x93, int)
+#define DPUFB_CONFIG_PANEL_ESD_STATUS _IOW(DPUFB_IOCTL_MAGIC, 0x94, int)
+
+#define DPUFB_GET_RELEASE_AND_RETIRE_FENCE _IOW(DPUFB_IOCTL_MAGIC, 0xA0, struct dss_fence)
+#define DPUFB_OV_ASYNC_PLAY _IOW(DPUFB_IOCTL_MAGIC, 0xA1, struct dss_overlay)
+
+#define DPUFB_EVS_SWITCH _IOW(DPUFB_IOCTL_MAGIC, 0xB0, int)
+
+#define DPUFB_HIHDR_MEAN_GET _IOW(DPUFB_IOCTL_MAGIC, 0xC0, uint32_t)
+#define DPUFB_HIHDR_BASIC_CONFIG_GET _IOW(DPUFB_IOCTL_MAGIC, 0xC1, uint32_t)
+#define DPUFB_DISP_MERGE_ENABLE _IOW(DPUFB_IOCTL_MAGIC, 0xC2, struct disp_merger_ctl)
+
+#ifndef BIT
+#define BIT(x) (1<<(x))
+#endif
+
+/* for fb0 fb1 fb2 and so on */
+enum {
+	PRIMARY_PANEL_IDX = 0,
+	EXTERNAL_PANEL_IDX,
+	AUXILIARY_PANEL_IDX,
+	MEDIACOMMON_PANEL_IDX
+};
+
+/* lcd fps scence */
+#define LCD_FPS_SCENCE_NORMAL 0
+#define LCD_FPS_SCENCE_IDLE BIT(0)
+#define LCD_FPS_SCENCE_VIDEO BIT(1)
+#define LCD_FPS_SCENCE_GAME BIT(2)
+#define LCD_FPS_SCENCE_WEB BIT(3)
+#define LCD_FPS_SCENCE_EBOOK BIT(4)
+#define LCD_FPS_SCENCE_FORCE_30FPS BIT(5)
+#define LCD_FPS_SCENCE_FUNC_DEFAULT_ENABLE BIT(6)
+#define LCD_FPS_SCENCE_FUNC_DEFAULT_DISABLE BIT(7)
+
+/* lcd fps value */
+#define LCD_FPS_30 30
+#define LCD_FPS_60 60
+
+#define DSS_WCH_MAX 2
+
+/* dss capability priority description */
+#define CAP_HEBCD BIT(17)
+#define CAP_HEBCE BIT(16)
+#define CAP_HFBCD BIT(15)
+#define CAP_HFBCE BIT(14)
+#define CAP_1D_SHARPNESS BIT(13)
+#define CAP_2D_SHARPNESS BIT(12)
+#define CAP_TILE BIT(11)
+#define CAP_AFBCD BIT(10)
+#define CAP_AFBCE BIT(9)
+#define CAP_YUV_DEINTERLACE BIT(8)
+#define CAP_YUV_PLANAR BIT(7)
+#define CAP_YUV_SEMI_PLANAR BIT(6)
+#define CAP_YUV_PACKAGE BIT(5)
+#define CAP_SCL BIT(4)
+#define CAP_ROT BIT(3)
+#define CAP_PURE_COLOR BIT(2)
+#define CAP_DIM BIT(1)
+#define CAP_BASE BIT(0)
+
+/*
+ * dss error status
+ */
+#define DSS_PDP_LDI_UNDERFLOW BIT(0)
+#define DSS_SDP_LDI_UNDERFLOW BIT(1)
+#define DSS_PDP_SMMU_ERR BIT(2)
+#define DSS_SDP_SMMU_ERR BIT(3)
+
+/* Max multi-src channel number of the DSS. */
+#define MAX_DSS_SRC_NUM 9
+
+#define MAX_DSS_DST_NUM 2
+
+#define DPU_OV_BLOCK_NUMS 1
+
+#define ALSC_PIC_WIDTH_SHIFT 13
+#define ALSC_PIC_HEIGHT_MASK ((1UL << ALSC_PIC_WIDTH_SHIFT) - 1)
+
+#define ALSC_ADDR_Y_SHIFT 13
+#define ALSC_ADDR_X_MASK ((1UL << ALSC_ADDR_Y_SHIFT) - 1)
+
+#define ALSC_SIZE_Y_SHIFT 8
+#define ALSC_SIZE_X_MASK ((1UL << ALSC_SIZE_Y_SHIFT) - 1)
+
+#define ALSC_DEGAMMA_VAL_MASK ((1UL << 12) - 1)
+
+#define META_DATA_SIZE 1024
+#define POWERIC_NUM_MAX 10
+
+#define HIHDR_SDR_BASIC_CONFIG_READY BIT(0)
+#define HIHDR_HDR_BASIC_CONFIG_READY BIT(1)
+
+enum MMBUF_USED_SERVICES {
+	SERVICE_MIN = 0x0,
+	SERVICE_MDC = SERVICE_MIN,
+	RESERVED_SERVICE_MAX, /* above:define mmbuf reserved service id. below:define normal service id */
+	SERVICE_HWC = RESERVED_SERVICE_MAX,
+	SERVICE_MAX,
+};
+
+enum DFR_NOTIFY_TYPE {
+	TYPE_NOTIFY_PERF_ONLY = 0,
+	TYPE_NOTIFY_EFFECT_ONLY,
+	TYPE_NOTIFY_PERF_EFFECT,
+};
+
+typedef enum {
+	DEBUG_DIRTY_UPDT_DISABLE = BIT(0),
+	LCD_CTRL_DIRTY_UPDT_DISABLE = BIT(1),
+	COLOR_TEMPERATURE_DIRTY_UPDT_DISABLE = BIT(2),
+	DISPLAY_EFFECT_DIRTY_UPDT_DISABLE = BIT(3),
+	ESD_HAPPENED_DIRTY_UPDT_DISABLE = BIT(4),
+	SECURE_ENABLED_DIRTY_UPDT_DISABLE = BIT(5),
+	AOD_ENABLED_DIRTY_UPDT_DISABLE = BIT(6),
+	VR_ENABLED_DIRTY_UPDT_DISABLE = BIT(7),
+	ACE_ENABLED_DIRTY_UPDT_DISABLE = BIT(8),
+	PIPE_ENABLED_DIRTY_UPDT_DISABLE = BIT(9),
+	EXTERNAL_DISPLAY_DISABLE_PARTIAL_UPDATE = BIT(10),
+	DPP_CMDLIST_DISABLE_PARTIAL_UPDATE = BIT(11),
+	HIHDR_ENABLED_DIRTY_UPDT_DISABLE = BIT(12),
+	IOCTL_CALLED_PARTIAL_UPDATE_FAILED = BIT(13),
+} dirty_updt_disable_event_t;
+
+/* for YUV */
+#define MAX_PLANES 3
+
+enum dss_wb_compose_type {
+	DSS_WB_COMPOSE_PRIMARY = 0,
+	DSS_WB_COMPOSE_COPYBIT,
+	DSS_WB_COMPOSE_MEDIACOMMON,
+	DSS_WB_COMPOSE_TYPE_MAX,
+};
+
+enum dpu_fb_pixel_format {
+	DPU_FB_PIXEL_FORMAT_RGB_565 = 0,
+	DPU_FB_PIXEL_FORMAT_RGBX_4444,
+	DPU_FB_PIXEL_FORMAT_RGBA_4444,
+	DPU_FB_PIXEL_FORMAT_RGBX_5551,
+	DPU_FB_PIXEL_FORMAT_RGBA_5551,
+	DPU_FB_PIXEL_FORMAT_RGBX_8888,
+	DPU_FB_PIXEL_FORMAT_RGBA_8888,
+
+	DPU_FB_PIXEL_FORMAT_BGR_565,
+	DPU_FB_PIXEL_FORMAT_BGRX_4444,
+	DPU_FB_PIXEL_FORMAT_BGRA_4444,
+	DPU_FB_PIXEL_FORMAT_BGRX_5551,
+	DPU_FB_PIXEL_FORMAT_BGRA_5551,
+	DPU_FB_PIXEL_FORMAT_BGRX_8888,
+	DPU_FB_PIXEL_FORMAT_BGRA_8888,
+
+	DPU_FB_PIXEL_FORMAT_YUV_422_I,
+
+	/* YUV Semi-planar */
+	DPU_FB_PIXEL_FORMAT_YCBCR_422_SP, /* NV16 */
+	DPU_FB_PIXEL_FORMAT_YCRCB_422_SP,
+	DPU_FB_PIXEL_FORMAT_YCBCR_420_SP,
+	DPU_FB_PIXEL_FORMAT_YCRCB_420_SP, /* NV21 */
+
+	/* YUV Planar */
+	DPU_FB_PIXEL_FORMAT_YCBCR_422_P,
+	DPU_FB_PIXEL_FORMAT_YCRCB_422_P,
+	DPU_FB_PIXEL_FORMAT_YCBCR_420_P,
+	DPU_FB_PIXEL_FORMAT_YCRCB_420_P, /* DPU_FB_PIXEL_FORMAT_YV12 */
+
+	/* YUV Package */
+	DPU_FB_PIXEL_FORMAT_YUYV_422_PKG,
+	DPU_FB_PIXEL_FORMAT_UYVY_422_PKG,
+	DPU_FB_PIXEL_FORMAT_YVYU_422_PKG,
+	DPU_FB_PIXEL_FORMAT_VYUY_422_PKG,
+
+	/* 10bit */
+	DPU_FB_PIXEL_FORMAT_RGBA_1010102,
+	DPU_FB_PIXEL_FORMAT_BGRA_1010102,
+	DPU_FB_PIXEL_FORMAT_Y410_10BIT,
+	DPU_FB_PIXEL_FORMAT_YUV422_10BIT,
+
+	DPU_FB_PIXEL_FORMAT_YCRCB420_SP_10BIT,
+	DPU_FB_PIXEL_FORMAT_YCRCB422_SP_10BIT,
+	DPU_FB_PIXEL_FORMAT_YCRCB420_P_10BIT,
+	DPU_FB_PIXEL_FORMAT_YCRCB422_P_10BIT,
+
+	DPU_FB_PIXEL_FORMAT_YCBCR420_SP_10BIT,
+	DPU_FB_PIXEL_FORMAT_YCBCR422_SP_10BIT,
+	DPU_FB_PIXEL_FORMAT_YCBCR420_P_10BIT,
+	DPU_FB_PIXEL_FORMAT_YCBCR422_P_10BIT,
+
+	DPU_FB_PIXEL_FORMAT_MAX,
+};
+
+enum dpu_fb_blending {
+	DPU_FB_BLENDING_NONE = 0,
+	DPU_FB_BLENDING_PREMULT = 1,
+	DPU_FB_BLENDING_COVERAGE = 2,
+	DPU_FB_BLENDING_MAX = 3,
+};
+
+enum dpu_fb_transform {
+	DPU_FB_TRANSFORM_NOP = 0x0,
+	/* flip source image horizontally (around the vertical axis) */
+	DPU_FB_TRANSFORM_FLIP_H = 0x01,
+	/* flip source image vertically (around the horizontal axis) */
+	DPU_FB_TRANSFORM_FLIP_V = 0x02,
+	/* rotate source image 90 degrees clockwise */
+	DPU_FB_TRANSFORM_ROT_90 = 0x04,
+	/* rotate source image 180 degrees */
+	DPU_FB_TRANSFORM_ROT_180 = 0x03,
+	/* rotate source image 270 degrees clockwise */
+	DPU_FB_TRANSFORM_ROT_270 = 0x07,
+};
+
+enum dss_csc_mode {
+	DSS_CSC_601_WIDE = 0,
+	DSS_CSC_601_NARROW,
+	DSS_CSC_709_WIDE,
+	DSS_CSC_709_NARROW,
+	DSS_CSC_2020,
+	DSS_CSC_DISPLAY_P3,
+	DSS_CSC_MOD_MAX,
+};
+
+enum dss_afbc_scramble_mode {
+	DSS_AFBC_SCRAMBLE_NONE = 0,
+	DSS_AFBC_SCRAMBLE_MODE1,
+	DSS_AFBC_SCRAMBLE_MODE2,
+	DSS_AFBC_SCRAMBLE_MODE3,
+	DSS_AFBC_SCRAMBLE_MODE_MAX,
+};
+
+enum dss_hfbc_scramble_mode {
+	DSS_HFBC_SCRAMBLE_NONE = 0,
+	DSS_HFBC_SCRAMBLE_MODE1,
+	DSS_HFBC_SCRAMBLE_MODE2,
+	DSS_HFBC_SCRAMBLE_MODE3,
+	DSS_HFBC_SCRAMBLE_MODE_MAX,
+};
+
+enum dss_chn_idx {
+	DSS_RCHN_NONE = -1,
+	DSS_RCHN_D2 = 0,
+	DSS_RCHN_D3,
+	DSS_RCHN_V0,
+	DSS_RCHN_G0,
+	DSS_RCHN_V1,
+	DSS_RCHN_G1,
+	DSS_RCHN_D0,
+	DSS_RCHN_D1,
+
+	DSS_WCHN_W0,
+	DSS_WCHN_W1,
+
+	DSS_CHN_MAX,
+
+	DSS_RCHN_V2 = DSS_CHN_MAX, /* for copybit, only supported in dpuv400 */
+	DSS_WCHN_W2,
+
+	DSS_CHN_MAX_DEFINE,
+};
+
+enum dss_ovl_idx {
+	DSS_OVL0 = 0,
+	DSS_OVL1,
+	DSS_OVL2,
+	DSS_OVL3,
+	DSS_OVL_IDX_MAX,
+};
+
+typedef enum dss_module_id {
+	DSS_EFFECT_MODULE_ARSR2P = BIT(0),
+	DSS_EFFECT_MODULE_ARSR1P = BIT(1),
+	DSS_EFFECT_MODULE_ACM = BIT(2),
+	DSS_EFFECT_MODULE_HIACE = BIT(4),
+	DSS_EFFECT_MODULE_LCP_GMP = BIT(5),
+	DSS_EFFECT_MODULE_LCP_IGM = BIT(6),
+	DSS_EFFECT_MODULE_LCP_XCC = BIT(7),
+	DSS_EFFECT_MODULE_GAMMA = BIT(8),
+	DSS_EFFECT_MODULE_DITHER = BIT(9),
+	DSS_EFFECT_MODULE_ACE = BIT(10),
+	DSS_EFFECT_MODULE_DPPROI = BIT(11),
+	DSS_EFFECT_MODULE_POST_XCC = BIT(12),
+	DSS_EFFECT_MODULE_POST_HIHDR = BIT(13),
+	DSS_EFFECT_MODULE_MAX = BIT(14),
+} dss_module_id;
+
+typedef enum {
+	EN_DISPLAY_REGION_NONE = 0,
+	EN_DISPLAY_REGION_A = 0x1,
+	EN_DISPLAY_REGION_B = 0x2,
+	EN_DISPLAY_REGION_AB = 0x3,
+	EN_DISPLAY_REGION_AB_FOLDED = 0x7,
+	EN_DISPLAY_REGION_UNFOLD = 0x8,  /* inner screen */
+	EN_DISPLAY_REGION_FOLD = 0x10,  /* outer screen */
+	EN_DISPLAY_REGION_UNFOLD_FOLD_SELFREFRESH = 0x20,    /* inner screen display & outer screen self-refresh */
+	EN_DISPLAY_REGION_FOLD_UNFOLD_SELFREFRESH = 0x40,    /* outer screen display & inner screen self-refresh */
+} enum_en_display_region;
+
+typedef enum {
+	EN_MODE_PRE_NOTIFY = 0x1,                   /* the notify before state change */
+	EN_MODE_REAL_SWITCH_NOTIFY = 0x2,           /* the notify when state already change */
+	EN_MODE_POWER_OFF_SWITCH_NOTIFY = 0x3,      /* the notify when LCD power off */
+} enum_en_notify_mode;
+
+/*
+ * crc enable status
+ */
+enum dss_crc_enable_status {
+	DSS_CRC_NONE = 0,
+	DSS_CRC_OV_EN = 1,
+	DSS_CRC_LDI_EN,
+	DSS_CRC_SUM_EN,
+};
+
+/*
+ * sec enable status
+ */
+enum dss_sec_enable_status {
+	DSS_SEC_STOP = 0,
+	DSS_SEC_RUN = 1,
+};
+
+enum dss_to_be_continued_type {
+	DSS_LAYER_SERIAL_COMPOSE = 0,
+	DSS_LAYER_PARALLEL_COMPOSE = 1,
+};
+
+/*********************** MDC START *****************************/
+enum {
+	MDC_POWER_INVALD_CMD = 0x0,
+	MDC_POWER_UP_REQUEST = 0x1,
+	MDC_POWER_DOWN_REQUEST = 0x2,
+};
+
+enum {
+	HWC_REQUEST = 0x0,
+	MDC_REQUEST = 0x1,
+};
+
+enum {
+	SPR_OVERLAP_NONE = 0x0,
+	SPR_OVERLAP_TOP = 0x1,
+	SPR_OVERLAP_BOTTOM = 0x2,
+	SPR_OVERLAP_TOP_BOTTOM = 0x3,
+};
+
+/* for hiace single mode */
+enum {
+	EN_HIACE_INFO_TYPE_GLOBAL_HIST = 0x1,    /* bit0 */
+	EN_HIACE_INFO_TYPE_LOCAL_HIST = 0x2,     /* bit1 */
+	EN_HIACE_INFO_TYPE_HIST = 0x3,           /* bit0 + bit1 */
+	EN_HIACE_INFO_TYPE_FNA = 0x4,            /* bit2 */
+};
+
+/* IFBC compress mode */
+enum ifbc_mode {
+	IFBC_MODE_NONE = 0,
+	IFBC_MODE_ORISE2X,
+	IFBC_MODE_ORISE3X,
+	IFBC_MODE_HIMAX2X,
+	IFBC_MODE_RSP2X,
+	IFBC_MODE_RSP3X,
+	IFBC_MODE_VESA2X_SINGLE,
+	IFBC_MODE_VESA3X_SINGLE,
+	IFBC_MODE_VESA2X_DUAL,
+	IFBC_MODE_VESA3X_DUAL,
+	IFBC_MODE_VESA3_75X_DUAL,
+	IFBC_MODE_VESA4X_SINGLE_SPR,
+	IFBC_MODE_VESA4X_DUAL_SPR,
+	IFBC_MODE_VESA2X_SINGLE_SPR,
+	IFBC_MODE_VESA2X_DUAL_SPR,
+	IFBC_MODE_VESA3_75X_SINGLE,
+	IFBC_MODE_MAX,
+};
+
+enum {
+	DISPLAY_INNEL_PANEL_ID = 0,
+	DISPLAY_OUTER_PANEL_ID = 1,
+	DISPLAY_PANEL_ID_MAX,
+};
+
+enum csc_flag {
+	CSC_DEFAULT = 0,
+	CSC_2_P3_START,
+	CSC_2_P3_HOLD,
+	CSC_2_P3_STOP,
+};
+
+enum sdr_flag {
+	SDR_EH_DEFAULT = 0, // none foss/sre/lce,only csc;
+	SDR_EH_BASIC,
+	SDR_EH_DYNAMIC,
+	SDR_EH_HOLD,
+	SDR_EH_CLOSE
+};
+
+enum hdr_flag {
+	HDR_DEFAULT = 0,
+	HDR_BASIC,
+	HDR_DYNAMIC,
+	HDR_CLOSE
+};
+
+enum hihdr_status {
+	SDR = 0,
+	HDR,
+};
+
+/* for 32/64 bit compatiable */
+#ifndef compat_uint_pointer
+#define compat_uint_pointer(x) \
+	union { \
+		unsigned int *(x); \
+		uint64_t x##_sizer; \
+	}
+#endif
+
+#endif /* _DPU_ENUM_H_ */

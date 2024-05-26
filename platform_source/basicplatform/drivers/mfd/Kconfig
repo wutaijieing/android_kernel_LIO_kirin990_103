@@ -1,0 +1,175 @@
+config MFD_IP_CORE
+	tristate "Control system interior area Bus on and off"
+	depends on OF
+	help
+	  This driver control system interior area power management from atf.
+
+config PMIC_SPMI
+	tristate "PMU/Codec IC and use spmi passageway"
+	depends on OF
+	depends on SPMI_PLATFORM
+	help
+	  This driver supports power management and codec IC,
+	  including regulators, codec, ADCs, Coulomb counter, etc. Memory
+	  mapped I/O ports are the way of communication with it. and use spmi
+	  passageway read pmu address.
+
+config PMIC_I2C
+	tristate "pmic PMU/Codec IC and use i2c passageway"
+	help
+	  This driver supports power management and codec IC,
+	  including regulators, codec, ADCs, Coulomb counter, etc. Memory
+	  mapped I/O ports are the way of communication with it. and use i2c
+	  passageway read pmu address.
+
+config PMIC_SUB_PMU_SPMI
+	tristate "SUB PMU/Codec IC and use spmi passageway"
+	depends on OF
+	depends on SPMI_PLATFORM
+	help
+	  This driver supports power management and codec IC,
+	  including regulators, codec, ADCs, Coulomb counter, etc. Memory
+	  mapped I/O ports are the way of communication with it. and use spmi
+	  passageway read sub pmu address.
+
+config PMIC_DRV_DCXO
+        tristate "PMU DCXO cali"
+        depends on OF
+        depends on PMIC_SPMI
+        help
+           put PMU dcxo c1 c2 calibration in fastboot.
+           Earlier, modem do this in kernel init process, which can cause pmu's clock unstable.
+
+config PMIC_AP_DCXO
+        tristate "PMU DCXO AP cali"
+        depends on OF
+        depends on PMIC_SPMI
+        help
+           For platform later than bal, we put PMU dcxo ap c1 c2 calibration in fastboot.
+           Earlier, factory ap do this in kernel init process, which can cause pmu's clock unstable.
+
+config PMIC_56V100_PMU
+        tristate "pmic56v100 IC"
+        depends on OF
+        help
+           discriminate pmu ic for pmussi passageway.
+
+config PMIC_55V500_PMU
+        tristate "pmic55v500 IC"
+        depends on OF
+        help
+           discriminate pmu ic for pmussi passageway.
+
+config PMIC_21V900_PMU
+        tristate "pmic21v900 IC"
+        depends on OF
+        help
+           discriminate pmu ic for pmussi passageway.
+
+config PMIC_21V800_PMU
+        tristate "pmic21v800 IC"
+        depends on OF
+        help
+	   discriminate pmu ic for pmussi passageway.
+
+config PMIC_55V300_PMU
+        tristate "pmic55v300 IC"
+        depends on OF
+        help
+          discriminate pmu ic for pmussi passageway.
+
+
+config PMIC_21V700_PMU
+        tristate "pmic21v700 IC"
+        depends on OF
+        help
+          discriminate pmu ic for pmussi passageway.
+
+config PMIC_55V200_PMU
+        tristate "pmic55v200 IC"
+        depends on OF
+        help
+          discriminate pmu ic for 6555v200 passageway.
+
+config PMIC_21V600_PMU
+	tristate "pmic21v600 IC"
+	depends on OF
+	help
+	  discriminate pmu ic for pmussi passageway.
+
+config PMIC_MNTN
+	tristate "Pmic Mntn"
+	depends on OF
+	help
+	  This driver supports power management and codec IC,
+	  including regulators, codec, ADCs, Coulomb counter, etc. Memory
+	  mapped I/O ports are the way of communication with it.
+
+config PMIC_MNTN_SPMI
+	tristate "spmi pmic mntn"
+	depends on OF
+	depends on PMIC_SPMI
+	help
+	  This driver supports power management and codec IC,
+	  which passage is spmi,including regulators, codec, ADCs, Coulomb counter, etc.
+	  Memory mapped I/O ports are the way of communication with it.
+
+config HISI_VBAT_DROP_PRT
+    tristate "HiSilicon vbat drop protect"
+    depends on OF
+    depends on PMIC_SPMI
+    help
+      This driver supports HiSilicon battery vol drop protect by auto reducing
+        cpu core frequency.
+
+config HISI_VBAT_DROP_PRT_ATLA
+	tristate "HiSilicon platform ATLA vbat drop protect"
+	depends on OF
+	depends on PMIC_SPMI
+	help
+	  This driver supports HiSilicon platform ATLA battery vol drop protect by auto reducing
+	    cpu core frequency.
+
+config HISI_VBAT_DROP_PRT_PHON
+	tristate "HiSilicon platform PHON vbat drop protect"
+	depends on OF
+	depends on PMIC_SPMI
+	help
+	  This driver supports HiSilicon platform PHON battery vol drop protect by auto reducing
+	    cpu core frequency.
+
+config HISI_VBAT_DROP_PRT_ORL
+	tristate "HiSilicon platform ORL vbat drop protect"
+	depends on OF
+	depends on PMIC_SPMI
+	help
+	  This driver supports HiSilicon platform ORL battery vol drop protect by auto reducing
+	    cpu core frequency.
+
+config HISI_VBAT_DROP_PRT_BAL
+	tristate "HiSilicon platform BAL vbat drop protect"
+	depends on OF
+	depends on PMIC_SPMI
+	help
+	  This driver supports HiSilicon platform BAL battery vol drop protect by auto reducing
+	    cpu core frequency.
+
+config HISI_VBAT_DROP_PRT_DENV
+	tristate "HiSilicon platform DENV vbat drop protect"
+	depends on OF
+	depends on PMIC_SPMI
+	help
+	  This driver supports HiSilicon platform DENV battery vol drop protect by auto reducing
+	    cpu core frequency.
+
+config HISI_VBAT_DROP_PRT_CHAR
+        tristate "HiSilicon platform CHAR vbat drop protect"
+        depends on OF
+        depends on PMIC_SPMI
+        help
+          This driver supports HiSilicon platform CHAR battery vol drop protect by auto reducing
+            cpu core frequency.
+
+source "platform_source/basicplatform/drivers/mfd/pmic62_mipi/Kconfig"
+source "platform_source/basicplatform/drivers/mfd/pmic_vm/Kconfig"
+

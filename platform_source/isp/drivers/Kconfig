@@ -1,0 +1,6 @@
+menu "driver Configuration"
+
+source "platform_source/isp/drivers/isp/Kconfig"
+source "platform_source/isp/drivers/ipp/Kconfig"  
+
+endmenu

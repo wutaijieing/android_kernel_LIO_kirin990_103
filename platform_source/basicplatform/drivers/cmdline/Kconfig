@@ -1,0 +1,13 @@
+config CMDLINE_PARSE
+       bool "cmdline parse"
+       default n
+       help
+          Say 'Y' here if you want to support the cmdline parse
+	  on platform
+
+config SOC_CHIP_LEVEL
+       bool "soc chip level"
+       default n
+       help
+          Say 'Y' here if you want to support the soc chip level
+

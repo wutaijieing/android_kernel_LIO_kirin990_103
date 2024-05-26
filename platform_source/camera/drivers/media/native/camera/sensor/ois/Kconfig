@@ -1,0 +1,7 @@
+if KERNEL_CAMERA_OIS
+
+menu "Camera ois driver support"
+
+endmenu
+
+endif

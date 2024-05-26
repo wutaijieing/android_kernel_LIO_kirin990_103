@@ -1,0 +1,5 @@
+menu "maligpu Kernel Configuration"
+
+source "platform_source/maligpu/drivers/Kconfig"
+
+endmenu

@@ -1,0 +1,17 @@
+config DKMD_ENABLE
+	bool "DKMD driver support"
+	default n
+	help
+	  This feature driver supports dkmd driver.
+
+config DKMD_DPU_VERSION
+	int "DKMD DPU version"
+	depends on DKMD_ENABLE
+	help
+	  This driver supports DPU version.
+
+source "drivers/video/fbdev/dkmd/backlight/Kconfig"
+source "drivers/video/fbdev/dkmd/connector/Kconfig"
+source "drivers/video/fbdev/dkmd/cmdlist/Kconfig"
+source "drivers/video/fbdev/dkmd/dksm/Kconfig"
+source "drivers/video/fbdev/dkmd/dpu/begonia/Kconfig"

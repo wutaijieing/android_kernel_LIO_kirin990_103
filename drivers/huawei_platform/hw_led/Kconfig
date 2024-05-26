@@ -1,0 +1,15 @@
+#
+#led config driver configuration
+#
+menuconfig HW_LED_CONFIG
+	bool "led config driver"
+	default n
+	help
+	Say yes here to support for led config driver.
+
+config LEDS_LIGHT_RING
+	bool "leds config light ring driver"
+	default n
+	help
+		This allows LEDs to be controlled by leds activity.
+		If unsure, say n.

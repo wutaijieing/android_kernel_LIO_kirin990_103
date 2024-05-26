@@ -1,0 +1,24 @@
+
+
+#ifndef __WLAN_SPEC_1105_H__
+#define __WLAN_SPEC_1105_H__
+
+/* 作为P2P GO 允许关联最大用户数 */
+#ifdef _PRE_WINDOWS_SUPPORT
+#define WLAN_P2P_GO_ASSOC_USER_MAX_NUM_1105 8
+#else
+#define WLAN_P2P_GO_ASSOC_USER_MAX_NUM_1105 4
+#endif
+
+/* 支持的建立rx ba 的最大个数 */
+#define WLAN_MAX_RX_BA_1105 32
+
+/* 支持的建立tx ba 的最大个数 */
+#define WLAN_MAX_TX_BA_1105 32
+
+/* 其他BSS的广播帧上报hal vap ID */
+#define WLAN_HAL_OHTER_BSS_ID_1105 14
+
+#define WLAN_AMPDU_TX_MAX_NUM_1105 64 /* AMPDU发送端最大聚合子MPDU个数 */
+#endif /* #ifndef __WLAN_SPEC_1105_H__ */
+

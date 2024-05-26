@@ -1,0 +1,15 @@
+comment "MODULE ISP"
+
+choice
+	prompt "HISP Version"
+	default KERNEL_CAMERA_USE_HISP300
+	depends on KERNEL_CAMERA
+	help
+        Select ISP version.
+
+config KERNEL_CAMERA_USE_HISP300
+	bool "HISP300"
+	depends on KERNEL_CAMERA
+
+endchoice
+

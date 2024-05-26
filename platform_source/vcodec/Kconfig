@@ -1,0 +1,63 @@
+menu "VCODEC DRIVER Configuration"
+
+config VCODEC_PLATFORM_VCODECV200
+        tristate "v200 Vcodec configs"
+        default n
+
+config VCODEC_PLATFORM_VCODECV210
+        tristate "v210 Vcodec configs"
+        default n
+
+config VCODEC_PLATFORM_VCODECV300
+        tristate "v300 Vcodec configs"
+        default n
+
+config VCODEC_PLATFORM_VCODECV310
+       tristate "v310 Vcodec configs"
+       default n
+
+config VCODEC_PLATFORM_VCODECV320
+        tristate "v320 Vcodec configs"
+        default n
+
+config VCODEC_PLATFORM_VCODECV500
+        tristate "v500 Vcodec configs"
+        default n
+
+config VCODEC_PLATFORM_VCODECV520
+        tristate "v520 Vcodec configs"
+        default n
+
+config VCODEC_PLATFORM_VCODECV600
+        tristate "v600 Vcodec configs"
+        default n
+
+config VCODEC_PLATFORM_VCODECV700
+        tristate "v700 Vcodec configs"
+        default n
+
+config VCODEC_PLATFORM_VCODECV720
+        tristate "v720 Vcodec configs"
+        default n
+
+config VCODEC_DPM_ENABLE
+        bool "dpm hwmon second version config"
+        depends on DPM_HWMON
+        default n
+        help
+            Second version for kernel dpm
+config VCODEC_DEBUG
+        bool "Vcodec Debug support"
+        depends on VCODEC_VENC || VCODEC_VDEC
+        default n
+config VCODEC_BYPASS_VENC
+        tristate "Vcodec bypass venc config"
+        default n
+config VCODEC_FREQ_LEVEL
+        bool "Vcodec support freq level"
+        default n
+
+source "platform_source/vcodec/vdec/Kconfig"
+source "platform_source/vcodec/venc/Kconfig"
+
+endmenu

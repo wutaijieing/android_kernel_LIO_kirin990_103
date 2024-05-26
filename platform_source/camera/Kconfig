@@ -1,0 +1,5 @@
+menu "camera Kernel Configuration"
+
+source "platform_source/camera/drivers/Kconfig"
+
+endmenu

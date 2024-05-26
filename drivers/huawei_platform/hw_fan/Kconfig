@@ -1,0 +1,9 @@
+#
+# huawei pwm fan driver configuration
+#
+
+config HW_PWM_FAN
+	bool "huawei pwm fan"
+	default n
+	help
+	  If you say yes here you get support for huawei pwm fan.

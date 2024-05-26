@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: GPL-2.0-only
+
+config SPI_V400
+	bool "Using spi_pl022 extra added code"
+
+config SPI_V500_MASTER
+	tristate "SPI_V500 controller"
+	help
+	  If you say yes to this option,support will be inclued for spi
+	  controller on v500.
+

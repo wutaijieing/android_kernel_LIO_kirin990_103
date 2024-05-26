@@ -1,0 +1,5 @@
+config AUDIO_GPIO_CTL
+	tristate "tdd gpio driver"
+	default n
+	help
+		Say Y to enable device boxid driver support

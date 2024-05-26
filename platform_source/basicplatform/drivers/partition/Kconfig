@@ -1,0 +1,25 @@
+config PARTITION_TABLE
+	bool "partition ptable"
+	default n
+
+config PARTITION_ARMPC
+	bool "armpc partition"
+	depends on PARTITION_TABLE
+	default n
+	help
+	  config partition for armpc platform
+
+config PRODUCT_CDC
+	bool "cdc partition"
+	depends on PARTITION_TABLE
+	default n
+	help
+	  config partition for cdc platform
+
+config PRODUCT_CDC_ACE
+	bool "cdc ace partition"
+	depends on PARTITION_TABLE
+	default n
+	help
+	  config partition for cdc ace platform
+

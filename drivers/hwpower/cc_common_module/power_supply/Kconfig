@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# huawei power supply drivers
+#
+
+config HUAWEI_POWER_SUPPLY
+	bool "huawei power supply"
+	depends on POWER_SUPPLY
+	default n
+	help
+	  Say Y here to enable power supply drivers.
+
+config HUAWEI_POWER_SUPPLY_APPLICATION
+	bool "huawei power supply application"
+	depends on POWER_SUPPLY
+	default n
+	help
+	  Say Y here to enable power supply application drivers.

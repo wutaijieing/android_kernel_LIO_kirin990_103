@@ -1,0 +1,3 @@
+# SPDX-License-Identifier: GPL-2.0
+source "drivers/hwpower/cc_protocol/adapter_protocol/Kconfig"
+source "drivers/hwpower/cc_protocol/wireless_protocol/Kconfig"

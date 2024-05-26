@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# btb abnormal monitor drivers
+#
+
+config HUAWEI_BTB_CHECK
+	bool "btb abnormal monitor"
+	default n
+	help
+	  Say Y here to enable btb abnormal monitor driver.

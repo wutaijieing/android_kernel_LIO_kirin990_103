@@ -1,0 +1,24 @@
+menu "driver Configuration"
+
+source "platform_source/see/drivers/bl2_log/Kconfig"
+source "platform_source/see/drivers/bl31_hibernate/Kconfig"
+source "platform_source/see/drivers/bl31_log/Kconfig"
+source "platform_source/see/drivers/cpusec_test/Kconfig"
+source "platform_source/see/drivers/crypto_core/Kconfig"
+source "platform_source/see/drivers/crypto_enhance/Kconfig"
+source "platform_source/see/drivers/efuse/Kconfig"
+source "platform_source/see/drivers/general_see/Kconfig"
+source "platform_source/see/drivers/harden/Kconfig"
+source "platform_source/see/drivers/thee/Kconfig"
+source "platform_source/see/drivers/kernel_harden_test/Kconfig"
+source "platform_source/see/drivers/load_image/Kconfig"
+source "platform_source/see/drivers/security_info/Kconfig"
+source "platform_source/see/drivers/hhee/Kconfig"
+source "platform_source/see/drivers/uapp/Kconfig"
+source "platform_source/see/drivers/cust_atf_shmem/Kconfig"
+source "platform_source/see/drivers/secboot/Kconfig"
+
+
+endmenu
+
+

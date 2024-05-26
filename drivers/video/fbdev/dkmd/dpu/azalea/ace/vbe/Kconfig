@@ -1,0 +1,16 @@
+config DPU_CDC_ACE
+	tristate "display software virtualization support"
+	help
+	  This driver support display software virtualization.
+
+config DPU_FB_V510
+	tristate "DPU FB V510 Framebuffer support"
+	depends on DPU_CDC_ACE
+	help
+	  This display driver supports DPU V510.
+
+config DPU_FB_ENG_DBG
+	tristate "DPU FB ENG DEBUG support"
+	depends on DPU_CDC_ACE
+	help
+	  This config only used in eng version.

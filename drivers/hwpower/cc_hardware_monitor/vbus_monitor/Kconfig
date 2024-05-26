@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# vbus monitor drivers
+#
+
+config HUAWEI_VBUS_MONITOR
+	bool "vbus monitor"
+	default n
+	help
+	  Say Y here to enable vbus monitor driver.

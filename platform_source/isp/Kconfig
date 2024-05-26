@@ -1,0 +1,5 @@
+menu "isp Kernel Configuration"
+
+source "platform_source/isp/drivers/Kconfig"
+
+endmenu

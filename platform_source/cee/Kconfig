@@ -1,0 +1,5 @@
+menu "cee Kernel Configuration"
+
+source "platform_source/cee/drivers/Kconfig"
+
+endmenu

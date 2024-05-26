@@ -1,0 +1,1 @@
+obj-$(CONFIG_INPUTHUB_20) += ps_para_table_ams_tmd2755.o

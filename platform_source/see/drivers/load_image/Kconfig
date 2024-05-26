@@ -1,0 +1,6 @@
+config LOAD_IMAGE
+	bool "Support load sec_image"
+	default n
+	depends on TZDRIVER
+	help
+	  This driver supports LOAD SEC_IMAGE

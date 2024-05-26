@@ -1,0 +1,52 @@
+comment "ipc MailBox driver"
+config IPC_MAILBOX
+	bool "ipc MailBox driver"
+	default n
+	help
+	  ipc MailBox driver
+
+comment "ipc mailboxes debugfs user"
+config IPC_MAILBOX_DEBUGFS
+	bool "ipc mailboxes debugfs user"
+	depends on (IPC_MAILBOX) && DEBUG_FS
+	default n
+	help
+	  HiIPCV230 ipc mailboxes debugfs user
+
+comment "ipc MailBox driver performance debug"
+config IPC_MAILBOX_PERFORMANCE_DEBUG
+	bool "ipc MailBox driver performance debug"
+	depends on (IPC_MAILBOX)
+	default n
+	help
+	  Print tts of sending task, if config is set y
+
+comment "ipc kernel API about remote processor communication"
+config IPC_RPROC
+	bool "ipc kernel API"
+	default n
+	help
+	  ipc kernel API about remote processor communication
+
+comment "ipc rproc kernel API debugfs"
+config IPC_RPROC_TESTFILE
+	bool "rproc kernel API test file"
+	depends on IPC_RPROC
+	default n
+	help
+	  debug for ipc_rproc
+
+comment "bsp_reset_core_notify to support modem compile"
+config BSP_RESET_CORE_NOTIFY
+	bool "bsp_reset_core_notify"
+	default n
+	help
+	  to support modem compile
+
+comment "ipc Mailbox Vmware driver"
+config IPC_MAILBOX_VM
+	bool "rproc kernel API test file"
+	depends on IPC_MAILBOX
+	default n
+	help
+	  ipc Mailbox Vmware driver

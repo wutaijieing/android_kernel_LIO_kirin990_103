@@ -1,0 +1,7 @@
+menu "basicplatform Kernel Configuration"
+
+source "platform_source/basicplatform/drivers/Kconfig"
+source "platform_source/basicplatform/block/Kconfig"
+
+
+endmenu

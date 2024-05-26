@@ -1,0 +1,5 @@
+config HUAWEI_ROBOT_MCU
+	bool "huawei robot mcu control"
+	default n
+	help
+		Huawei robot mcu contol: ap reset mcu, mcu wakeup ap, and so on.

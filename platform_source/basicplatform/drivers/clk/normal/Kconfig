@@ -1,0 +1,36 @@
+config CLK_ALWAYS_ON
+	bool "all clocks of Soc are always on"
+	default n
+
+config CLK_PM_MONITOR
+	bool "clock pm_monitor spec"
+	default n
+
+config CLK_MAILBOX_SUPPORT
+	depends on PLAT_CLK
+	depends on IPC_MAILBOX
+	bool "clk driver support mailbox communication"
+	default n
+
+config CKM_MODULE
+	depends on PLAT_CLK
+	bool "clk monitor driver"
+	default n
+
+config CLK_SMC_SUPPORT
+	depends on PLAT_CLK
+	bool "clk SMC handler"
+	default n
+
+config PLL_LOCK_RETRY
+	depends on PLAT_CLK
+	bool "clk pll lock retry"
+	default n
+
+config CLK_WAIT_DONE
+	depends on PLAT_CLK
+	bool "clk wait div done"
+	default n
+
+source "platform_source/basicplatform/drivers/clk/normal/dvfs/Kconfig"
+source "platform_source/basicplatform/drivers/clk/normal/debug/Kconfig"

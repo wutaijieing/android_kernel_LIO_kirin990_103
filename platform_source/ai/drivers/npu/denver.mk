@@ -1,0 +1,8 @@
+NPU_ARCH_VERSION=npu_v100
+
+ifeq ($(product_type), lite)
+NPU_CUT_MAKEFILE := yes
+endif
+
+export NPU_CUT_MAKEFILE NPU_ARCH_VERSION
+NPU_GLOBAL_CFLAGS += -DCONFIG_NPU_NOC

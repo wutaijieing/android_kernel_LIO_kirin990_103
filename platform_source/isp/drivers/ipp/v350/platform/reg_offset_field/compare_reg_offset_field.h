@@ -1,0 +1,99 @@
+// ******************************************************************************
+// Copyright     :  Copyright (C) 2020, Hisilicon Technologies Co. Ltd.
+// File name     :  slam_compare_reg_offset_field.h
+// Project line  :  Platform And Key Technologies Development
+// Department    :  CAD Development Department
+// Date          :  2013/3/10
+// Description   :  The description of xxx project
+// Others        :  Generated automatically by nManager V4.2
+// History       :  xxx 2020/04/07 19:51:54 Create file
+// ******************************************************************************
+
+#ifndef __SLAM_COMPARE_REG_OFFSET_FIELD_H__
+#define __SLAM_COMPARE_REG_OFFSET_FIELD_H__
+
+#define SLAM_COMPARE_COMPARE_EN_LEN    1
+#define SLAM_COMPARE_COMPARE_EN_OFFSET 0
+
+#define SLAM_COMPARE_BLK_NUM_LEN      10
+#define SLAM_COMPARE_BLK_NUM_OFFSET   16
+#define SLAM_COMPARE_BLK_H_NUM_LEN    5
+#define SLAM_COMPARE_BLK_H_NUM_OFFSET 8
+#define SLAM_COMPARE_BLK_V_NUM_LEN    5
+#define SLAM_COMPARE_BLK_V_NUM_OFFSET 0
+
+#define SLAM_COMPARE_DIS_THRESHOLD_LEN    15
+#define SLAM_COMPARE_DIS_THRESHOLD_OFFSET 17
+#define SLAM_COMPARE_DIS_RATIO_LEN        13
+#define SLAM_COMPARE_DIS_RATIO_OFFSET     4
+#define SLAM_COMPARE_H_RADIUS_LEN         2
+#define SLAM_COMPARE_H_RADIUS_OFFSET      2
+#define SLAM_COMPARE_V_RADIUS_LEN         2
+#define SLAM_COMPARE_V_RADIUS_OFFSET      0
+
+#define SLAM_COMPARE_STAT_EN_LEN       1
+#define SLAM_COMPARE_STAT_EN_OFFSET    24
+#define SLAM_COMPARE_MAX3_RATIO_LEN    5
+#define SLAM_COMPARE_MAX3_RATIO_OFFSET 16
+#define SLAM_COMPARE_BIN_FACTOR_LEN    8
+#define SLAM_COMPARE_BIN_FACTOR_OFFSET 8
+#define SLAM_COMPARE_BIN_NUM_LEN       6
+#define SLAM_COMPARE_BIN_NUM_OFFSET    0
+
+#define SLAM_COMPARE_PREFETCH_ENABLE_LEN    1
+#define SLAM_COMPARE_PREFETCH_ENABLE_OFFSET 24
+#define SLAM_COMPARE_FIRST_4K_PAGE_LEN      24
+#define SLAM_COMPARE_FIRST_4K_PAGE_OFFSET   0
+
+#define SLAM_COMPARE_CENH_OFFSET_LEN    4
+#define SLAM_COMPARE_CENH_OFFSET_OFFSET 4
+#define SLAM_COMPARE_CENV_OFFSET_LEN    4
+#define SLAM_COMPARE_CENV_OFFSET_OFFSET 0
+
+#define SLAM_COMPARE_TOTAL_KPT_NUM_LEN    15
+#define SLAM_COMPARE_TOTAL_KPT_NUM_OFFSET 0
+
+#define SLAM_COMPARE_DEBUG0_LEN    32
+#define SLAM_COMPARE_DEBUG0_OFFSET 0
+
+#define SLAM_COMPARE_DEBUG1_LEN    32
+#define SLAM_COMPARE_DEBUG1_OFFSET 0
+
+#define SLAM_COMPARE_EC_0_LEN    32
+#define SLAM_COMPARE_EC_0_OFFSET 0
+
+#define SLAM_COMPARE_EC_1_LEN    32
+#define SLAM_COMPARE_EC_1_OFFSET 0
+
+#define SLAM_COMPARE_REF_KPT_NUM_0_LEN    32
+#define SLAM_COMPARE_REF_KPT_NUM_0_OFFSET 0
+
+#define SLAM_COMPARE_REF_KPT_NUM_93_LEN    32
+#define SLAM_COMPARE_REF_KPT_NUM_93_OFFSET 0
+
+#define SLAM_COMPARE_CUR_KPT_NUM_0_LEN    32
+#define SLAM_COMPARE_CUR_KPT_NUM_0_OFFSET 0
+
+#define SLAM_COMPARE_CUR_KPT_NUM_93_LEN    32
+#define SLAM_COMPARE_CUR_KPT_NUM_93_OFFSET 0
+
+#define SLAM_COMPARE_MATCHED_KPTS_LEN    12
+#define SLAM_COMPARE_MATCHED_KPTS_OFFSET 0
+
+#define SLAM_COMPARE_REF_INDEX_0_LEN    12
+#define SLAM_COMPARE_REF_INDEX_0_OFFSET 12
+#define SLAM_COMPARE_CUR_INDEX_0_LEN    12
+#define SLAM_COMPARE_CUR_INDEX_0_OFFSET 0
+
+#define SLAM_COMPARE_REF_INDEX_3199_LEN    12
+#define SLAM_COMPARE_REF_INDEX_3199_OFFSET 12
+#define SLAM_COMPARE_CUR_INDEX_3199_LEN    12
+#define SLAM_COMPARE_CUR_INDEX_3199_OFFSET 0
+
+#define SLAM_COMPARE_DISTANCE_0_LEN    15
+#define SLAM_COMPARE_DISTANCE_0_OFFSET 0
+
+#define SLAM_COMPARE_DISTANCE_3199_LEN    15
+#define SLAM_COMPARE_DISTANCE_3199_OFFSET 0
+
+#endif // __SLAM_COMPARE_REG_OFFSET_FIELD_H__

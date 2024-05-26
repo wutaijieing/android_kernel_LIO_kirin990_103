@@ -1,0 +1,6 @@
+config PLATFORM_DFX_EASYSHELL
+	bool "Support Easy Shell"
+	default n
+	help
+	  This driver supports XXX SOC,
+	  including easy shell, etc.

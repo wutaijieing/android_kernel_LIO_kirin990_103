@@ -1,0 +1,172 @@
+config GENERAL_SEE
+	bool "general_see"
+	default n
+	help
+	  general_see driver
+
+config GENERAL_SEE_POWER_MANAGE_COUNT
+	depends on GENERAL_SEE
+	bool "general_see power manage counter"
+	default n
+	help
+	  general_see driver
+
+config GENERAL_SEE_APPLET_APDU_TEST_OPTIMIZATION
+	depends on GENERAL_SEE
+	bool "general_see applet apdu test optimize"
+	default n
+	help
+	  general_see driver used to optimize the apdu
+	  test cmd.It's orginal name is CONFIG_GENERAL_SEE_
+	  CHIPTEST_SUPPORT_APPLET_OPTIMIZATION.
+
+config GENERAL_SEE_SUPPORT_DCS
+	depends on GENERAL_SEE
+	bool "Support for Dynamic Binaries upgrade"
+	default n
+	help
+	  whether to support dynamic binaries upgrade in general_see
+
+config GENERAL_SEE_MISCIMG_PATCH
+	depends on GENERAL_SEE
+	bool "general_see msic patch driver"
+	default n
+	help
+	  general_see driver used to upgrade misc patch.
+	  It's orginal name is XXX_MISCIMG_PATCH, the
+	  name used in cos is also named XXX_MISCIMG_PATCH.
+
+config GENERAL_SEE_MISCIMG_SECUPGRADE
+	depends on GENERAL_SEE
+	bool "general_see misc upgrade"
+	default n
+	help
+	  general_see driver used to upgrade misc image.
+
+config GENERAL_SEE_SUPPORT_MULTI_COS
+	depends on GENERAL_SEE
+	bool "general_see support multi cos"
+	default n
+	help
+	  general_see driver used to support multi cos.
+	  It's orginal name is GENERAL_SEE_SUPPORT_MULTI_COS.
+
+config GENERAL_SEE_NEW_COS_VERSION_HEADER
+	depends on GENERAL_SEE
+	bool "general_see has new cos version format"
+	default n
+	help
+	  general_see driver used to support new cos version format.
+
+config GENERAL_SEE_NEW_COSID_HEADER
+	depends on GENERAL_SEE_SUPPORT_MULTI_COS
+	bool "general_see has new cos id format"
+	default n
+	help
+	  general_see driver used to support new cos id format.
+
+config GENERAL_SEE_SUPPORT_8_COS
+	depends on GENERAL_SEE_SUPPORT_MULTI_COS
+	bool "general_see can support 8 cos"
+	default n
+	help
+	  general_see driver used to support 8 cos.
+
+config GENERAL_SEE_SUPPORT_CASDKEY
+	depends on GENERAL_SEE
+	bool "general_see support CASD key"
+	default n
+	help
+	  whether general_see support CASD key
+
+config GENERAL_SEE_SUPPORT_ENCRYPT
+	depends on GENERAL_SEE
+	bool "general_see support encryption for bio, pin code and fingerprint."
+	default n
+	help
+	  whether general_see support encryption
+
+config GENERAL_SEE_FACTORY_SECURITY_CHECK
+	depends on GENERAL_SEE
+	bool "general_see support factory security check."
+	default n
+	help
+	  whether general_see support factory security check
+
+config GENERAL_SEE_NFC_IRQ_SWITCH
+	depends on GENERAL_SEE
+	bool "general_see support nfc irq switch."
+	default n
+	help
+	  whether general_see support nfc irq switch
+
+config GENERAL_SEE_SUPPORT_OVERSEA
+	depends on GENERAL_SEE
+	bool "general_see support oversea feature."
+	default n
+	help
+	  whether general_see support oversea feature
+
+config GENERAL_SEE_MNTN_RESET_IRQ_SEPARATE
+	depends on GENERAL_SEE
+	bool "general_see reset use separate interrupts."
+	default n
+	help
+	  whether general_see reset support separate interrupts feature
+
+config GENERAL_SEE_HIGH_TEMP_PROTECT_SWITCH
+	depends on GENERAL_SEE
+	bool "general_see support high temperature protect switch."
+	default n
+	help
+	  whether general_see support high temperature protect switch
+
+config GENERAL_SEE_SUPPORT_ULOADER
+	depends on GENERAL_SEE
+	bool "general_see support uloader image process."
+	default n
+	help
+	  whether general_see support uloader image process
+
+config SMX_PROCESS
+	depends on GENERAL_SEE
+	bool "general_see support smx process on boot."
+	default n
+	help
+	  whether general_see support smx process on boot
+
+config GENERAL_SEE_AT_SMX
+	depends on GENERAL_SEE
+	bool "general_see support smx controlled by atcmdsrv."
+	default n
+	help
+	  whether general_see support smx controlled by atcmdsrv
+
+config GENERAL_SEE_DISABLE_KEY
+	depends on GENERAL_SEE
+	bool "general_see disable open and close key."
+	default n
+	help
+	  whether general_see support disable open and close key
+
+config GENERAL_SEE_PINCODE
+	depends on GENERAL_SEE
+	bool "general_see support pincode."
+	default n
+	help
+	  whether general_see support pincode
+
+config GENERAL_SEE_PINCODE_POWER
+	depends on GENERAL_SEE
+	bool "general_see support pincode power."
+	default n
+	help
+	  whether general_see support pincode power
+
+config GENERAL_SEE_PINCODE_DISABLE
+	depends on GENERAL_SEE
+	bool "disable general_see pincode."
+	default n
+	help
+	whether general_see pincode is disabled
+

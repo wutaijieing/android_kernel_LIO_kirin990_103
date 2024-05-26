@@ -1,0 +1,2 @@
+include $(DRIVER_PATH)/wifi_1105_default_defconfig
+export _PRE_PRODUCT_VERSION = 1105

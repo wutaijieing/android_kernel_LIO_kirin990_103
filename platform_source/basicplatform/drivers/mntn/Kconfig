@@ -1,0 +1,160 @@
+config DFX_PLATFORM_MAINTAIN
+	bool "platform maintain module support"
+	default n
+	help
+	  Say yes here to support the platform maintain module
+
+config DFX_MNTN_PC
+	bool "pc platform"
+	default n
+	help
+	  Say yes here to support the pc platform
+
+config DFX_PSTORE
+	tristate "Save persistent store log support"
+	default n
+	depends on PSTORE
+	help
+	  This option enables generic access to platform level
+	   persistent storage via "pstore" filesystem that can
+	   be adding Maintenance and Test Logs(eg. pstore.bin).
+	   If you don't have a platform persistent store driver,
+	   say N.
+
+source "platform_source/basicplatform/drivers/mntn/blackbox/Kconfig"
+source "platform_source/basicplatform/drivers/mntn/code_protect/Kconfig"
+source "platform_source/basicplatform/drivers/mntn/general_see/Kconfig"
+source "platform_source/basicplatform/drivers/mntn/bl31/Kconfig"
+source "platform_source/basicplatform/drivers/mntn/dmsspt/Kconfig"
+source "platform_source/basicplatform/drivers/mntn/subpmu/Kconfig"
+source "platform_source/basicplatform/drivers/mntn/l3cache_ecc/Kconfig"
+source "platform_source/basicplatform/drivers/mntn/hm_klog/Kconfig"
+source "platform_source/basicplatform/drivers/mntn/ecall/Kconfig"
+
+config DFX_VIRT_TO_PHYS
+	bool "support converting virtual address to physical address"
+	default n
+	help
+	  Say 'Y' here if you want to support virtual address to physical address enable.
+
+config DFX_BOOT_TIME
+	bool "support print all boot slice"
+	default n
+	help
+	  Say 'Y' here if you want to print all boot slice.
+
+config DFX_BB_SYSCALL
+	bool "support print system call trace "
+	default n
+	help
+	  Say 'Y' here if you want to print system call trace.
+
+config DFX_POWER_OFF
+	bool "platform power off and reset driver"
+	default n
+	help
+	  Power off and reset support for the boards.
+
+config DFX_FIQ
+	bool "platform fiq dump driver"
+	default n
+	help
+	   Say 'Y' here if you want to support fiq dump.
+
+config DFX_MNTNDUMP
+        bool "platform mntn dump driver"
+        default n
+        help
+           Say 'Y' here if you want to support mntn dump.
+
+config HISI_DEBUG_FS
+	bool "platform debugfs"
+	depends on DEBUG_FS
+	help
+		debugfs disable by self
+
+config DFX_DEBUG_FS
+    bool "dfx platform debugfs"
+    depends on DEBUG_FS
+    help
+        debugfs disable by self
+
+
+config DFX_RECORD_SP
+        bool "platform mntn record sp"
+		depends on FUNCTION_TRACER
+		default n
+        help
+           Say 'Y' here if you want to support record sp.
+
+config DFX_HW_SP
+        bool "platform hw sp"
+        default n
+        help
+           Say 'Y' here if you want to support hw sp.
+
+config DFX_CLANG
+        bool "clang compiler auxiliary for kernel"
+        default n
+        help
+           Say 'Y' here if you want to support clang.
+
+config DFX_MNTN_FACTORY
+        bool "debug mntn for factory test"
+        depends on DFX_BB
+        default n
+        help
+           Say 'Y' here if you want to use enable mntn factory debug
+
+config DFX_HEALTH_GRADE
+        bool "health grade driver"
+        default n
+        help
+           Say 'Y' here if you want to use enable health grade
+
+config DFX_MNTN_SWITCH
+        bool "mntn switch debug driver"
+        depends on DFX_BB
+        default n
+        help
+           Say 'Y' here if you want to use mntn switch debug
+config DFX_EARLY_PANIC
+        bool "early ap panic save log buf"
+        depends on DFX_BB
+        default n
+        help
+           Say 'Y' here if you want to use enable early log buf
+config BBOX_SPLIT
+        bool "bbox memory split"
+        depends on DFX_BB
+        default n
+        help
+           Say 'Y' here if you want to split bbox memory
+config DFX_REBOOT_REASON_SEC
+        bool "secure reboot reason"
+        default n
+        help
+          Say 'Y' here to set reboot reason and subtype through secure way
+config MNTN_ALOADER_LOG
+        bool "enable aloader log"
+        default n
+        help
+           Say 'Y' here if you want to enable aloader log
+config MNTN_BBOX_LOG
+        bool "save bbox log"
+        depends on DFX_BB
+        default n
+        help
+           This module used to save bbox log
+config MNTN_BBOX_LOG_MAP
+        bool "get bbox log addr by map"
+        depends on MNTN_BBOX_LOG
+        default n
+        help
+           Say 'Y' here to get bbox log addr through map
+config DFX_PAGE_TABLE_DUMP
+        bool "save kernel page table"
+        depends on DFX_DEBUG_FS
+        default n
+        help
+           Say 'Y' here to save kernel page table

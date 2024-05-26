@@ -1,0 +1,17 @@
+config DKMD_DKSM
+	bool "DKMD dksm driver support"
+	default n
+	help
+	  This feature supports dksm driver
+
+config DKMD_DEBUG_ENABLE
+	bool "DKMD debug enable"
+	default n
+	help
+	  This feature supports debug config
+
+config DKMD_ASSERT_ENABLE
+	bool "DKMD assert enable"
+	default n
+	help
+	  This feature supports assert enable

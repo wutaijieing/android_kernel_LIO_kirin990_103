@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config KEYBOARD_CORE
+	tristate "key core support"
+	help
+	  Say Y here to enable the key support for platform soft.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called keypad.
+
+config KEYBOARD_GPIO_VOLUME_KEY
+	bool "gpio key support volume-up and volume-down"
+	depends on KEYBOARD_CORE
+	help
+	  Say Y here to enable the power key support for volume key.
+
+config KEYBOARD_PMIC_VOLUME_KEY
+	tristate "pmic gpio key support,use to realize volume-up and volume-down"
+	depends on SPMI_PLATFORM && PMIC_SPMI
+	help
+	  Say Y here to enable the volume key support for common platform.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called pmic_gpio_key.
+
+config KEYBOARD_GPIO_FUNC_KEY
+	bool "Func key support, depends on key core support"
+	depends on KEYBOARD_CORE
+	help
+	  Say Y here to enable the power key support for func key.
+
+config KEY_MASK
+	bool "key mask support, depends on key core support"
+	depends on KEYBOARD_CORE || KEYBOARD_PMIC_VOLUME_KEY
+	help
+	  Say Y here to enable the volume keymask.
+
+config VOLUMEKEY_COMBINATION
+	bool "volume combination support, depends on key core support"
+	depends on KEYBOARD_CORE || KEYBOARD_PMIC_VOLUME_KEY
+	help
+	  Say Y here to enable the volume key combination function.

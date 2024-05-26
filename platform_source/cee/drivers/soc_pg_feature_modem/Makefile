@@ -1,0 +1,2 @@
+obj-$(CONFIG_SOC_PG_FEATURE_DEVDRV_DEVPLATFORM) += platform/
+

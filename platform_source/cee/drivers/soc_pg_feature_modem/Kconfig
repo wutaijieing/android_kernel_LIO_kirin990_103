@@ -1,0 +1,10 @@
+menu "SOC_PG_FEATURE Drivers"
+
+menuconfig SOC_PG_FEATURE_DEVDRV
+    bool "SOC_PG_FEATURE support"
+    default n
+    help
+        Say yes here to support soc_pg_feature
+
+source "platform_source/cee/drivers/soc_pg_feature_modem/platform/Kconfig"
+endmenu

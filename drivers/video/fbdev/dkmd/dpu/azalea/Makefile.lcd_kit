@@ -1,0 +1,23 @@
+ifeq ($(CONFIG_LCD_KIT_DRIVER),y)
+EXTRA_CFLAGS += -I$(srctree)/drivers/devkit/lcdkit/lcdkit3.0/kernel/common/include \
+				-I$(srctree)/drivers/devkit/lcdkit/lcdkit3.0/kernel/hisi/adapt \
+				-I$(srctree)/drivers/devkit/lcdkit/lcdkit3.0/kernel/hisi/include
+
+dpufb-objs += backlight/lp8557.o
+dpufb-objs += backlight/lp8556.o
+dpufb-objs += backlight/rt8555.o
+dpufb-objs += voltage/tps65132.o
+dpufb-objs += backlight/lm36274.o
+dpufb-objs += voltage/rt4801h.o
+dpufb-objs += voltage/ina231.o
+dpufb-objs += backlight/ktz8864.o
+dpufb-objs += backlight/rt4831.o
+dpufb-objs += backlight/nt50356.o
+dpufb-objs += backlight/rt4539.o
+dpufb-objs += voltage/icn68116.o
+dpufb-objs += voltage/aw37503.o
+endif
+
+ifeq ($(CONFIG_HUAWEI_DEVKIT_HISI),y)
+EXTRA_CFLAGS += -DLV_GET_LCDBK_ON
+endif

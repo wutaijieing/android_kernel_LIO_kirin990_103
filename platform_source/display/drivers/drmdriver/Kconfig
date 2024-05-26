@@ -1,0 +1,6 @@
+config DRMDRIVER
+    tristate "dpu drm module driver"
+    default n
+    help
+      Provides a secure configuration between kernel and BL31,
+	  and drm module driver

@@ -1,0 +1,32 @@
+config INPUTHUB_AS
+	bool "INPUTHUB_AS"
+	depends on INPUTHUB_30
+	default n
+	help
+	  support all scenario contexthub: channel buffer mechanism,
+	  device detect manager, plat debug, logbuff and bus interface.
+
+config INPUTHUB_DEBUG
+	bool "INPUTHUB_DEBUG"
+	depends on INPUTHUB_30
+	default n
+	help
+	  support all scenario contexthub debug
+
+config INPUTHUB_AS_DMD
+	bool "INPUTHUB_AS_DMD"
+	depends on INPUTHUB_30
+	default n
+	help
+	  support all scenario contexthub dmd
+
+config CONTEXTHUB_WATCH_FACTORY
+	bool "Sensor CONTEXTHUB watch factory"
+	depends on INPUTHUB_30
+	default n
+	help
+	  Say yes here if you want to enable watch factory code
+
+source "platform_source/smart/drivers/channels/inputhub_as/device/Kconfig"
+source "platform_source/smart/drivers/channels/inputhub_as/sensor_channel/Kconfig"
+source "platform_source/smart/drivers/channels/inputhub_as/fingerprint_channel/Kconfig"

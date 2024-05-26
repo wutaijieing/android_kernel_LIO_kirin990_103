@@ -1,0 +1,114 @@
+#
+#Freqdump support.
+#
+comment "Freqdump FEATURE"
+config FREQDUMP
+	bool "Freqdump"
+	depends on DFX_DEBUG_FS
+	default n
+	help
+	  Driver for kernel freqdump
+
+config FREQDUMP_PLATFORM
+	bool "jupiter and after jupiter's freqdump feature"
+	default n
+
+config DPM_PLATFORM_JUPITER
+	bool "jupiter Digital power monitor(loadmonitor) driver config"
+	default n
+
+config DPM_PLATFORM_SATURN
+	bool "saturn Digital power monitor(loadmonitor) driver config"
+	default n
+
+config DPM_PLATFORM_EARTH
+	bool "earth Digital power monitor(loadmonitor) driver config"
+	default n
+
+config DPM_PLATFORM_MARS
+	bool "mars Digital power monitor(loadmonitor) driver config"
+	default n
+
+config DPM_PLATFORM_VENUS
+	bool "venus Digital power monitor(loadmonitor) driver config"
+	default n
+
+config DPM_PLATFORM_URANUS
+	bool "uranus Digital power monitor(loadmonitor) driver config"
+	default n
+
+config DPM_PLATFORM_MERCURY
+	bool "mercury Digital power monitor(loadmonitor) driver config"
+	default n
+
+config FREQDUMP_MERCURY
+	bool "mercury freqdump"
+	depends on DFX_DEBUG_FS
+	default n
+	help
+	  Driver for kernel mercury freqdump
+
+config FREQDUMP_URANUS
+	bool "uranus freqdump"
+	depends on DFX_DEBUG_FS
+	default n
+	help
+	  Driver for kernel uranus freqdump
+
+config ENABLE_MIDEA_MONITOR
+	bool "enable media1 & media2 loadmonitor"
+	default n
+
+config FREQDUMP_PLATFORM_VENUS
+	bool "venus freqdump driver config"
+	default n
+
+config COMMON_LOADMONITOR_PLATFORM
+	bool "Digital power monitor(loadmonitor) platform driver config(from neptune)"
+	default n
+	help
+	  Driver for kernel loadmonitor platform
+	  from neptune
+	  every new platform need configure .config file
+	  eng and user version all need this config
+
+config NEPTUNE_PLATFORM
+	bool "Digital power monitor neptune platform driver config"
+	default n
+	help
+	  Driver for kernel freqdump&loadmonitor platform
+	  for neptune
+	  neptune platform need configure .config file
+	  eng and user version all need this config
+
+config COMMON_FREQDUMP_PLATFORM
+	bool "Digital power monitor(freqdump) platform driver config(from neptune)"
+	default n
+	help
+	  Driver for kernel freqdump platform
+	  every new platform need configure .config file
+	  default depens on DEBUG_FS(from neptune)
+	  eng version need this config
+	  perf version need this config
+
+config DPM_PLATFORM_PLUTO
+	bool "pluto Digital power monitor(loadmonitor) driver config"
+	default n
+
+config FREQDUMP_PLUTO
+	bool "pluto freqdump"
+	depends on DFX_DEBUG_FS
+	default n
+	help
+	Driver for kernel pluto freqdump
+
+config DPM_PLATFORM_LUNA
+	bool "luna Digital power monitor(loadmonitor) driver config"
+	default n
+
+config FREQDUMP_LUNA
+	bool "luna freqdump"
+	depends on DFX_DEBUG_FS
+	default n
+	help
+	Driver for kernel luna freqdump

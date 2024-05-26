@@ -1,0 +1,4 @@
+config AUDIO_COMMON_IMAGE
+        tristate "audio common image feature support"
+        help
+          Say y to enable audio common image feature for audio

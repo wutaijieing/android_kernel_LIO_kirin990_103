@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# USB Core configuration
+#
+
+config USB_DOCK_HEADSET_QUIRK
+	bool "Compatibility problem of VENDOR DOCK and TypeC Headset"
+	depends on USB_SUPPORT
+	help
+	  Compatibility problem of VENDOR DOCK and TypeC Headset.
+
+config USB_AUTOSUSPEND_DELAY_QUIRK
+	bool "VENDOR USB do not set autosuspend_delay in hub_probe"
+	depends on USB
+	help
+	  Do not set autosuspend_delay in hub_probe, but in usb_suspend_device.
+
+config USB_PM_NO_RESET_RESUM
+	bool "VENDOR USB NO_RESET_RESUM in PM route"
+	depends on USB
+	help
+	  Allow no reset_resume in PM route for VENDOR USB.
+
+config USB_DEVICE_READ_USE_TRYLOCK
+	bool "VENDOR USB use trylock in usb_device_read"
+	depends on USB
+	help
+	  Use trylock in usb_deivce_read for VENDOR USB.
+
+config USB_SKIP_RESUME
+	bool "VENDOR USB support skip resume"
+	depends on USB
+	default n
+	help
+	  This option adds support for PM control of USB module
+	  in vendor platforms.
+
+config USB_WAIT_FOR_CONNECTED_ACCURATELY
+	bool "Wait timeout in function wait_for_connected using timer"
+	depends on USB
+	help
+	  This option adds support for timeout using timer
+	  in function wait_for_connected.

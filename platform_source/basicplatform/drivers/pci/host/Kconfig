@@ -1,0 +1,156 @@
+#
+# Vendor PCIe driver configuration
+#
+
+config PCIE_KPORT
+	bool "Kport PCIe controller"
+	depends on PCI
+	depends on PCI_MSI_IRQ_DOMAIN
+	select PCIEPORTBUS
+	select PCIE_DW_HOST
+	help
+	  Say Y here to enable PCIe controller support on Kport SoCs.
+	  The PCIe controller uses DesignWare core.
+
+config PCIE_KPORT_V1
+	bool "Kport PCIe V1"
+	depends on PCIE_KPORT
+	help
+	  Say Y here to enable Kport PCIe V1.
+
+config PCIE_KPORT_TEST
+	tristate "kport PCIe test"
+	depends on PCIE_KPORT
+	help
+	  Say Y here if you want to use testcases for PCIe controller on kport SoC
+
+config PCIE_KPORT_SLT
+	tristate "kport PCIe SLT"
+	depends on PCIE_KPORT
+	help
+	  Say Y here if you want to use SLT Func for PCIe on kport SoC
+
+config PCIE_KPORT_SLT_DEVICE
+	tristate "kport PCIe SLT test with device"
+	depends on PCIE_KPORT_SLT
+	help
+	  Say Y here if you want to use SLT Func for kport PCIe with device
+
+config PCIE_KIRIN_SLT_HI110X
+	tristate "kport PCIe SLT connected with wifi"
+	depends on PCIE_KPORT_SLT
+	help
+	  Say Y here if you want to use SLT Func for kport PCIe with device wifi
+
+config PCIE_KPORT_MNTN
+	tristate "kport PCIe mntn log"
+	depends on PCIE_KPORT
+	help
+	  Say Y here if you want PCIe controller support on kport SoC
+
+config PCIE_KPORT_FEB
+	tristate "kport PCIe RC-Feb"
+	select PCIE_KPORT
+
+config PCIE_KPORT_MAR
+	tristate "kport PCIe RC-Mar"
+	select PCIE_KPORT
+
+config PCIE_KPORT_APR
+	tristate "kport PCIe RC-Apr"
+	select PCIE_KPORT
+	select PCIE_KPORT_AXI_TIMEOUT
+
+config PCIE_KPORT_MAY
+	tristate "kport PCIe RC-May"
+	select PCIE_KPORT
+	select PCIE_KPORT_AXI_TIMEOUT
+
+config PCIE_KPORT_SEP
+	tristate "kport PCIe RC-Sep"
+	select PCIE_KPORT
+	select PCIE_KPORT_AXI_TIMEOUT
+
+config PCIE_KPORT_BURB
+	tristate "kport PCIe RC-Burb"
+	select PCIE_KPORT
+	select PCIE_KPORT_AXI_TIMEOUT
+
+config PCIE_KPORT_JUN
+	tristate "kport PCIe RC-Jun"
+	select PCIE_KPORT
+	select PCIE_KPORT_AXI_TIMEOUT
+
+config PCIE_KPORT_LEXI
+	tristate "kport PCIe RC-Lexi"
+	select PCIE_KPORT
+	select PCIE_KPORT_AXI_TIMEOUT
+
+config PCIE_KPORT_NAP
+	tristate "kport PCIe RC-EP-NAP"
+	select PCIE_KPORT
+	select PCIE_KPORT_AXI_TIMEOUT
+
+config PCIE_KPORT_AXI_TIMEOUT
+	bool
+	depends on PCIE_KPORT
+	help
+	  Say Y here to add axi timeout interrupt on kport SoC
+
+config PCIE_KPORT_IDLE
+	bool "kport PCIe L1ss idle"
+	depends on PCIE_KPORT
+	help
+	  Say Y here to enable pcie L1ss idle on kport SOC
+
+config KIRIN_PCIE_L1SS_IDLE_SLEEP
+	bool "kport PCIe L1ss idle timeout&wake interrupts"
+	depends on PCIE_KPORT_IDLE
+	help
+	  Say Y here to add L1ss idle timeout&wake interrupts on kport SOC
+
+config PCIE_KPORT_NOC_DBG
+	tristate "pcie_kport NOC DEBUG"
+	select PCIE_KPORT
+	help
+	  Say Y here to dump kport pcie host info when PCIe NOC happen
+
+config KIRIN_PCIE_NOC_DBG
+	tristate "kport NOC DEBUG"
+	select PCIE_KPORT
+	help
+	  Say Y here if you want dump pcie host info when PCIe NOC happen
+
+config PCIE_KPORT_PHY
+	tristate "kport PCIe PHY"
+	select PCIE_KPORT
+	help
+	  Say Y here if you want select kport pcie phy
+
+config PCIE_KPORT_PHY_XW
+	tristate "kport PCIe PHY-XW"
+	select PCIE_KPORT
+	help
+	  Say Y here if you want select kport pcie phy-xw
+
+config PCIE_KPORT_PHY_KPHY
+	tristate "kport PCIe PHY-KPHY"
+	select PCIE_KPORT
+	help
+	  Say Y here if you want select kport pcie phy-kphy
+
+config PCIE_KPORT_DBI_SPLT
+	tristate "kport PCIe dbi splt"
+	select PCIE_KPORT
+	help
+	  Say Y here if need support PCIe dbi ep memory split
+
+config PCIE_KPORT_PC
+	bool "kport Phoenix PC use this"
+	default n
+
+config PCIE_KPORT_EP_FPGA_VERIFY
+	tristate "kport PCIe FPGA EP"
+	select PCIE_KPORT
+	help
+	  Say Y here if you want to compile 'FPGA+FPGA' or 'UDP+FPGA' Version.

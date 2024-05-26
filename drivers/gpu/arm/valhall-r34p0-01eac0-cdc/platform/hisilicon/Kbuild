@@ -1,0 +1,21 @@
+#
+# Copyright (c) Huawei Technologies Co., Ltd. 2014-2021. All rights reserved.
+# Description: This file describe GPU hardware related features
+# Create: 2014-2-24
+#
+# This program is free software and is provided to you under the terms of the
+# GNU General Public License version 2 as published by the Free Software
+# Foundation, and any use by you of this program is subject to the terms
+# of such GNU licence.
+#
+# A copy of the licence is included with the program, and can also be obtained
+# from Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# Boston, MA  02110-1301, USA.
+#
+#
+
+mali_kbase-y += \
+        platform/$(MALI_PLATFORM_DIR)/mali_kbase_config_platform.o \
+
+mali_kbase-$(CONFIG_GPU_CORE_HOTPLUG) += \
+        platform/$(MALI_PLATFORM_DIR)/mali_kbase_gpu_core_hotplug.o

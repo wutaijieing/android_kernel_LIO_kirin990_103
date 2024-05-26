@@ -1,0 +1,131 @@
+config DRV_IP_REGULATOR
+	tristate "system interior bus mtcmos control"
+	depends on MFD_IP_CORE
+	help
+	 This driver provides system interior bus switch support for the IP regulator on the system.
+
+config FREQ_AUTODOWN
+	tristate "Support Bus automatic frequency reduction"
+	depends on OF
+	help
+	  Bus automatic frequency reduction is a method for reducing power consumption
+	  of the chip is proposed, through the bus load automatically reduced frequency.
+
+config IP_REGULATOR_IPC
+	tristate "system interior bus mtcmos IPC control"
+	depends on IPC_MAILBOX
+	help
+	 This driver provides system interior bus switch support for the IP regulator IPC on the system.
+
+config ATLA_IP_PLATFORM
+        tristate "ATLA system interior bus control platform switch"
+        depends on MFD_IP_CORE
+        help
+          This driver provides system interior bus switch for the IP regulator on the ATLA system.
+
+config BOST_IP_PLATFORM
+	tristate "system interior bus control platform switch"
+	depends on MFD_IP_CORE
+	help
+	  This driver provides system interior bus switch for the IP regulator on the system.
+
+config MIA_IP_PLATFORM
+	tristate "MIA system interior bus control platform switch"
+	depends on MFD_IP_CORE
+	help
+	  This driver provides system interior bus switch for the IP regulator on the MIA system.
+
+config PHOE_IP_PLATFORM
+    tristate "PHOE system interior bus control platform switch"
+    depends on MFD_IP_CORE
+    help
+        This driver provides system interior bus switch for the IP regulator on the PHOE system.
+
+config BALT_IP_PLATFORM
+    tristate "BALT system interior bus control platform switch"
+    depends on MFD_IP_CORE
+    help
+        This driver provides system interior bus switch for the IP regulator on the BALT system.
+
+config BURB_IP_PLATFORM
+    tristate "BBK system interior bus control platform switch"
+    depends on MFD_IP_CORE
+    help
+        This driver provides system interior bus switch for the IP regulator on the BBK system.
+
+config CHAR_IP_PLATFORM
+    tristate "CHAR system interior bus control platform switch"
+    depends on MFD_IP_CORE
+    help
+        This driver provides system interior bus switch for the IP regulator on the CHAR system.
+
+config LEX_IP_PLATFORM
+    tristate "LEX system interior bus control platform switch"
+    depends on MFD_IP_CORE
+    help
+        This driver provides system interior bus switch for the IP regulator on the LEX system.
+
+config NA_IP_PLATFORM
+    tristate "NA system interior bus control platform switch"
+    depends on MFD_IP_CORE
+    help
+        This driver provides system interior bus switch for the IP regulator on the NA system.
+
+config CHARPRO_IP_PLATFORM
+	tristate "CHARPRO system interior bus control platform switch"
+	depends on MFD_IP_CORE
+	help
+	  This driver provides system interior bus switch for the IP regulator on the CHARPRO system.
+
+config ATHT_IP_PLATFORM
+	tristate "ATHT system interior bus control platform switch"
+	depends on MFD_IP_CORE
+	help
+	  This driver provides system interior bus switch for the IP regulator on the ATHT system.
+
+config LPM_MEDIA_REGULATOR
+	tristate "LPM media regulator feature"
+	depends on MFD_IP_CORE
+	help
+	 This Feature provides support for LPM media regulator.
+
+config IP_PLATFORM_COMMON
+	tristate "COMMON system interior bus control platform switch"
+	depends on MFD_IP_CORE
+	help
+	 This driver provides system interior bus switch for the IP regulator after ORLA AND PHON system.
+
+config DRV_REGULATOR_DEBUG
+        tristate "regulator debug info"
+        help
+          This driver provides support for regulator control info.
+
+config REGULATOR_PLATFORM
+	tristate "PMIC regulators from platform device"
+        help
+          This driver provides support for the voltage regulators on the
+          PMU / Codec IC.
+
+config REGULATOR_SUB_PMU_SPMI
+        tristate "SUB PMIC regulators from spmi device"
+        depends on PMIC_SUB_PMU_SPMI
+        help
+          This driver provides support for the voltage regulators on the
+          SUB PMU / Codec IC.
+
+config REGULATOR_SMARTPA
+        tristate "SMARTPA regulators from platform device"
+        help
+          This driver provides support for the voltage regulators on the
+          PMU / Codec IC.
+
+config PMIC_PLATFORM_DEBUG
+        depends on DEBUG_FS
+        bool "regulator and ip driver debug"
+        default n
+
+config REGULATOR_TRACE
+        tristate "Regulator Debug driver for REGULATOR TRACE"
+        depends on DRV_REGULATOR_DEBUG
+        help
+          provides support for regulator trace.

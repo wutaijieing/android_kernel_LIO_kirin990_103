@@ -1,0 +1,3 @@
+# SPDX-License-Identifier: GPL-2.0
+
+source "platform_source/basicplatform/drivers/usb/dwc3/chip/Kconfig"

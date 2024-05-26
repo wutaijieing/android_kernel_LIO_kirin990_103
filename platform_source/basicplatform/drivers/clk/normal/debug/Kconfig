@@ -1,0 +1,7 @@
+config CLK_DEBUG
+	bool "Clock Debug driver for ARM Reference designs"
+	default n
+
+config CLK_TRACE
+	bool "Clock Debug driver for CLK TRACE"
+	default n

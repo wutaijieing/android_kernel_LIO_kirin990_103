@@ -1,0 +1,5 @@
+menu "driver Configuration"
+source "platform_source/ai/drivers/npu/Kconfig"
+
+endmenu
+

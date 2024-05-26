@@ -1,0 +1,1 @@
+obj-$(CONFIG_FREQ_AUTODOWN) += freq_autodown.o

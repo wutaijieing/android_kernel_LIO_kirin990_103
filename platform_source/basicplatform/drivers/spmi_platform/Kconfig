@@ -1,0 +1,16 @@
+#
+# SPMI driver configuration
+#
+
+
+config SPMI_PLATFORM
+	tristate "SPMI Controller"
+	help
+	  enabel spmi
+
+config SPMI_PLATFORM_DEBUG_FS
+	tristate "SPMI Controller Debug"
+	depends on SPMI_PLATFORM
+	depends on DFX_DEBUG_FS
+	help
+	  enable spmi debug fs

@@ -1,0 +1,18 @@
+comment "MODULE ISP"
+
+choice
+	prompt "HISP Version"
+	default CAMERA_USE_HISP220
+	depends on KERNEL_CAMERA
+	help
+        Select ISP version.
+
+config CAMERA_USE_HISP220
+	bool "HISP220"
+	depends on KERNEL_CAMERA
+
+config CAMERA_USE_HISP230
+    bool "HISP230"
+    depends on KERNEL_CAMERA
+endchoice
+

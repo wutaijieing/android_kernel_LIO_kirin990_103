@@ -1,0 +1,6 @@
+config PLATFORM_TELE_MNTN
+	bool "Platform tele_mntn support"
+	depends on  LPMCU_BB
+	default n
+	help
+	  Say yes here to support the platform tele_mntn 

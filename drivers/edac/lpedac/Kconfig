@@ -1,0 +1,33 @@
+config CPU_EDAC_ARM64
+	depends on ARM64
+	tristate "CPU L1/L2/L3/SCU Caches"
+	help
+	   Support for error detection and correction on the CPUs.
+	   Reports errors caught by ECC mechanism.
+	   For debugging issues having to do with stability and overall system
+	   health, you should probably say 'Y' here.
+
+config RAS_EDAC
+	depends on ARM64 && !CPU_EDAC_ARM64 && !DFX_L3CACHE_ECC
+	tristate "RAS EDAC"
+	help
+	   Support for error detection and correction on the CPUs.
+	   Reports errors caught by ECC mechanism.
+	   For debugging issues having to do with stability and overall system
+	   health, you should probably say 'Y' here.
+
+config RAS_EDAC_DEBUG
+	depends on ARM64 && DFX_DEBUG_FS
+	tristate "RAS EDAC DEBUG"
+	help
+	   Support for error detection and correction on the CPUs.
+	   Reports errors caught by ECC mechanism.
+	   For debugging issues having to do with stability and overall system
+	   health, you should probably say 'Y' here.
+
+
+config CPU_EDAC_ARM64_DEBUG
+	depends on CPU_EDAC_ARM64
+	bool "Debug for CPU EDAC ECC"
+	help
+	   For debug edac ecc, you should probably say 'Y' here.

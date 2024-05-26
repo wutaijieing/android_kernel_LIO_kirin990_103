@@ -1,0 +1,22 @@
+menu "GPUFLINK Options"
+
+config GPUFLINK
+    tristate "GPUFREQ LINK CORE"
+    depends on GPUFREQ
+    select PERF_MODE
+    help
+      This enables the gpuflink driver
+
+config DDRLINK_GOV_DEFAULT
+    tristate "GPUFREQ LINK DDRFREQ DEFAULT GOVERNOR"
+    depends on GPUFLINK
+    help
+      This enable gpufreq link ddr governor register to gpuflink core
+
+config DDRLINK_QOS_DRV
+    tristate "GPUFREQ LINK DDRFREQ QOS DRIVER"
+    depends on GPUFLINK && DEVFREQ_GOV_PLATFORM_QOS
+    help
+      This enable gpufreq link ddr qos driver register to gpuflink core
+
+endmenu

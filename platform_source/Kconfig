@@ -1,0 +1,15 @@
+menu "platform Kernel Configuration"
+
+source "platform_source/cee/Kconfig"
+source "platform_source/basicplatform/Kconfig"
+source "platform_source/see/Kconfig"
+source "platform_source/smart/Kconfig"
+source "platform_source/ai/Kconfig"
+source "platform_source/maligpu/Kconfig"
+source "platform_source/audio/Kconfig"
+source "platform_source/camera/Kconfig"
+source "platform_source/display/Kconfig"
+source "platform_source/isp/Kconfig"
+source "platform_source/vcodec/Kconfig"
+source "platform_source/hisecally/Kconfig"
+endmenu

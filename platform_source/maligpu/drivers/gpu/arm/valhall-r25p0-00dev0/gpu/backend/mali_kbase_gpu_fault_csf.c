@@ -1,0 +1,276 @@
+/*
+ *
+ * (C) COPYRIGHT 2019-2020 ARM Limited. All rights reserved.
+ *
+ * This program is free software and is provided to you under the terms of the
+ * GNU General Public License version 2 as published by the Free Software
+ * Foundation, and any use by you of this program is subject to the terms
+ * of such GNU licence.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, you can access it online at
+ * http://www.gnu.org/licenses/gpl-2.0.html.
+ *
+ * SPDX-License-Identifier: GPL-2.0
+ *
+ */
+
+#include <mali_kbase.h>
+#include "csf/mali_gpu_csf_registers.h"
+#include "../mali_kbase_gpu_fault.h"
+
+const char *kbase_gpu_exception_name(u32 const exception_code)
+{
+	const char *e;
+
+	switch (exception_code) {
+	/* Non-Fault Status code */
+	case CS_FAULT_EXCEPTION_TYPE_OK:
+		e = "OK";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_DONE:
+		e = "DONE";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_ACTIVE:
+		e = "ACTIVE";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_TERMINATED:
+		e = "TERMINATED";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_EUREKA:
+		e = "EUREKA";
+		break;
+	/* Command Stream interrupted exceptions */
+	case CS_FAULT_EXCEPTION_TYPE_KABOOM:
+		e = "KABOOM";
+		break;
+	/* Command Stream exceptions */
+	case CS_FAULT_EXCEPTION_TYPE_CS_RESOURCE_TERMINATED:
+		e = "CS_RESOURCE_TERMINATED";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_CS_CONFIG_FAULT:
+		e = "CS_CONFIG_FAULT";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_CS_ENDPOINT_FAULT:
+		e = "CS_ENDPOINT_FAULT";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_CS_BUS_FAULT:
+		e = "CS_BUS_FAULT";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_CS_INVALID_INSTRUCTION:
+		e = "CS_INVALID_INSTRUCTION";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_CS_CALL_STACK_OVERFLOW:
+		e = "CS_CALL_STACK_OVERFLOW";
+		break;
+	/* Shader exceptions */
+	case CS_FAULT_EXCEPTION_TYPE_INSTR_INVALID_PC:
+		e = "INSTR_INVALID_PC";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_INSTR_INVALID_ENC:
+		e = "INSTR_INVALID_ENC";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_INSTR_BARRIER_FAULT:
+		e = "INSTR_BARRIER_FAULT";
+		break;
+	/* Misc exceptions */
+	case CS_FAULT_EXCEPTION_TYPE_DATA_INVALID_FAULT:
+		e = "DATA_INVALID_FAULT";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_TILE_RANGE_FAULT:
+		e = "TILE_RANGE_FAULT";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_ADDR_RANGE_FAULT:
+		e = "ADDR_RANGE_FAULT";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_IMPRECISE_FAULT:
+		e = "IMPRECISE_FAULT";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_OUT_OF_MEMORY:
+		e = "OUT_OF_MEMORY";
+		break;
+	/* GPU exceptions */
+	case CS_FAULT_EXCEPTION_TYPE_GPU_BUS_FAULT:
+		e = "GPU_BUS_FAULT";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_GPU_SHAREABILITY_FAULT:
+		e = "GPU_SHAREABILITY_FAULT";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_SYSTEM_SHAREABILITY_FAULT:
+		e = "SYSTEM_SHAREABILITY_FAULT";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_GPU_CACHEABILITY_FAULT:
+		e = "GPU_CACHEABILITY_FAULT";
+		break;
+	/* MMU page fault exceptions */
+	case CS_FAULT_EXCEPTION_TYPE_TRANSLATION_FAULT_0:
+	case CS_FAULT_EXCEPTION_TYPE_TRANSLATION_FAULT_1:
+	case CS_FAULT_EXCEPTION_TYPE_TRANSLATION_FAULT_2:
+	case CS_FAULT_EXCEPTION_TYPE_TRANSLATION_FAULT_3:
+	case CS_FAULT_EXCEPTION_TYPE_TRANSLATION_FAULT_4:
+		e = "TRANSLATION_FAULT";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_PERMISSION_FAULT_0:
+	case CS_FAULT_EXCEPTION_TYPE_PERMISSION_FAULT_1:
+	case CS_FAULT_EXCEPTION_TYPE_PERMISSION_FAULT_2:
+	case CS_FAULT_EXCEPTION_TYPE_PERMISSION_FAULT_3:
+		e = "PERMISSION_FAULT";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_ACCESS_FLAG_1:
+	case CS_FAULT_EXCEPTION_TYPE_ACCESS_FLAG_2:
+	case CS_FAULT_EXCEPTION_TYPE_ACCESS_FLAG_3:
+		e = "ACCESS_FLAG";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_ADDRESS_SIZE_FAULT_IN:
+		e = "ADDRESS_SIZE_FAULT_IN";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_ADDRESS_SIZE_FAULT_OUT0:
+	case CS_FAULT_EXCEPTION_TYPE_ADDRESS_SIZE_FAULT_OUT1:
+	case CS_FAULT_EXCEPTION_TYPE_ADDRESS_SIZE_FAULT_OUT2:
+	case CS_FAULT_EXCEPTION_TYPE_ADDRESS_SIZE_FAULT_OUT3:
+		e = "ADDRESS_SIZE_FAULT_OUT";
+		break;
+	case CS_FAULT_EXCEPTION_TYPE_MEMORY_ATTRIBUTE_FAULT_0:
+	case CS_FAULT_EXCEPTION_TYPE_MEMORY_ATTRIBUTE_FAULT_1:
+	case CS_FAULT_EXCEPTION_TYPE_MEMORY_ATTRIBUTE_FAULT_2:
+	case CS_FAULT_EXCEPTION_TYPE_MEMORY_ATTRIBUTE_FAULT_3:
+		e = "MEMORY_ATTRIBUTE_FAULT";
+		break;
+	/* Any other exception code is unknown */
+	default:
+		e = "UNKNOWN";
+		break;
+	}
+
+	return e;
+}
+
+const char *kbase_gpu_fatal_exception_name(u32 const fatal_exception_code)
+{
+	const char *e;
+
+	switch (fatal_exception_code) {
+	/* Status code regarded as non-fatal */
+	case CS_FATAL_EXCEPTION_TYPE_OK:
+		e = "OK";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_DONE:
+		e = "DONE";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_EUREKA:
+		e = "EUREKA";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_ACTIVE:
+		e = "ACTIVE";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_TERMINATED:
+		e = "TERMINATED";
+		break;
+	/* Command Stream fatal exceptions */
+	case CS_FATAL_EXCEPTION_TYPE_KABOOM:
+		e = "FATAL_KABOOM";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_CS_RESOURCE_TERMINATED:
+		e = "FATAL_CS_RESOURCE_TERMINATED";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_CS_CONFIG_FAULT:
+		e = "CS_CONFIG_FAULT";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_CS_ENDPOINT_FAULT:
+		e = "FATAL_CS_ENDPOINT_FAULT";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_CS_BUS_FAULT:
+		e = "FATAL_CS_BUS_FAULT";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_CS_INVALID_INSTRUCTION:
+		e = "FATAL_CS_INVALID_INSTRUCTION";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_CS_CALL_STACK_OVERFLOW:
+		e = "FATAL_CS_CALL_STACK_OVERFLOW";
+		break;
+	/* Shader exceptions */
+	case CS_FATAL_EXCEPTION_TYPE_INSTR_INVALID_PC:
+		e = "FATAL_INSTR_INVALID_PC";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_INSTR_INVALID_ENC:
+		e = "FATAL_INSTR_INVALID_ENC";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_INSTR_BARRIER_FAULT:
+		e = "FATAL_INSTR_BARRIER_FAULT";
+		break;
+	/* Misc exceptions */
+	case CS_FATAL_EXCEPTION_TYPE_DATA_INVALID_FAULT:
+		e = "FATAL_DATA_INVALID_FAULT";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_TILE_RANGE_FAULT:
+		e = "FATAL_TILE_RANGE_FAULT";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_ADDR_RANGE_FAULT:
+		e = "FATAL_ADDR_RANGE_FAULT";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_IMPRECISE_FAULT:
+		e = "FATAL_IMPRECISE_FAULT";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_OUT_OF_MEMORY:
+		e = "FATAL_OUT_OF_MEMORY";
+		break;
+	/* GPU exceptions */
+	case CS_FATAL_EXCEPTION_TYPE_GPU_BUS_FAULT:
+		e = "FATAL_GPU_BUS_FAULT";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_GPU_SHAREABILITY_FAULT:
+		e = "FATAL_GPU_SHAREABILITY_FAULT";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_SYSTEM_SHAREABILITY_FAULT:
+		e = "FATAL_SYSTEM_SHAREABILITY_FAULT";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_GPU_CACHEABILITY_FAULT:
+		e = "FATAL_GPU_CACHEABILITY_FAULT";
+		break;
+	/* MMU page fault exceptions */
+	case CS_FATAL_EXCEPTION_TYPE_TRANSLATION_FAULT_0:
+	case CS_FATAL_EXCEPTION_TYPE_TRANSLATION_FAULT_1:
+	case CS_FATAL_EXCEPTION_TYPE_TRANSLATION_FAULT_2:
+	case CS_FATAL_EXCEPTION_TYPE_TRANSLATION_FAULT_3:
+	case CS_FATAL_EXCEPTION_TYPE_TRANSLATION_FAULT_4:
+		e = "FATAL_TRANSLATION_FAULT";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_PERMISSION_FAULT_0:
+	case CS_FATAL_EXCEPTION_TYPE_PERMISSION_FAULT_1:
+	case CS_FATAL_EXCEPTION_TYPE_PERMISSION_FAULT_2:
+	case CS_FATAL_EXCEPTION_TYPE_PERMISSION_FAULT_3:
+		e = "FATAL_PERMISSION_FAULT";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_ACCESS_FLAG_1:
+	case CS_FATAL_EXCEPTION_TYPE_ACCESS_FLAG_2:
+	case CS_FATAL_EXCEPTION_TYPE_ACCESS_FLAG_3:
+		e = "FATAL_ACCESS_FLAG";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_ADDRESS_SIZE_FAULT_IN:
+		e = "FATAL_ADDRESS_SIZE_FAULT_IN";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_ADDRESS_SIZE_FAULT_OUT0:
+	case CS_FATAL_EXCEPTION_TYPE_ADDRESS_SIZE_FAULT_OUT1:
+	case CS_FATAL_EXCEPTION_TYPE_ADDRESS_SIZE_FAULT_OUT2:
+	case CS_FATAL_EXCEPTION_TYPE_ADDRESS_SIZE_FAULT_OUT3:
+		e = "FATAL_ADDRESS_SIZE_FAULT_OUT";
+		break;
+	case CS_FATAL_EXCEPTION_TYPE_MEMORY_ATTRIBUTE_FAULT_0:
+	case CS_FATAL_EXCEPTION_TYPE_MEMORY_ATTRIBUTE_FAULT_1:
+	case CS_FATAL_EXCEPTION_TYPE_MEMORY_ATTRIBUTE_FAULT_2:
+	case CS_FATAL_EXCEPTION_TYPE_MEMORY_ATTRIBUTE_FAULT_3:
+		e = "FATAL_MEMORY_ATTRIBUTE_FAULT";
+		break;
+	/* Any other exception code is unknown */
+	default:
+		e = "UNKNOWN FATAL CS_EXCEPTION";
+		break;
+	}
+
+	return e;
+}

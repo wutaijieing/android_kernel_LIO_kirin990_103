@@ -1,0 +1,12 @@
+menu "driver Configuration"
+
+source "platform_source/audio/drivers/codec_bus/Kconfig"
+source "platform_source/audio/drivers/da_combine/Kconfig"
+source "platform_source/audio/drivers/da_combine_dsp/Kconfig"
+source "platform_source/audio/drivers/da_separate/Kconfig"
+source "platform_source/audio/drivers/hifi_dsp/Kconfig"
+source "platform_source/audio/drivers/hifi_mailbox/Kconfig"
+source "platform_source/audio/drivers/soundtrigger/Kconfig"
+source "platform_source/audio/drivers/soc_mad/Kconfig"
+
+endmenu

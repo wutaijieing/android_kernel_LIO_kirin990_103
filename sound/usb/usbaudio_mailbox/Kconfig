@@ -1,0 +1,5 @@
+config USB_AUDIO_MAILBOX
+	bool "USB audio mailebox drivers support"
+	default n
+	help
+	Say yes here to support the USB audio maixbox module

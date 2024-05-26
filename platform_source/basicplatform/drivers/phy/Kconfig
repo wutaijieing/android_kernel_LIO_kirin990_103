@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# PHY
+#
+
+source "platform_source/basicplatform/drivers/phy/hisilicon/Kconfig"
+
+config PHY_HISI_USB2_T5
+	tristate "USB2 PHY T5 support"
+	select GENERIC_PHY
+	select MFD_SYSCON
+	help
+	  Enable this to support the HISILICON USB2 T5 PHY.
+
+	  To compile this driver as a module, choose M here.

@@ -1,0 +1,5 @@
+config UAPP
+	bool "Support uapp driver"
+	default n
+	help
+	uapp driver support

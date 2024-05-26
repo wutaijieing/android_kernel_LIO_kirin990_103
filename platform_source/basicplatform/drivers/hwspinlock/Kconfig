@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config VENDOR_HWSPINLOCK
+	tristate "HISI Hardware Spinlock device"
+	depends on HWSPINLOCK
+	default n
+	help
+	  Say y here to support the HI3XXX Hardware Spinlock device.
+
+	  If unsure, say N.
+
+config VENDOR_HWSPINLOCK_DEBUG
+	tristate "HISI Hardware Spinlock device"
+	default n
+	help
+	  Say y here to support the HI3XXX Hardware Spinlock device.
+
+	  If unsure, say N.

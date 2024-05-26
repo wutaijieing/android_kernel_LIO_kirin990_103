@@ -1,0 +1,128 @@
+menu "RDR - Running data recorder menu"
+
+config DFX_BB
+	bool "kernel run data recorder"
+	depends on SYSFS
+	default n
+	help
+	  This module can record some data about kernel internal info.
+	  Include:
+	  the task switch,
+	  interrupts switch,
+	  arm exception info,
+	  etc ...
+
+config DFX_BB_DEBUG
+	bool "test unit for kernel run data recorder"
+	depends on SYSFS && DFX_BB
+	default n
+	help
+	  This module can test RDR function ...
+	  Include:
+	  dataabort,
+	  etc
+
+# need_other_module_clear
+config DFX_MNTN_SP
+	bool "ap core register sp record"
+	depends on  LPMCU_BB
+	default n
+	help
+	  This module can record some data about sp info.
+	  Include:
+	  sp,
+	  etc
+
+
+config LPMCU_BB
+	bool "lpmcu bbox"
+	depends on  DFX_BB
+	default n
+	help
+	  This module can record some data about lpmcu info.
+	  Include:
+	  lpmcu exception,
+	  etc
+
+# need_other_module_clear
+config HISP_RDR
+	bool "hisp rdr"
+	depends on DFX_BB
+	default n
+	help
+	  This module can record isp rdr info.
+	  Include:
+	  isp,
+	  etc
+
+config DFX_MEM_TRACE
+	bool "mem trace"
+	depends on DFX_BB
+	default n
+	help
+	  This module used to record mem trace info.
+	  Include:
+	  mem trace,
+	  etc
+
+config DFX_CORE
+	bool "dfx core"
+	depends on DFX_BB
+	default n
+	help
+	  This module can record some data to dfx partition.
+	  Include:
+	  dfx,
+	  etc
+
+config DFX_MNTN_ESUBTYPE
+	bool "exception subtype"
+	depends on DFX_BB
+	default n
+	help
+	  This module can record exception subtype.
+	  Include:
+	  exception subtype,
+	  etc
+
+config DFX_BB_DIAGINFO
+	bool "diaginfo"
+	depends on DFX_BB
+	default n
+	help
+	  This module used to record nonreset exception.
+	  Include:
+	  nonreset exception,
+	  etc
+
+config DFX_HW_DIAG
+	bool "hareware diaginfo record"
+	depends on DFX_BB_DIAGINFO
+	default n
+	help
+	  This module record diaginfo to judge hardware fault.
+	  Include:
+	  hardware fault,
+	  etc
+config DFX_MNTN_GT_WATCH_SUPPORT
+	bool "mntn support GT watch"
+	default n
+	help
+	Say 'Y' here if you wat to support GT watch
+
+config DFX_BB_SHUTDOWN_REASON
+	bool "shutdown reason record"
+	depends on DFX_BB
+	default n
+	help
+	  This module used to record shutdown reason
+
+config MNTN_DIAGINFO_SERVER
+	bool "diaginfo vsock server"
+	depends on DFX_BB_DIAGINFO
+	default n
+	help
+	  This module used to create diaginfo vsock server.
+
+source "platform_source/basicplatform/drivers/mntn/blackbox/platform_ap/Kconfig"
+endmenu

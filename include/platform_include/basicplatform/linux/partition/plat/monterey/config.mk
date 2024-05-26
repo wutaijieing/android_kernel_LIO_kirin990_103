@@ -1,0 +1,2 @@
+EMULATORE_FLAG := true
+

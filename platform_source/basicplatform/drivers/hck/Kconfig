@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: GPL-2.0
+menu "Hck"
+
+config HCK
+	bool "Hck Drivers"
+	help
+	  Enable support for various drivers needed on the HiSilicon Common Kernel
+
+if HCK
+
+config HCK_VENDOR_HOOKS
+	bool "Hck Vendor Hooks"
+	depends on TRACEPOINTS
+	help
+	  Enable vendor hooks implemented as tracepoints
+
+	  Allow vendor modules to attach to tracepoint "hooks" defined via
+	  DECLARE_HCK_HOOK DECLARE_HCK_RESTRICTED_HOOK DECLARE_PUB_HOOK or DECLARE_PUB_RESTRICTED_HOOK.
+endif # if HCK
+
+endmenu

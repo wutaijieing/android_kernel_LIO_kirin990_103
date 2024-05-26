@@ -1,0 +1,23 @@
+#
+# USB drivers for platforms
+#
+config CHIP_USB_REG_CFG
+	tristate "Register config for USB module"
+	select MFD_SYSCON
+	help
+	  Enable this to support the register config for USB.
+	  To compile this driver as a module, choose M here.
+
+config CHIP_USB_HELPER
+	tristate "Helper functions for USB module"
+	help
+	  Enable this to support the helper functions for USB.
+	  To compile this driver as a module, choose M here.
+
+config CHIP_USB_MISC_CTRL
+	tristate "Misc Ctrl for USB module"
+	select CHIP_USB_REG_CFG
+	select CHIP_USB_HELPER
+	help
+	  Enable this to support the misc ctrl for  USB.
+	  To compile this driver as a module, choose M here.

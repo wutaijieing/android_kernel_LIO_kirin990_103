@@ -1,0 +1,13 @@
+config DFX_SEC_QIC
+	depends on DFX_BB
+	bool "Support Secure QIC"
+	default n
+	help
+	  This driver supports xxx secure QIC,
+	  including qic driver
+config DFX_SEC_QIC_MODID_REGISTER
+	depends on DFX_SEC_QIC
+	bool "Support Secure QIC modid register"
+	default n
+	help
+	  Support Secure QIC modid register

@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: GPL-2.0-only
+
+config BUS_AMBA_PL011
+	bool "uart mntn for amba_pl011"
+	default n
+
+config BUS_UART_OVERSAMPLING
+	bool "uart oversampling"
+	select BUS_AMBA_PL011
+	default n
+
+config BUS_NEED_SG_DMA_LENGTH
+	bool "need sg dma length"
+	select BUS_AMBA_PL011
+	default n
+
+config SERIAL_UART_V500
+	tristate "UART v500 serial port support"
+	select SERIAL_CORE
+	help
+	  This selects the UART v500.
+	  If unsure, say N.
+
+config SERIAL_UART_V500_CONSOLE
+	bool "Support for console on UART v500 serial port"
+	depends on SERIAL_UART_V500=y
+	select SERIAL_CORE_CONSOLE
+	select SERIAL_EARLYCON
+	help
+	  Say Y here if you wish to use an UART v500 as the system console (the
+	  system console is the device which receives all kernel messages and
+	  warnings and which allows logins in single user mode).
+
+	  Even if you say Y here, the currently visible framebuffer console
+	  (/dev/tty0) will still be used as the system console by default, but
+	  you can alter that using a kernel command line option such as
+	  "console=ttyHW0". (Try "man bootparam" or see the documentation of
+	  your boot loader (lilo or loadlin) about how to pass options to the
+	  kernel at boot time.)

@@ -1,0 +1,13 @@
+config NAMTSO_PMU
+	depends on PERF_EVENTS && NAMTSO
+	bool "NAMTSO PMU framework"
+	default n
+	help
+	    Say y if you want to use NAMTSO performance monitors.
+
+config NAMTSO_PMU_DEBUG
+	depends on NAMTSO_PMU
+	bool "NAMTSO PMU debug"
+	default n
+	help
+	  Say y if you want to use NAMTSO PMU debug function.

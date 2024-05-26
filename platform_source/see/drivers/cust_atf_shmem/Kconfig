@@ -1,0 +1,15 @@
+config CUST_ATF_SHMEM
+	bool "custom defined kernel atf share memory"
+	default n
+	help
+	  custom defined kernel atf share memory,
+config ATF_SHMEM_TEST
+	bool "Atf shmem test"
+	default n
+	depends on CUST_ATF_SHMEM
+	help
+	  Atf shmem test: In adb shell, use the following commands to test:
+	  "echo 0 > proc/atf_shmem_test" to get atf shmem size
+	  "echo 1 > proc/atf_shmem_test" to test share_to_atf_in
+	  "echo 2 > proc/atf_shmem_test" to test share_to_atf_out
+	  "echo 3 > proc/atf_shmem_test" to test share_to_atf_inout

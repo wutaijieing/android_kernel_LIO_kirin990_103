@@ -1,0 +1,21 @@
+config HIFI_BB
+	bool "hifi bbox"
+	depends on  DFX_BB
+	default n
+	help
+	  This module can record some data about hifi info.
+	  Include:
+	  hifi exception,
+	  etc
+
+config ASP_WATCHDOG_V500
+	tristate "Support asp watchdog v500"
+	default n
+	help
+	  Enables the asp watchdog v500.
+
+config AUDIO_SOC_SHARED_IRQ
+	tristate "Support audio soc shared irq"
+	default n
+	help
+	  Enables audio soc shared irq.

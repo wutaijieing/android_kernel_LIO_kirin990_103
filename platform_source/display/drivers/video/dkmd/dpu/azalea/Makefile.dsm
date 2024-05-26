@@ -1,0 +1,4 @@
+ifeq ($(CONFIG_HUAWEI_DSM),y)
+dpufb-objs += \
+	product/dpu_fb_panel_dsm.o
+endif

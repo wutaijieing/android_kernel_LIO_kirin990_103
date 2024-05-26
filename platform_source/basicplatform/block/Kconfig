@@ -1,0 +1,100 @@
+menu "mas_block_Configuration"
+
+config MAS_BLK
+	bool "MAS Block feature"
+	depends on BLOCK
+	default n
+	help
+		MAS Block feature
+
+config MAS_DEBUG_FS
+	bool "mas debug fs"
+	depends on MAS_BLK
+	default n
+
+config MAS_BLK_DEBUG
+	bool "MAS_BLK_DEBUG"
+	depends on MAS_BLK
+	default n
+	help
+		MAS block debug, need to be removed!
+
+config MAS_BKOPS
+	bool "MAS BKOPS"
+	depends on MAS_BLK
+	default n
+	help
+	MAS BKOPS feature
+
+config MAS_QOS_MQ
+	bool "MAS QoS MQ IO scheduler"
+	depends on MAS_BLK && HUFS_HC_CORE_UTR
+	default n
+	help
+	MAS QoS MQ IO scheduler
+
+config MAS_STORAGE
+	bool "MAS Storage related change"
+	default n
+	help
+		MAS Storage related change of Linux source code
+
+config MAS_BLK_BW_OPTIMIZE
+	bool "Enlarge async inflight when dirty page flashing"
+	depends on MAS_BLK
+	default n
+
+config MMC_BLOCK_IOMMU_64BIT
+	bool "Block bounce limit"
+	depends on BLOCK
+	default n
+	help
+		Blk-setting will use address >4G for IOMMU.
+
+choice
+	prompt "Select IO classify method"
+	depends on MAS_BLK
+
+config MAS_IO_CLASSIFY_FG
+	bool "use iaware FG classification"
+config MAS_IO_CLASSIFY_SCHED_TUNE
+	bool "use AI sched tune"
+	depends on SCHED_TUNE
+endchoice
+
+config MAS_MQ_USING_CP
+	bool "MAS UFS Command Priority"
+	depends on MAS_BLK
+	default n
+	help
+		MAS UFS Command Priority, good for foreground APP's IO performance
+
+config MAS_ORDER_PRESERVE
+	bool "MAS UFS Order Preserving"
+	depends on MAS_BLK
+	default n
+	help
+		MAS UFS Order Preserving, good for SQL's IO performance
+
+config MAS_UNISTORE_PRESERVE
+	bool "MAS BLK Unistorage Preserving"
+	depends on MAS_BLK
+	default n
+	help
+		mas unistorage preserving in block layer
+
+config MAS_IO_TRACE
+	bool "MAS_IO_TRACE"
+	depends on MAS_DEBUG_FS
+	default n
+	help
+		MAS io trace event, as supplement to block_rq_issue and block_rq_complete
+
+config MAS_IO_DEBUG_TRACE
+	bool "MAS_IO_DEBUG_TRACE"
+	depends on MAS_IO_TRACE
+	default n
+	help
+		MAS io debug trace event
+endmenu
+

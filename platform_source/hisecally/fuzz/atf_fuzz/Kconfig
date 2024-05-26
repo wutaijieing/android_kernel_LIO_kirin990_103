@@ -1,0 +1,4 @@
+config ATF_FUZZ
+        tristate "Config for ATF FUZZ"
+	help
+	  enable te support for ATF FUZZ

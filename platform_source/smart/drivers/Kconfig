@@ -1,0 +1,28 @@
+config CONTEXTHUB
+	bool "Sensor CONTEXTHUB driver"
+	default n
+	help
+	Sensor CONTEXTHUB driver.
+
+config CONTEXTHUB_BOOT_STAT
+	bool "sensorhub boot stat"
+	depends on CONTEXTHUB
+	default n
+	help
+	Say yes here if you want to record boot stat during sensorhub startup
+
+config CONTEXTHUB_SH_NOCZERO
+	bool "Sensor CONTEXTHUB_SH_NOCZERO"
+	default n
+	help
+	Sensor CONTEXTHUB_SH_NOCZERO
+
+config CONTEXTHUB_DFX_NOCMID
+	bool "Sensor CONTEXTHUB_DFX_NOCMID"
+	default n
+	help
+	New platform has no MID, So you need to open this Kconfig.
+
+source "platform_source/smart/drivers/bsp/Kconfig"
+source "platform_source/smart/drivers/channels/Kconfig"
+source "platform_source/smart/drivers/syscounter/Kconfig"

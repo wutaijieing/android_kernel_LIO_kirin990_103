@@ -1,0 +1,17 @@
+if KERNEL_CAMERA_FPGA
+
+config KERNEL_CAMERA_FPGA_ICE40
+    tristate "ice40 camera fpga driver"
+    depends on KERNEL_CAMERA_FPGA
+    default n
+    help
+        ice40 camera fpga driver
+
+config KERNEL_CAMERA_FPGA_STM32
+    tristate "stm32 camera fpga driver"
+    depends on KERNEL_CAMERA_FPGA
+    default n
+    help
+        stm32 camera fpga driver
+endif
+

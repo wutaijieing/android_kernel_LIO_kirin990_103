@@ -1,0 +1,7 @@
+config PROXY_DEVFREQ
+	tristate "Proxy DEVFREQ Driver"
+	select DEVFREQ_GOV_SIMPLE_ONDEMAND
+	select PM_OPP
+	select PM_DEVFREQ
+	help
+	  This adds the proxy DEVFREQ driver for handling VM frequency scaling.

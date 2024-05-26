@@ -1,0 +1,28 @@
+# platform software watchdog
+config DFX_SR_AP_WATCHDOG
+	tristate "suspend and resume to be monitored by the watchdog"
+	depends on DFX_SP805_WATCHDOG || WATCHDOG_V500
+	help
+	  In the case of hung during the suspend and resume process,
+	  it needs to be monitored by the watchdog.
+
+config DFX_SP805_WATCHDOG
+	tristate "platform software SP805 Watchdog"
+	depends on (ARM || ARM64) && ARM_AMBA
+	select WATCHDOG_CORE
+	help
+	  platform software SP805 Watchdog Based on ARM SP805 Watchdog.
+
+config WATCHDOG_V500
+	tristate "HISI V500 Watchdog"
+	depends on (ARM || ARM64)
+	select WATCHDOG_CORE
+	help
+	  Hisi V500 Watchdog Was Self-developed Watchdog.
+
+config MNTN_VWATCHDOG
+	tristate "Mntn vWatchdog"
+	depends on (ARM || ARM64)
+	select WATCHDOG_CORE
+	help
+	  Mntn vWatchdog Based on ARM Watchdog.

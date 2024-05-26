@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# smpl error monitor drivers
+#
+
+config HUAWEI_SMPL
+	bool "huawei smpl"
+	default n
+	help
+	  Say Y here to enable smpl error monitor driver.

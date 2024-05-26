@@ -1,0 +1,6 @@
+config DFX_WATCHPOINT_CB
+	bool "watchpoint callback support"
+	depends on HAVE_HW_BREAKPOINT && DEBUG_FS && HAVE_HW_BREAKPOINT_ADDR_MASK
+	default n
+	help
+	  Say yes here to support the watchpoint callback module 

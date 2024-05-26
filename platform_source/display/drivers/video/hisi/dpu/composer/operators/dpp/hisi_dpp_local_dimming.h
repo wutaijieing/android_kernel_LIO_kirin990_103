@@ -1,0 +1,202 @@
+/** @file
+ * Copyright (c) 2021-2021, Hisilicon Tech. Co., Ltd. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ */
+
+#ifndef HISI_DPP_LOCAL_DIMMING_H
+#define HISI_DPP_LOCAL_DIMMING_H
+
+#include <soc_dte_define.h>
+#include "hisi_disp_composer.h"
+#include "hisi_composer_operator.h"
+
+struct hisi_ld_core_info {
+	DPU_LD_DIM_GLB_CTRL_UNION glb_ctrl;
+	DPU_LD_DIM_LED_NUM_UNION led_num;
+	DPU_LD_DIM_SEG_METIRCS_UNION seg_metrics;
+	DPU_LD_DIM_STAT_METRICS_UNION stat_metrics;
+	DPU_LD_DIM_GLB_NORM_UNIT_UNION glb_norm_unit;
+	DPU_LD_DIM_SEG_NORM_UNIT_UNION seg_norm_unit;
+	DPU_LD_DIM_HIST_STAT_UNION dim_hist_stat;
+	DPU_LD_DIM_ADJ0D_CORE0_UNION dim_adj0d_core0;
+	DPU_LD_DIM_ADJ0D_CORE1_UNION dim_adj0d_core1;
+	DPU_LD_DIM_LED0D_LOW_THRESH0_UNION dim_led0d_low_thresh0;
+	DPU_LD_DIM_LED0D_LOW_THRESH1_UNION dim_led0d_low_thresh1;
+	DPU_LD_DIM_LED0D_LOW_OFFSET0_UNION dim_led0d_low_offset0;
+	DPU_LD_DIM_LED0D_LOW_OFFSET1_UNION dim_led0d_low_offset1;
+	DPU_LD_DIM_LED0D_LOW_GAIN0_UNION dim_led0d_low_gain0;
+	DPU_LD_DIM_LED0D_LOW_GAIN1_UNION dim_led0d_low_gain1;
+	DPU_LD_DIM_LED0D_MID_THRESH0_UNION dim_led0d_mid_thresh0;
+	DPU_LD_DIM_LED0D_MID_THRESH1_UNION dim_led0d_mid_thresh1;
+	DPU_LD_DIM_LED0D_MID_OFFSET0_UNION dim_led0d_mid_offset0;
+	DPU_LD_DIM_LED0D_MID_OFFSET1_UNION dim_led0d_mid_offset1;
+	DPU_LD_DIM_LED0D_MID_GAIN0_UNION dim_led0d_mid_gain0;
+	DPU_LD_DIM_LED0D_MID_GAIN1_UNION dim_led0d_mid_gain1;
+	DPU_LD_DIM_LED0D_HIGH_THRESH0_UNION dim_led0d_high_thresh0;
+	DPU_LD_DIM_LED0D_HIGH_THRESH1_UNION dim_led0d_high_thresh1;
+	DPU_LD_DIM_LED0D_HIGH_OFFSET0_UNION dim_led0d_high_offset0;
+	DPU_LD_DIM_LED0D_HIGH_OFFSET1_UNION dim_led0d_high_offset1;
+	DPU_LD_DIM_LED0D_HIGH_GAIN0_UNION dim_led0d_high_gain0;
+	DPU_LD_DIM_LED0D_HIGH_GAIN1_UNION dim_led0d_high_gain1;
+	DPU_LD_DIM_ADJ2D_CORE0_UNION dim_adj2d_core0;
+	DPU_LD_DIM_ADJ2D_CORE1_UNION dim_adj2d_core1;
+	DPU_LD_DIM_LED2D_LOW_THRESH0_UNION dim_led2d_low_thresh0;
+	DPU_LD_DIM_LED2D_LOW_THRESH1_UNION dim_led2d_low_thresh1;
+	DPU_LD_DIM_LED2D_LOW_OFFSET0_UNION dim_led2d_low_offset0;
+	DPU_LD_DIM_LED2D_LOW_OFFSET1_UNION dim_led2d_low_offset1;
+	DPU_LD_DIM_LED2D_LOW_GAIN0_UNION dim_led2d_low_gain0;
+	DPU_LD_DIM_LED2D_LOW_GAIN1_UNION dim_led2d_low_gain1;
+	DPU_LD_DIM_LED2D_MID_THRESH0_UNION dim_led2d_mid_thresh0;
+	DPU_LD_DIM_LED2D_MID_THRESH1_UNION dim_led2d_mid_thresh1;
+	DPU_LD_DIM_LED2D_MID_OFFSET0_UNION dim_led2d_mid_offset0;
+	DPU_LD_DIM_LED2D_MID_OFFSET1_UNION dim_led2d_mid_offset1;
+	DPU_LD_DIM_LED2D_MID_GAIN0_UNION dim_led2d_mid_gain0;
+	DPU_LD_DIM_LED2D_MID_GAIN1_UNION dim_led2d_mid_gain1;
+	DPU_LD_DIM_LED2D_HIGH_THRESH0_UNION dim_led2d_high_thresh0;
+	DPU_LD_DIM_LED2D_HIGH_THRESH1_UNION dim_led2d_high_thresh1;
+	DPU_LD_DIM_LED2D_HIGH_OFFSET0_UNION dim_led2d_high_offset0;
+	DPU_LD_DIM_LED2D_HIGH_OFFSET1_UNION dim_led2d_high_offset1;
+	DPU_LD_DIM_LED2D_HIGH_GAIN0_UNION dim_led2d_high_gain0;
+	DPU_LD_DIM_LED2D_HIGH_GAIN1_UNION dim_led2d_high_gain1;
+	DPU_LD_DIM_LED0D_CORE_UNION dim_led0d_core;
+	DPU_LD_DIM_LED0D_GAIN_MISC_UNION dim_led0d_gain_misc;
+	DPU_LD_DIM_LED2D_GAIN_MISC_UNION dim_led2d_gain_misc;
+	DPU_LD_DIM_PRE_0D2D_BLD_UNION dim_pre_0d2d_bld;
+	DPU_LD_DIM_FINAL_GAIN_0D_UNION dim_final_gain_0d;
+	DPU_LD_DIM_FINAL_CLIP_0D_UNION dim_final_clip_0d;
+	DPU_LD_DIM_FINAL_GAIN_2D_UNION dim_final_gain_2d;
+	DPU_LD_DIM_FINAL_CLIP_2D_UNION dim_final_clip_2d;
+	DPU_LD_DIM_LED0D_STATUS_UNION dim_led0d_status;
+	DPU_LD_DIM_VFIR_COEF_0_UNION dim_vfir_coff_0;
+	DPU_LD_DIM_VFIR_COEF_1_UNION dim_vfir_coff_1;
+	DPU_LD_DIM_HFIR_COEF_0_UNION dim_hfir_coff_0;
+	DPU_LD_DIM_HFIR_COEF_1_UNION dim_hfir_coff_1;
+	DPU_LD_DIM_POST_FIR_BLD_UNION dim_post_fir_bld;
+	DPU_LD_DIM_POST_FIR_GAIN_UNION dim_post_fir_gain;
+	DPU_LD_DIM_LCD_COMP_0D_UNION dim_lcd_comp_0d;
+	DPU_LD_DIM_LCD_COMP_2D_UNION dim_lcd_comp_2d;
+	DPU_LD_DIM_LCD_COMPGAIN_UNION dim_lcd_compgain;
+	DPU_LD_DIM_LED_PANEL_UNION dim_led_panel;
+	DPU_LD_DIM_LED_PANEL_REG_UNION dim_led_panel_reg;
+	DPU_LD_DIM_LED0D_PANEL_UNION dim_led0d_panel;
+	DPU_LD_DIM_LED0D2D_UNION dim_led0d2d;
+	DPU_LD_DIM_SCL_CTRL_UNION dim_scl_ctrl;
+	DPU_LD_DIM_SCL_OFFSET_V_UNION dim_scl_offset_v;
+	DPU_LD_DIM_SCL_OFFSET_H_UNION dim_scl_offset_h;
+	DPU_LD_DIM_SCL_RATIO_V_UNION dim_scl_ratio_v;
+	DPU_LD_DIM_SCL_RATIO_H_UNION dim_scl_ratio_h;
+	DPU_LD_DIM_PARA_REN_UNION dim_para_ren;
+	DPU_LD_DIM_PARA_DATA_UNION dim_para_data;
+	DPU_LD_DIM_LED_DATA_UNION dim_led_data;
+	DPU_LD_DIM_NORM0D_1_UNION dim_norm0d_1;
+	DPU_LD_DIM_NORM0D_2_UNION dim_norm0d_2;
+	DPU_LD_DIM_SCD_GAIN_UNION dim_scd_gain;
+	DPU_LD_DIM_SCD_STEP_UNION dim_scd_step;
+	DPU_LD_DIM_DEMO_RGB_UNION dim_demo_rgb;
+	DPU_LD_DIM_LGD_DIM_DUTY_UNION lgd_dim_duty;
+	DPU_LD_DIM_MULTI_VALUE_UNION dim_multi_value;
+	DPU_LD_DIM_DEMO_IRESO_UNION demo_ireso;
+	DPU_LD_DIM_DET_GAIN_UNION dim_det_gain;
+	DPU_LD_DIM_DET_MAX_UNION dim_det_max;
+	DPU_LD_DIM_LED_PANEL_REG1_UNION led_panel_reg1;
+	DPU_LD_DIM_INPUT_RESOLUTION_UNION input_resolution;
+	DPU_LD_DIM_DMA_CTRL0_UNION dma_ctrl0;
+	DPU_LD_DIM_DMA_CTRL1_UNION dma_ctrl1;
+	DPU_LD_DIM_ADDR2D_REG0_UNION addr2d_reg0;
+	DPU_LD_DIM_ADDR2D_REG1_UNION addr2d_reg1;
+	DPU_LD_CH_CLK_SEL_UNION ch_clk_sel;
+	DPU_LD_CH_CLK_EN_UNION ch_clk_en;
+	DPU_LD_DIM_OUTPUT_CTRL_UNION output_ctrl;
+	DPU_LD_DIM_MEM_CTRL0_UNION dim_mem_ctrl0;
+	DPU_LD_DIM_MEM_CTRL1_UNION dim_mem_ctrl1;
+	DPU_LD_DIM_MEM_CTRL2_UNION dim_mem_ctrl2;
+	DPU_LD_DIM_MEM_CTRL3_UNION dim_mem_ctrl3;
+	DPU_LD_DIM_MEM_CTRL4_UNION dim_mem_ctrl4;
+	DPU_LD_DIM_MEM_CTRL5_UNION dim_mem_ctrl5;
+	DPU_LD_DIM_MEM_CTRL6_UNION dim_mem_ctrl6;
+	DPU_LD_DIM_MEM_CTRL7_UNION dim_mem_ctrl7;
+	DPU_LD_DIM_MEM_CTRL8_UNION dim_mem_ctrl8;
+	DPU_LD_DIM_LUT_SEL_UNION dim_lut_sel;
+	DPU_LD_CH_RD_SHADOW_SEL_UNION ch_rd_shadow_sel;
+	DPU_LD_WB_SEC_CTRL0_UNION wb_sec_ctrl0;
+	DPU_LD_WB_SEC_CTRL1_UNION wb_sec_ctrl1;
+	DPU_LD_SYNC_CTRL_UNION ld_sync_ctrl;
+	DPU_LD_SYNC_FLAG_INTERVAL_UNION ld_sync_flag_interval;
+	DPU_LD_SYNC_PULSE_WIDTH_UNION ld_sync_pulse_width;
+	DPU_LD_DIM_RESERVED_REG3_UNION dim_reserver_reg3;
+	DPU_LD_DIM_DBG0_UNION dim_dbg0;
+	DPU_LD_DIM_DBG1_UNION dim_dbg1;
+	DPU_LD_DIM_DBG2_UNION dim_dbg2;
+	DPU_LD_DIM_DBG3_UNION dim_dbg3;
+	DPU_LD_DIM_DBG4_UNION dim_dbg4;
+};
+
+struct hisi_ld_dither_info {
+	DPU_LD_DITHER_CTL1_UNION dither_ctl1;
+	DPU_LD_DITHER_CTL0_UNION dither_ctl0;
+	DPU_LD_DITHER_TRI_THD12_0_UNION dither_tri_thd12_0;
+	DPU_LD_DITHER_TRI_THD12_1_UNION dither_tri_thd12_1;
+	DPU_LD_DITHER_TRI_THD10_UNION dither_tri_thd10;
+	DPU_LD_DITHER_TRI_THD12_UNI_0_UNION dither_tri_thd12_uni_0;
+	DPU_LD_DITHER_TRI_THD12_UNI_1_UNION dither_tri_thd12_uni_1;
+	DPU_LD_DITHER_TRI_THD10_UNI_UNION dither_tri_thd10_uni;
+	DPU_LD_BAYER_CTL_UNION bayer_ctl;
+	DPU_LD_BAYER_ALPHA_THD_UNION bayer_alpha_thd;
+	DPU_LD_BAYER_MATRIX_PART1_UNION bayer_matrix_part1;
+	DPU_LD_BAYER_MATRIX_PART0_UNION bayer_matrix_part0;
+	DPU_LD_HIFREQ_REG_INI_CFG_EN_UNION hifreq_reg_ini_cfg_en;
+	DPU_LD_HIFREQ_REG_INI0_0_UNION hifreq_reg_ini0_0;
+	DPU_LD_HIFREQ_REG_INI0_1_UNION hifreq_reg_ini0_1;
+	DPU_LD_HIFREQ_REG_INI0_2_UNION hifreq_reg_ini0_2;
+	DPU_LD_HIFREQ_REG_INI0_3_UNION hifreq_reg_ini0_3;
+	DPU_LD_HIFREQ_REG_INI1_0_UNION hifreq_reg_ini1_0;
+	DPU_LD_HIFREQ_REG_INI1_1_UNION hifreq_reg_ini1_1;
+	DPU_LD_HIFREQ_REG_INI1_2_UNION hifreq_reg_ini1_2;
+	DPU_LD_HIFREQ_REG_INI1_3_UNION hifreq_reg_ini1_3;
+	DPU_LD_HIFREQ_REG_INI2_0_UNION hifreq_reg_ini2_0;
+	DPU_LD_HIFREQ_REG_INI2_1_UNION hifreq_reg_ini2_1;
+	DPU_LD_HIFREQ_REG_INI2_2_UNION hifreq_reg_ini2_2;
+	DPU_LD_HIFREQ_REG_INI2_3_UNION hifreq_reg_ini2_3;
+	DPU_LD_HIFREQ_POWER_CTRL_UNION hifreq_power_ctrl;
+	DPU_LD_HIFREQ_FILT_0_UNION hifreq_filt_0;
+	DPU_LD_HIFREQ_FILT_1_UNION hifreq_filt_1;
+	DPU_LD_HIFREQ_FILT_2_UNION hifreq_filt_2;
+	DPU_LD_HIFREQ_THD_R0_UNION hifreq_thd_r0;
+	DPU_LD_HIFREQ_THD_R1_UNION hifreq_thd_r1;
+	DPU_LD_HIFREQ_THD_G0_UNION hifreq_thd_g0;
+	DPU_LD_HIFREQ_THD_G1_UNION hifreq_thd_g1;
+	DPU_LD_HIFREQ_THD_B0_UNION hifreq_thd_b0;
+	DPU_LD_HIFREQ_THD_B1_UNION hifreq_thd_b1;
+	DPU_LD_HIFREQ_DBG0_UNION hifreq_dbg0;
+	DPU_LD_HIFREQ_DBG1_UNION hifreq_dbg1;
+	DPU_LD_HIFREQ_DBG2_UNION hifreq_dbg2;
+	DPU_LD_ERRDIFF_CTL_UNION errdiff_ctl;
+	DPU_LD_ERRDIFF_WEIGHT_UNION errdiff_weight;
+	DPU_LD_DITHER_FRC_CTL_UNION dither_frc_ctl;
+	DPU_LD_FRC_01_PART1_UNION frc_01_part1;
+	DPU_LD_FRC_01_PART0_UNION frc_01_part0;
+	DPU_LD_FRC_10_PART1_UNION frc_10_part1;
+	DPU_LD_FRC_10_PART0_UNION frc_10_part0;
+	DPU_LD_FRC_11_PART1_UNION frc_11_part1;
+	DPU_LD_FRC_11_PART0_UNION frc_11_part0;
+	DPU_LD_DITHER_MEM_CTRL_UNION dither_mem_ctrl;
+	DPU_LD_DITHER_DBG0_UNION dither_dgb0;
+	DPU_LD_DITHER_DBG1_UNION dither_dgb1;
+	DPU_LD_DITHER_DBG2_UNION dither_dgb2;
+	DPU_LD_DITHER_CTRL2_UNION dither_ctl2;
+	DPU_LD_DPP_DITHER_IMG_SIZE_UNION dither_img_size;
+};
+
+void hisi_local_dimming_set_regs(struct hisi_comp_operator *operator, struct hisi_composer_data *ov_data,
+	char __iomem *dpu_base_addr, struct pipeline_src_layer *src_layer);
+
+#endif // HISI_DPP_LOCAL_DIMMING_H

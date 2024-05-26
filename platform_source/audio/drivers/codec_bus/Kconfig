@@ -1,0 +1,8 @@
+config CODEC_BUS
+	bool "codec bus support"
+	default y
+	help
+	  Say yes here to support codec bus
+
+source "platform_source/audio/drivers/codec_bus/slimbus/Kconfig"
+source "platform_source/audio/drivers/codec_bus/soundwire/Kconfig"

@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# huawei power boost_5v drivers
+#
+
+config BOOST_5V
+	bool "huawei power boost with 5v"
+	default n
+	help
+	  Say Y here to enable power boost with 5v driver.

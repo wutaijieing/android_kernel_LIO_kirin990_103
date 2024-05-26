@@ -1,0 +1,7 @@
+menu "see Kernel Configuration"
+
+source "platform_source/see/drivers/Kconfig"
+
+
+endmenu
+

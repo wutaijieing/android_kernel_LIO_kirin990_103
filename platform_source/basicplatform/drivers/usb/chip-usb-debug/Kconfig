@@ -1,0 +1,12 @@
+#
+# USB drivers for platforms
+#
+config CHIP_USB_LOG
+	bool "Chip USB Log"
+	help
+	  This option adds support for USB Log.
+
+config CHIP_USB_DEBUG_MODULE
+	bool "USB Debug MODULE"
+	help
+	This option adds support for Usb Driver Debug MODULE.

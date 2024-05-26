@@ -1,0 +1,9 @@
+#
+# huawei gpio key recovery driver
+#
+
+config HW_GPIO_KEY_RECOVERY
+	bool "hw gpio key recovery driver"
+	default n
+	help
+	  gpio key recovery driver.

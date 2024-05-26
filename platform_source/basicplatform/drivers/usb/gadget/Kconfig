@@ -1,0 +1,67 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+#
+
+config USB_F_SOURCESINK_EXT
+	tristate
+
+config USB_F_MTP
+	tristate
+
+config USB_F_PTP
+        tristate
+
+config USB_F_MODEM_ACM
+	bool "USB F MODEM ACM"
+
+config USB_MASS_STORAGE_SUPPORT_MAC
+	bool "Mass Storage support MAC system"
+	depends on USB_F_MASS_STORAGE
+	help
+	  Mass Storage support MAC system.
+
+config USB_MIRRORLINK_SUPPORT
+	bool "USB MIRRORLINK SUPPORT"
+	depends on USB_CONFIGFS_NCM
+	help
+	  USB MIRRORLINK SUPPORT
+
+config USB_HICAR_SUPPORT
+	bool "USB HICAR SUPPORT"
+	help
+	  USB HICAR SUPPORT
+
+config USB_CONFIGFS_F_SOURCESINK_EXT
+	bool "sourcesink_ext function (for testing)"
+	depends on USB_CONFIGFS
+	select USB_F_SOURCESINK_EXT
+	help
+	  Sourcesink_ext function either sinks and sources bulk/intr/isoc data.
+	  It also implements control requests, for "chapter 9" conformance.
+
+config USB_CONFIGFS_F_MTP
+	bool "MTP gadget"
+	depends on USB_CONFIGFS
+	select USB_F_MTP
+	help
+	  USB gadget MTP support
+
+config USB_CONFIGFS_F_PTP
+	bool "PTP gadget"
+	depends on USB_CONFIGFS && USB_CONFIGFS_F_MTP
+	select USB_F_PTP
+	help
+	  USB gadget PTP support
+
+config USB_CONFIGFS_MODEM_ACM
+	bool "USB CONFIGFS MODEM ACM"
+	depends on USB_CONFIGFS
+	select USB_F_MODEM_ACM
+	help
+	  ACM function used for Modem
+
+config CHIP_USB_CONFIGFS
+	bool "USB Gadget set up through configfs in platforms"
+	depends on USB_CONFIGFS
+	help
+	  USB Gadget set up through configfs in platforms.

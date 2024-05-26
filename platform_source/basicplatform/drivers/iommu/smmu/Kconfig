@@ -1,0 +1,110 @@
+# IOMMU support
+
+config MM_IODOMAIN_API
+	bool
+
+config MM_IOMMU
+	bool "IOMMU Support"
+	select IOMMU_API
+	select MM_IODOMAIN_API
+	select DMA_OPS
+	help
+	  IOMMU Support.
+
+config MM_IOMMU_LPAE
+	bool "IOMMU LPAE Support"
+	select IOMMU_API
+	depends on MM_IOMMU
+	help
+	  IOMMU Support.
+
+config MM_IOMMU_BYPASS
+	bool "IOMMU Bypass Support"
+	select IOMMU_API
+	depends on MM_IOMMU
+	help
+	  IOMMU Bypass Support.
+
+config MM_IOMMU_LEGACY
+	bool "IOMMU SECOND LEVEL PAGE TABLE Support"
+	select IOMMU_API
+	depends on MM_IOMMU && !MM_IOMMU_LPAE
+	help
+	  IOMMU Support.
+
+config MM_IOMMU_TEST
+	bool "IOMMU TEST Support"
+	depends on MM_IOMMU_LPAE
+	select IOMMU_API
+	help
+	  IOMMU Support.
+
+config MM_IOMMU_IOVA_DEBUG
+        bool "IOMMU IOVA DEBUG Support"
+	depends on MM_IOMMU
+	default n
+	help
+	  IOMMU IOVA DEBUG Support
+
+config MM_SVM
+	tristate "SVM driver"
+	depends on !ARM_SMMU_V3 && !MM_SMMU_V3
+	select MMU_NOTIFIER
+	help
+	  This option enables support for the svm features base on the ARM
+	  smmu v3 hardware. Select this option if you want to use devices by ssid
+	  and asid interface.
+
+config MM_SMMUV310
+	bool "SMMUV310 Support"
+	depends on MM_SVM
+	default n
+	help
+	  SMMUV310 Support
+
+config MM_SMMUV320
+	bool "SMMUV320 Support"
+	depends on MM_SVM
+	default n
+	help
+	  SMMUV320 Support
+
+config MM_SMMU_V3
+	bool "Self-Developed System MMU Version 3 (SMMUv3) Support"
+	depends on ARM64 && !ARM_SMMU_V3
+	select IOMMU_API
+	select IOMMU_IO_PGTABLE_LPAE
+	select GENERIC_MSI_IRQ_DOMAIN
+	help
+	  Support for implementations of the self-developed System MMU architecture
+	  version 3 providing translation support to a PCIe root complex.
+
+	  Say Y here if your system includes an IOMMU device implementing
+	  the self-developed SMMUv3 architecture.
+
+config MM_IOMMU_LAST_PAGE
+	bool "IOMMU Last Page Support"
+	depends on MM_IOMMU
+	select IOMMU_API
+	help
+	  IOMMU Last Page Support
+
+config MM_IOMMU_DMA
+	bool "IOMMU DMA Support"
+	depends on MM_IOMMU
+	default n
+	help
+	  IOMMU DMA Support
+
+config MM_IOMMU_DMD_REPORT
+	tristate "IOMMU dmd report support"
+	depends on ARM_SMMU_V3 || MM_SMMU_V3
+	help
+	  This option enables support for dmd report
+	  only used for B platform npu tcu noc.
+
+config MM_VIRTIO_IOMMU
+	tristate "Virtio IOMMU driver"
+	depends on VIRTIO
+	help
+	  Para-virtualised IOMMU driver with virtio.

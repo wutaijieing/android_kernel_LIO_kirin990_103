@@ -1,0 +1,18 @@
+menu "S/R Configuration Options"
+choice
+	prompt "Select S/R Architecture"
+	default SR_OLD_ARCH
+	config SR_NEW_ARCH
+		bool "Select the new SR architecture"
+	config SR_OLD_ARCH
+		bool "Select the old SR architecture"
+endchoice
+
+if SR_NEW_ARCH
+	source "platform_source/cee/drivers/pm/new/Kconfig"
+endif
+
+if SR_OLD_ARCH
+	source "platform_source/cee/drivers/pm/old/Kconfig"
+endif
+endmenu

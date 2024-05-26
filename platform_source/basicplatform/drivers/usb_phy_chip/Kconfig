@@ -1,0 +1,26 @@
+config USB_PHY_CHIP
+	bool "usb phy chip driver"
+	default n
+	help
+	  usb phy chip driver
+
+config CHIP_USB_PHY_DRIVER
+	bool "usb phy device driver"
+	depends on (USB_PHY_CHIP)
+	default n
+	help
+	  usb phy device driver
+
+config CHIP_USB_PHY_EFUSE
+	bool "usb phy chip efuse driver"
+	depends on (USB_PHY_CHIP)
+	default n
+	help
+	  usb phy chip efuse driver
+
+config USB_PHY_CHIP_FIX_BC_DETECT
+	bool "usb phy chip fix bc detect problem"
+	depends on (USB_PHY_CHIP)
+	help
+	  usb phy chip fix bc detect problem
+

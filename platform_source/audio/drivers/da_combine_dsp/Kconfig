@@ -1,0 +1,15 @@
+config CODEC_DSP_MISC
+     tristate "codec dsp misc device support"
+     default n
+     help
+	codec dsp misc driver
+
+config HISI_HIFI_BB
+	bool "hifi bbox"
+	depends on  DFX_BB
+	default n
+	help
+	  This module can record some data about hifi info.
+	  Include:
+	  hifi exception,
+	  etc

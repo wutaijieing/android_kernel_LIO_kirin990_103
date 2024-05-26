@@ -1,0 +1,72 @@
+config MM_LB
+	bool "last buffer"
+	help
+	  Enable last buffer.
+
+	  If unsure, say N here.
+
+config MM_LB_DEBUG
+	bool "Lb debug"
+	depends on MM_LB
+	help
+	  Enable last buffer debug.
+
+	  If unsure, say N here.
+
+config MM_LB_ENG_DEBUG
+	bool "Lb eng debug"
+	depends on MM_LB
+	help
+	  Enable last buffer eng debug.
+
+	  If unsure, say N here.
+
+config MM_LB_TST
+	bool "Lb ip test"
+	depends on MM_LB
+	help
+	  Enable last buffer ip test
+	  and need disable lb debug
+
+	  if unsure, say N here
+
+config MM_LB_PMU
+	bool "Lb pmu"
+	depends on MM_LB
+	help
+	  Enable last buffer ip test
+	  and need disable lb debug
+
+	  if unsure, say N here
+
+config MM_LB_GEMINI
+	bool "Lb gemini"
+	depends on MM_LB
+	help
+	  Enable last buffer debug.
+
+	  If unsure, say N here.
+
+config MM_LB_L3_EXTENSION
+	bool "Lb l3 extension"
+	depends on MM_LB
+	help
+	  Enable last buffer debug.
+
+	  If unsure, say N here.
+
+config MM_LB_ION
+	bool "Lb ion"
+	depends on MM_LB
+	help
+	  Enable last buffer debug.
+
+	  If unsure, say N here.
+
+config MM_LB_REMAP
+	bool "Lb remap"
+	depends on MM_LB
+	help
+	  Enable last buffer remap.
+
+	  If unsure, say N here.

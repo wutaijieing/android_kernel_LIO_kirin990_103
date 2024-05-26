@@ -1,0 +1,7 @@
+config PLATFORM_IPC_MAILBOX
+	bool "PLATFORM IPC MAILBOX"
+	default n
+
+if PLATFORM_IPC_MAILBOX
+source "platform_source/basicplatform/drivers/mailbox/ipc_mailbox/Kconfig"
+endif

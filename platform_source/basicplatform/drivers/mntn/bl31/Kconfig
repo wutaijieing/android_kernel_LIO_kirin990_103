@@ -1,0 +1,16 @@
+config DFX_BL31_MNTN
+    bool "bl31 mntn module support"
+    default n
+    help
+      Say yes here to support the bl31 mntn module.
+config DISABLE_DMSS_INT
+    bool "DISABLE DMSS INT when acpu reset"
+    default n
+    help
+      Support disable dmss int when acpu reset
+config MNTN_SPI_ROUTE
+    bool "kernel mntn deal spi from bl31 support"
+    default n
+    help
+      Support deal spi from bl31.
+

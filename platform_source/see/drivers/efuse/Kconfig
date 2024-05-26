@@ -1,0 +1,6 @@
+config VENDOR_EFUSE
+	bool "Support vendor efuse driver"
+	default n
+	help
+	vendor efuse driver support
+

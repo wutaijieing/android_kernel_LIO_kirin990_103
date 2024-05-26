@@ -1,0 +1,20 @@
+config DKMD_DPU_V720
+	bool "dkmd dpuv720 support"
+	default n
+	depends on DKMD_OLD_ARCH
+	help
+	  This feature supports dpuv720 display driver.
+
+config DPP_SCENE0
+	bool "enable scene0"
+	default n
+	depends on DKMD_OLD_ARCH
+	help
+	  This feature supports scene0.
+
+config DKMD_DPU_DEBUG
+	bool "enable display debug feature"
+	default n
+	depends on DKMD_OLD_ARCH
+	help
+	  This feature supports display driver debug.

@@ -1,0 +1,84 @@
+#ifndef __TSENSOR_INTERFACE_H__
+#define __TSENSOR_INTERFACE_H__ 
+#ifdef __cplusplus
+ #if __cplusplus
+  extern "C" {
+ #endif
+#endif
+#define TSENS_TEMP_START_VALUE (-40)
+#define TSENS_TEMP_END_VALUE 125
+#define TSENS_ADC_START_VALUE 414
+#define TSENSOR_ADC_MAX 700
+#define TSC_MODE_DISABLE_DELAY 0xFF
+#define REMOTE_DEFAULT_VALUE 0x197
+#define TSENSOR_SAMPLE_NUM 0x40
+#define DEF_ROOM_TEMPERATURE 20
+#define TSENSOR_LOWTEMP_THRESHOLD (-50)
+#define TSENSOR_HIGHTEMP_THRESHOLD 95
+enum sensor_idx {
+ LITTLE_SENSOR = 0,
+ MIDDLE_SENSOR,
+ BIG_SENSOR,
+ GPU_SENSOR,
+ MODEM_SENSOR,
+ NPU_SENSOR,
+ PERI_SENSOR,
+ SEC_SENSOR,
+ TSENSOR_NUM_MAX,
+ UNKNOWN_SENSOR = TSENSOR_NUM_MAX,
+};
+enum sensor_table {
+ LOCAL_SENSOR_M0 = 0,
+ BIG_SENSOR_0,
+ BIG_SENSOR_1,
+ MIDDLE_SENSOR_0,
+ MIDDLE_SENSOR_1,
+ VENC0_SENSOR,
+ PDF0_SENSOR,
+ REMOTE_SENSOR_MAX_NUM,
+ LOCAL_SENSOR_M1 = REMOTE_SENSOR_MAX_NUM,
+ RES_SENSOR_0,
+ RES_SENSOR_1,
+ RES_SENSOR_2,
+ RES_SENSOR_3,
+ RES_SENSOR_4,
+ RES_SENSOR_5,
+ LOCAL_SENSOR_M2,
+ GPU_SENSOR_0,
+ GPU_SENSOR_1,
+ IVP_SENSOR,
+ GPU_SENSOR_3,
+ DSS_SENSOR,
+ FCM0_SENSOR,
+ LOCAL_SENSOR_M3,
+ ISP0_SENSOR,
+ SYSTEM_CACHE_SENSOR,
+ NPU0_SENSOR,
+ NPU1_SENSOR,
+ FCM1_SENSOR,
+ SENSOR_UNKNOWN_MAX,
+};
+enum m_idx {
+ M_0 = 0,
+ M_1,
+ M_2,
+ M_3,
+ M_MAX,
+ UNKNOWN_M = M_MAX,
+};
+#define temp2adc(temp) (((temp) - TSENS_TEMP_START_VALUE) * \
+   (TSENSOR_ADC_MAX - TSENS_ADC_START_VALUE) / \
+   (TSENS_TEMP_END_VALUE - TSENS_TEMP_START_VALUE) + \
+   TSENS_ADC_START_VALUE)
+#define adc2temp(adc) (((adc) - TSENS_ADC_START_VALUE) * \
+         (TSENS_TEMP_END_VALUE - TSENS_TEMP_START_VALUE) / \
+         (TSENSOR_ADC_MAX - TSENS_ADC_START_VALUE) + \
+         TSENS_TEMP_START_VALUE)
+signed char get_tsensor_temp(enum sensor_table id);
+extern unsigned short int get_tsensor_temp_adc(enum sensor_idx sid);
+#ifdef __cplusplus
+ #if __cplusplus
+  }
+ #endif
+#endif
+#endif

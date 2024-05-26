@@ -1,0 +1,11 @@
+menu "video venc support"
+config VCODEC_VENC
+      #depends on ANDROID_PMEM
+      tristate "Support for venc"
+      default n
+      help
+        The decode device provides venc function
+config VCODEC_SECURE_VENC
+      tristate "Vcodec support secure venc"
+      default n
+endmenu

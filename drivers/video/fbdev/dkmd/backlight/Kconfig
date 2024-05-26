@@ -1,0 +1,5 @@
+config DKMD_BACKLIGHT
+	bool "DKMD support backlight driver"
+	default n
+	help
+	  This feature driver supports DKMD config by backlight.

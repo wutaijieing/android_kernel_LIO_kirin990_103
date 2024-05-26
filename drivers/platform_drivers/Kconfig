@@ -1,0 +1,35 @@
+menu "Hisilicon platform"
+
+config ARCH_PLATFORM
+	bool "arch soc platform"
+	help
+	  This enables support for arch soc platform
+
+config AB_APCP_NEW_INTERFACE
+        bool "ap cp with new interface"
+        help
+          This enables support for ap cp with new interface
+
+menuconfig HISILICON_PLATFORM
+	bool "Hisilicon platform support"
+	default n
+	help
+	 Say yes here to support the hisilicon platform
+
+if HISILICON_PLATFORM
+
+if INC_MODEM_CONFIG || HISI_INC_MODEM_CONFIG
+if AB_APCP_NEW_INTERFACE
+-source "drivers/platform_drivers/modem/Kconfig"
+endif
+if !AB_APCP_NEW_INTERFACE
+-source "drivers/hisi/modem/Kconfig"
+endif
+endif
+
+source "drivers/platform_drivers/tzdriver/Kconfig"
+source "drivers/platform_drivers/drg/Kconfig"
+source "drivers/platform_drivers/audio/Kconfig"
+endif #HISILICON_PLATFORM
+
+endmenu

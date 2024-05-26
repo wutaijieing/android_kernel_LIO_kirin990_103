@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config PLAT_CLK
+	bool "clock driver of Soc"
+	default n
+
+config ARCH_CLK_EXTREME
+	bool "Clock extreme boot driver for ARM Reference designs"
+	help
+	 Clock extreme boot driver for ARM Reference designs.
+
+source "platform_source/basicplatform/drivers/clk/extreme/Kconfig"
+source "platform_source/basicplatform/drivers/clk/normal/Kconfig"

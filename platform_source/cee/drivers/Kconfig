@@ -1,0 +1,23 @@
+menu "driver Configuration"
+
+source "platform_source/cee/drivers/l3cache/Kconfig"
+source "platform_source/cee/drivers/hw_vote/Kconfig"
+source "platform_source/cee/drivers/qos/Kconfig"
+source "platform_source/cee/drivers/file_encry/Kconfig"
+source "platform_source/cee/drivers/pm/Kconfig"
+source "platform_source/cee/drivers/gpufreq/Kconfig"
+source "platform_source/cee/drivers/npu_pm/Kconfig"
+source "platform_source/cee/drivers/onsys_avs/Kconfig"
+source "platform_source/cee/drivers/adc/Kconfig"
+source "platform_source/cee/drivers/perfhub/Kconfig"
+source "platform_source/cee/drivers/dpm/Kconfig"
+source "platform_source/cee/drivers/ddrc/Kconfig"
+source "platform_source/cee/drivers/perf_ctrl/Kconfig"
+source "platform_source/cee/drivers/lpmcu_debug/Kconfig"
+source "platform_source/cee/drivers/hotplug_agent/Kconfig"
+source "platform_source/cee/drivers/soc_pg_feature_modem/Kconfig"
+source "platform_source/cee/drivers/freqdump/Kconfig"
+source "platform_source/cee/drivers/perf_stat/Kconfig"
+source "platform_source/cee/drivers/bus_monitor/Kconfig"
+
+endmenu

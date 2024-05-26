@@ -1,0 +1,55 @@
+/* Copyright (c) Huawei Technologies Co., Ltd. 2015-2021. All rights reserved.
+ * Description: dpufb_fb External Interfaces 
+ * Create: 2021
+ */
+
+#ifndef HISI_FB_H
+#define HISI_FB_H
+
+#include "dpu_fb.h"
+
+#define hisi_panel_info dpu_panel_info
+#define hisi_fb_panel_data dpu_fb_panel_data
+#define hisi_fb_data_type dpu_fb_data_type
+#define hisifd_list dpufd_list
+
+#define HISI_FB_INFO DPU_FB_INFO
+#define HISI_FB_ERR DPU_FB_ERR
+#define HISI_FB_DEBUG DPU_FB_DEBUG
+#define hisifb_activate_vsync dpufb_activate_vsync
+#define hisifb_deactivate_vsync dpufb_deactivate_vsync
+#define hisifb_vsync_disable_enter_idle dpufb_vsync_disable_enter_idle
+#define hisifb_set_backlight dpufb_set_backlight
+#define hisifb_display_effect_fine_tune_backlight dpufb_display_effect_fine_tune_backlight
+#define hisifb_update_gm_from_reserved_mem dpufb_update_gm_from_reserved_mem
+#define hisifb_update_dynamic_gamma dpufb_update_dynamic_gamma
+#define hisifb_set_vsync_activate_state dpufb_set_vsync_activate_state
+#define hisifb_display_effect_al_ctrl_show dpufb_display_effect_al_ctrl_show
+#define hisifb_display_effect_al_ctrl_store dpufb_display_effect_al_ctrl_store
+#define hisifb_display_effect_bl_ctrl_show dpufb_display_effect_bl_ctrl_show
+#define hisifb_display_effect_bl_ctrl_store dpufb_display_effect_bl_ctrl_store
+#define hisifb_display_effect_ce_ctrl_show dpufb_display_effect_ce_ctrl_show
+#define hisifb_display_effect_ce_ctrl_store dpufb_display_effect_ce_ctrl_store
+#define hisifb_display_effect_sre_ctrl_show dpufb_display_effect_sre_ctrl_show
+#define hisifb_display_effect_sre_ctrl_store dpufb_display_effect_sre_ctrl_store
+#define hisifb_display_effect_bl_enable_ctrl_show dpufb_display_effect_bl_enable_ctrl_show
+#define hisifb_display_effect_bl_enable_ctrl_store dpufb_display_effect_bl_enable_ctrl_store
+#define hisifb_display_effect_check_bl_value dpufb_display_effect_check_bl_value
+#define hisifb_display_effect_func_switch dpufb_display_effect_func_switch
+#define hisi_fb_blank_sub dpu_fb_blank_sub
+#define hisi_fb_frame_refresh dpu_fb_frame_refresh
+#define hisi_fb_add_device dpu_fb_add_device
+#define hisifb_set_vsync_activate_state dpufb_set_vsync_activate_state
+#define hisi_lcd_backlight_on dpu_lcd_backlight_on
+#define hisi_lcd_backlight_off dpu_lcd_backlight_off
+#define hisi_pwm_set_backlight dpu_pwm_set_backlight
+#define hisi_fb_device_probe_defer dpu_fb_device_probe_defer
+#define hisi_blpwm_set_bl dpu_blpwm_set_bl
+#define hisi_pwm_set_backlight dpu_pwm_set_backlight
+#define hisi_blpwm_fill_light dpu_blpwm_fill_light
+#define hisi_blpwm_set_backlight dpu_blpwm_set_backlight
+#define hisi_blpwm_bl_regisiter dpu_blpwm_bl_regisiter
+#define hisi_sh_blpwm_set_backlight dpu_sh_blpwm_set_backlight
+#define hisi_aod_get_panel_id dpu_aod_get_panel_id
+
+#endif 

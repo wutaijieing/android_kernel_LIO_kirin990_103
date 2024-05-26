@@ -1,0 +1,5 @@
+menu "audio Kernel Configuration"
+
+source "platform_source/audio/drivers/Kconfig"
+source "platform_source/audio/sound/Kconfig"
+endmenu

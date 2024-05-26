@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# huawei parallel connection of two batteries driver
+#
+
+config HUAWEI_BATTERY_1S2P
+	bool "huawei parallel connection of two batteries driver"
+	default n
+	help
+	  Say Y here to enable huawei parallel connection of two batteries driver.
+	  It monitor dual battery infomation and provid dual battery power supply.
+	  It merge dual battery infomation for battery power supply.

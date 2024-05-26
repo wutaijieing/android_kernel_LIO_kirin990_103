@@ -1,0 +1,20 @@
+config NVE_AP_KERNEL
+	tristate "Direct char device access to NVE devices"
+	help
+	  This provides a character device for NVE device present in
+	  the system, allowing the user to read and write directly to the
+	  memory chips, and also use ioctl() to obtain information about
+	  the device, or to erase parts of it.
+
+config NVE_AP_KERNEL_WHITELIST
+	bool "NVE whitelist"
+	depends on NVE_AP_KERNEL
+	help
+	  This provides protect for valuable NV entries.
+
+config NVE_BASE_PLATFORM
+	bool "NVE partition header name of base platform"
+	depends on NVE_AP_KERNEL
+	help
+	  This macro is for base platform, where the nve partition header
+	  name is different.

@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# ARPP device configuration
+#
+
+menu "ARPP"
+
+config ARPP
+	bool "ARPP Drivers"
+	default n
+	help
+		ARPP drivers
+
+config ARPP_V100
+	bool "ARPP Drivers for V100"
+	depends on ARPP
+	default n
+	help
+		ARPP drivers for V100
+endmenu

@@ -1,0 +1,2 @@
+config SND_SOC_ASP_CODEC_ANA_V7
+	tristate "HI Soc Smartstar Codec codec_ana_v7 support"

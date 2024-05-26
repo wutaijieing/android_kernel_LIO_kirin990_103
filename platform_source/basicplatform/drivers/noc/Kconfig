@@ -1,0 +1,33 @@
+config DFX_NOC
+	depends on DFX_BB
+	bool "Support NOC"
+	default n
+	help
+	  This driver supports XXX NOC,
+	  including noc driver
+
+config DFX_NOC_DBG
+	depends on DFX_NOC && DFX_DEBUG_FS
+	bool "Support NOC Dbg node"
+	default n
+	help
+	  Support NOC Dbg node
+config DFX_NOC_MODID_REGISTER
+	depends on DFX_NOC
+	bool "Support NOC modid register"
+	default n
+	help
+	  Support NOC modid register
+config DFX_QIC
+	depends on DFX_BB
+	bool "Support QIC"
+	default n
+	help
+	  This driver supports XXX QIC
+config DFX_QIC_MODID_REGISTER
+        depends on DFX_QIC
+        bool "Support QIC modid register"
+        default n
+        help
+          Support QIC modid register
+

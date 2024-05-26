@@ -1,0 +1,1 @@
+source "sound/soc/codecs/vendor/asp_codec_ana/asp_codec_ana_v7/Kconfig"

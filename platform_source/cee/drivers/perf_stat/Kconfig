@@ -1,0 +1,15 @@
+config DFX_PERF_STAT
+	bool "perf_stat driver 32bit driver"
+	default n
+	help
+	perf_stat driver support
+config DFX_PERF_STAT64
+	bool "perf_stat driver 64bit driver"
+	default n
+	help
+	perf_stat driver support
+config DFX_PERF_STAT_LAT_MON
+	bool "perf_stat latency monitor"
+	default n
+	help
+	perf_stat latency monitor support

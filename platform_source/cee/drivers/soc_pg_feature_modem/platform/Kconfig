@@ -1,0 +1,8 @@
+config SOC_PG_FEATURE_DEVDRV_DEVPLATFORM
+    depends on SOC_PG_FEATURE_DEVDRV
+    bool "SOC_PG_FEATURE_DEVDRV_DEVPLATFORM"
+    default y
+    help
+    ┆ This driver supports SOC_PG_FEATURE_DEVDRV_DEVPLATFORM,
+    ┆ including PG FEATURE driver
+

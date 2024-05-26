@@ -1,0 +1,22 @@
+menu "NPU Drivers"
+
+menuconfig NPU_DEVDRV
+	bool "NPU support"
+	default n
+	help
+	  Say yes here to support npu
+
+if NPU_DEVDRV
+
+source "platform_source/ai/drivers/npu/manager/Kconfig"
+source "platform_source/ai/drivers/npu/device/Kconfig"
+source "platform_source/ai/drivers/npu/platform/Kconfig"
+source "platform_source/ai/drivers/npu/dfx/dbg/Kconfig"
+source "platform_source/ai/drivers/npu/dfx/log/Kconfig"
+source "platform_source/ai/drivers/npu/dfx/profiling/Kconfig"
+source "platform_source/ai/drivers/npu/facility/Kconfig"
+source "platform_source/ai/drivers/npu/bbit_debugfs/Kconfig"
+
+endif #NPU_DEVDRV
+
+endmenu

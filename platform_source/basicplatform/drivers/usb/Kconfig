@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# USB device configuration
+#
+
+source "platform_source/basicplatform/drivers/usb/chip-usb/Kconfig"
+source "platform_source/basicplatform/drivers/usb/chip-usb-debug/Kconfig"
+source "platform_source/basicplatform/drivers/usb/core/Kconfig"
+source "platform_source/basicplatform/drivers/usb/dwc3/Kconfig"
+source "platform_source/basicplatform/drivers/usb/gadget/Kconfig"
+source "platform_source/basicplatform/drivers/usb/hisi-usb-vbus/Kconfig"
+source "platform_source/basicplatform/drivers/usb/hiusbc/Kconfig"
+source "platform_source/basicplatform/drivers/usb/host/Kconfig"
+source "platform_source/basicplatform/drivers/usb/misc/Kconfig"
+source "platform_source/basicplatform/drivers/usb/proxy-hcd/Kconfig"
+source "platform_source/basicplatform/drivers/usb/usb-typec/Kconfig"

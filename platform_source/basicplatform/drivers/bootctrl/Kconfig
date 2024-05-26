@@ -1,0 +1,5 @@
+config AB_PARTITION_TABLE
+	bool "AB partition support"
+	default n
+	help
+	  Say Y here if support ab partition.

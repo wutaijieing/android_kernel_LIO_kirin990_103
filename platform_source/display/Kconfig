@@ -1,0 +1,5 @@
+menu "display Kernel Configuration"
+
+source "platform_source/display/drivers/Kconfig"
+
+endmenu

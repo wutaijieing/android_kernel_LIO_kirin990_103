@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# USB Host Controller Drivers
+#
+
+config CHIP_USB_XHCI_HUB_PORT_DIS
+	bool
+	help
+	  Work around the bug which hub port maybe is abnomal, disable it after reset

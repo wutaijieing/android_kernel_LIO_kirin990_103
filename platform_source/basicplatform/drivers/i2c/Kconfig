@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config I2C_V300_DESIGNWARE
+	tristate "Synopsys DesignWare I2C_V300"
+	depends on HAVE_CLK
+	select I2C_DESIGNWARE_CORE
+	help
+	  If you say yes to this option, support will be included for the
+	  Synopsys DesignWare I2C adapter on some plat.
+	  Only master mode is supported.
+
+
+config I2C_V400_MASTER
+	tristate "I2C_V400 MASTR"
+	depends on HAVE_CLK
+	help
+	  If you say yes to this option, support will be included for the
+	  I2C adapter on some plat.

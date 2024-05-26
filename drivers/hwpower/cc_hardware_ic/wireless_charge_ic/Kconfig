@@ -1,0 +1,148 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# wireless charge ic driver
+#
+
+config WIRELESS_NU1619
+	bool "wireless nu1619"
+	depends on WIRELESS_CHARGER
+	default n
+	help
+	  Say Y here to enable nu1619 driver.
+	  The nu1619 is an soc for magnetic induction
+	  based wireless power receiver. it is fully compliant
+	  with latest WPC Qi specification of BPP and EPP
+	  and also supports various proprietary fast charging
+	  protocols used by major smart phone OEM.
+
+config WIRELESS_STWLC68
+	bool "wireless stwlc68"
+	depends on WIRELESS_CHARGER
+	default n
+	help
+	  Say Y here to enable stwlc68 driver.
+	  The stwlc68 is an soc for magnetic induction
+	  based wireless power receiver. it is fully compliant
+	  with latest WPC Qi specification of BPP and EPP
+	  and also supports various proprietary fast charging
+	  protocols used by major smart phone OEM.
+
+config WIRELESS_CPS7181
+	bool "wireless cps7181"
+	depends on WIRELESS_CHARGER
+	default n
+	help
+	  Say Y here to enable cps7181 driver.
+	  The cps7181 is an soc for magnetic induction
+	  based wireless power receiver. it is fully compliant
+	  with latest WPC Qi specification of BPP and EPP
+	  and also supports various proprietary fast charging
+	  protocols used by major smart phone OEM.
+
+config WIRELESS_CPS4029
+	bool "wireless cps4029"
+	depends on WIRELESS_CHARGER
+	default n
+	help
+	  Say Y here to enable cps4029 driver.
+	  The cps4029 is an soc for magnetic induction
+	  based wireless power receiver. it is fully compliant
+	  with latest WPC Qi specification of BPP and EPP
+	  and also supports various proprietary fast charging
+	  protocols used by major smart phone OEM.
+
+config WIRELESS_CPS4057
+	bool "wireless cps4057"
+	depends on WIRELESS_CHARGER
+	default n
+	help
+	  Say Y here to enable cps4057 driver.
+	  The cps4057 is an soc for magnetic induction
+	  based wireless power receiver. it is fully compliant
+	  with latest WPC Qi specification of BPP and EPP
+	  and also supports various proprietary fast charging
+	  protocols used by major smart phone OEM.
+
+config WIRELESS_STWLC88
+	bool "wireless stwlc88"
+	depends on WIRELESS_CHARGER
+	default n
+	help
+	  Say Y here to enable stwlc88 driver.
+	  The stwlc68 is an soc for magnetic induction
+	  based wireless power receiver. it is fully compliant
+	  with latest WPC Qi specification of BPP and EPP
+	  and also supports various proprietary fast charging
+	  protocols used by major smart phone OEM.
+
+config WIRELESS_MT5735
+	bool "wireless mt5735"
+	depends on WIRELESS_CHARGER
+	default n
+	help
+	  Say Y here to enable mt5735 driver.
+	  The mt5735 is an soc for magnetic induction
+	  based wireless power receiver. it is fully compliant
+	  with latest WPC Qi specification of BPP and EPP
+	  and also supports various proprietary fast charging
+	  protocols used by major smart phone OEM.
+
+config WIRELESS_MT5727
+	bool "wireless mt5727"
+	depends on WIRELESS_CHARGER
+	default n
+	help
+	  Say Y here to enable mt5727 driver.
+	  The mt5727 is an soc for magnetic induction
+	  based wireless power receiver. it is fully compliant
+	  with latest WPC Qi specification of BPP and EPP
+	  and also supports various proprietary fast charging
+	  protocols used by major smart phone OEM.
+
+config WIRELESS_STWLC33
+	bool "wireless stwlc33"
+	depends on WIRELESS_CHARGER
+	default n
+	help
+	  Say Y here to enable stwlc33 driver.
+	  The stwlc33 is an soc for magnetic induction
+	  based wireless power receiver. it is fully compliant
+	  with latest WPC Qi specification of BPP and EPP
+	  and also supports various proprietary fast charging
+	  protocols used by major smart phone OEM.
+
+config WIRELESS_CPS4067
+	bool "wireless cps4067"
+	depends on WIRELESS_CHARGER
+	default n
+	help
+	  Say Y here to enable cps4067 driver.
+	  The cps4067 is an soc for magnetic induction
+	  based wireless power receiver. it is fully compliant
+	  with latest WPC Qi specification of BPP and EPP
+	  and also supports various proprietary fast charging
+	  protocols used by major smart phone OEM.
+
+config WIRELESS_MT5785
+	bool "wireless mt5785"
+	depends on WIRELESS_CHARGER
+	default n
+	help
+	  Say Y here to enable mt5785 driver.
+	  The mt5785 is an soc for magnetic induction
+	  based wireless power receiver. it is fully compliant
+	  with latest WPC Qi specification of BPP and EPP
+	  and also supports various proprietary fast charging
+	  protocols used by major smart phone OEM.
+
+config WIRELESS_IDTP9415
+	bool "wireless idt9415"
+	depends on WIRELESS_CHARGER
+	default n
+	help
+	  Say Y here to enable idtp9415 driver.
+	  The idtp9415 is an soc for magnetic induction
+	  based wireless power receiver. it is fully compliant
+	  with latest WPC Qi specification of BPP and EPP
+	  and also supports various proprietary fast charging
+	  protocols used by major smart phone OEM.

@@ -1,0 +1,5 @@
+comment "Native Sensor"
+
+source "platform_source/camera/drivers/media/native/camera/sensor/vcm/Kconfig"
+source "platform_source/camera/drivers/media/native/camera/sensor/flash/Kconfig"
+source "platform_source/camera/drivers/media/native/camera/sensor/ois/Kconfig"

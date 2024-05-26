@@ -1,0 +1,9 @@
+menu "soundwire driver"
+
+config PLATFORM_SOUNDWIRE
+     bool "soundwire device support"
+     default n
+     help
+          soundwire driver.
+
+endmenu

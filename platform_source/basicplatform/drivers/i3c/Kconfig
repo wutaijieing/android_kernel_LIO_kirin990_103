@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: GPL-2.0-only
+config I3C_V100_DESIGNWARE
+	tristate "Synopsys DesignWare of i3c"
+	depends on HAVE_CLK
+	select DW_I3C_MASTER
+	help
+	  If you say yes to this option, support will be included for the
+	  Synopsys DesignWare I3C master on platform.
+	  Only master mode is supported.

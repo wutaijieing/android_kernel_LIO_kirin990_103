@@ -1,0 +1,35 @@
+comment "Native Multimedia"
+
+menuconfig KERNEL_CAMERA
+    bool "Native camera and video capture support"
+    default y
+    select ION
+    select MEDIA_CONTROLLER
+    select VIDEOBUF2_CORE
+    select VIDEO_V4L2
+    select VIDEOBUF2_MEMOPS
+    select VIDEOBUF2_VMALLOC
+    help
+        Say Y here to enable selecting the video adapters for
+        Native camera
+
+menuconfig ION_FOR_EMULATOR
+     bool "Native camera and video support for emulator"
+     default n
+     select ION
+     help
+        Say Y here to enable selecting the video adapters for
+        Native camera emulator
+
+config USE_CAMERA3_ARCH
+    tristate "Support Camera3 driver"
+    depends on KERNEL_CAMERA
+    default n
+    help
+        Native camera3 driver.
+
+if KERNEL_CAMERA
+source "platform_source/camera/drivers/media/native/camera/Kconfig"
+source "platform_source/camera/drivers/media/native/igscam/Kconfig"
+endif
+

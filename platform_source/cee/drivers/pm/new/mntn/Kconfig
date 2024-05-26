@@ -1,0 +1,67 @@
+menu "S/R maintenance options"
+
+config SR_MNTN_AP_WAKE
+	bool "SR maintenance: display ap wakeup source"
+	default n
+	help
+	   display ap wakeup source
+
+config SR_MNTN_SYS_WAKE
+	bool "SR maintenance: display soc(lpmcu) wakeup source"
+	default n
+	help
+	   display soc(lpmcu) wakeup source
+
+config SR_MNTN_TICKMARK
+	bool "SR maintenance: mark ticktime for some key points in SR fllow"
+	default n
+	help
+	   mark ticktime for some key points in SR fllow
+
+config SR_MNTN_PRECHECK
+	bool "SR maintenance: check ip(such as clock, regulator) status before enter suspend"
+	depends on SR_DEBUG
+	default n
+	help
+	   check ip(such as clock, regulator) status before enter suspend
+
+config SR_MNTN_UART
+	bool "SR maintenance: early init uart"
+	default n
+	help
+	   early init uart after system resume
+
+config SR_MNTN_CLOCK
+	bool "SR maintenance: display clock status before ap stepin suspend"
+	depends on SR_DEBUG
+	default n
+	help
+	   display clock status before ap stepin suspend
+
+config SR_MNTN_PMU
+	bool "SR maintenance: display pmu status before ap stepin suspend"
+	depends on SR_DEBUG
+	default n
+	help
+	   display pmu status before ap stepin suspend
+
+config SR_MNTN_IO
+	bool "SR maintenance: display io status before ap stepin suspend"
+	depends on SR_DEBUG
+	default n
+	help
+	   display io status before ap stepin suspend
+
+config SR_MNTN_WDT
+	bool "SR maintenance: dump the sr task stack if the watchdog is dead in sr flow"
+	default n
+	help
+	   dump the sr task stack when watchdog is dead in sr flow
+
+config SR_FLOW_TIMEOUT
+	int "SR flow timeout in seconds"
+	range 1 300
+	default 60
+	depends on SR_MNTN_WDT
+
+endmenu

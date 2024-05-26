@@ -1,0 +1,5 @@
+config AUDIO_TRACE
+	bool "huawei audio trace driver"
+	default n
+	help
+	  Enable this option to trace audio.

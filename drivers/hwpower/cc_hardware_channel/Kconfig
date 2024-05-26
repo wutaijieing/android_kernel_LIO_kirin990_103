@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# huawei hardware channel drivers
+#
+
+source "drivers/hwpower/cc_hardware_channel/wired_channel_switch/Kconfig"
+source "drivers/hwpower/cc_hardware_channel/vbus_channel/Kconfig"
+source "drivers/hwpower/cc_hardware_channel/charger_channel/Kconfig"
