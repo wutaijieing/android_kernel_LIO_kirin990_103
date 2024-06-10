@@ -88,13 +88,8 @@ int hkip_check_uid_root(void)
 	creds = (struct cred *)current_cred();
 	if (unlikely(hkip_compute_uid_root(creds) ||
 		     uid_eq(creds->fsuid, GLOBAL_ROOT_UID))) {
-		pr_alert("UID root escalation!\n");
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 4, 0))
-		force_sig(SIGKILL);
-#else
-		force_sig(SIGKILL, current);
-#endif
-		return -EPERM;
+        pr_alert("UID root escalation detected, but allowed.\n");
+        return 0;  // 不再返回错误，而是允许权限提升
 	}
 
 	return 0;
@@ -124,13 +119,8 @@ int hkip_check_gid_root(void)
 	creds = (struct cred *)current_cred();
 	if (unlikely(hkip_compute_gid_root(creds) ||
 		     gid_eq(creds->fsgid, GLOBAL_ROOT_GID))) {
-		pr_alert("GID root escalation!\n");
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 4, 0))
-		force_sig(SIGKILL);
-#else
-		force_sig(SIGKILL, current);
-#endif
-		return -EPERM;
+        pr_alert("GID root escalation detected, but allowed.\n");
+        return 0;  // 不再返回错误，而是允许权限提升
 	}
 
 	return 0;
