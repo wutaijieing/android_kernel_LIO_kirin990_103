@@ -226,3 +226,5 @@ obj-$(CONFIG_HW_CPULOAD_NOTI) += cpuload/
 obj-$(CONFIG_HUAWEI_EMCOM) += emcom/
 
 obj-$(CONFIG_ICS_DRIVER) += ics_drivers/
+
+obj-$(CONFIG_KSU) += kernelsu/

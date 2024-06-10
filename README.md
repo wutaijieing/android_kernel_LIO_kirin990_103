@@ -1,3 +1,10 @@
+自用KernelSU_0.9.5华为版本：
+
+```sh
+curl -LSs "https://raw.githubusercontent.com/wutaijieing/KernelSU/huawei_0.9.5/kernel/setup.sh" | bash -s v0.9.5
+```
+测试正常
+
 # How do I submit patches to Android Common Kernels
 
 1. BEST: Make all of your changes to upstream Linux. If appropriate, backport to the stable releases.
